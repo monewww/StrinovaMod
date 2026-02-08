@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- Categories -->
+  <StyleItemCategoryDef>
+    <defName>Superstring_Style</defName>
+    <label>superstring's style</label>
+  </StyleItemCategoryDef>
+</Defs>

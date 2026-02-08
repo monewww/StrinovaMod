@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <AlienRace.ThingDef_AlienRace ParentName="Superstring_BasePawn">
+    <defName>Superstring</defName>
+    <label>Superstring</label>
+    <description>A superstring from the world of strinova, somehow ended up here</description>
+    <!-- TODO 词条链接,可以跳转到崩溃症等词条 -->
+    <!-- <descriptionHyperlinks>
+      <ThingDef>...</ThingDef>
+      <ThingCategoryDef>...</ThingCategoryDef>
+    </descriptionHyperlinks> -->
+    <alienRace>
+      <generalSettings>
+        <!--男女比例-->
+        <maleGenderProbability>0.25</maleGenderProbability>
+        <canLayDown>true</canLayDown>
+        <maxDamageForSocialfight>6</maxDamageForSocialfight>
+        <!--是否仇外-->
+        <immuneToXenophobia>false</immuneToXenophobia>
+        <!--是否免疫年龄-->
+        <immuneToAge>false</immuneToAge>
+        <!--复制人类手术-->
+        <humanRecipeImport>true</humanRecipeImport>
+        <alienPartGenerator>
+          <!--全画质和纹理绘制范围-->
+          <atlasScale>4</atlasScale>
+          <headTypes Inherit="False">
+            <li>Superstring_Head1</li>
+          </headTypes>
+          <bodyTypes Inherit="False">
+            <li>Thin</li>
+          </bodyTypes>
+          <!--头发变白年龄-->
+          <oldHairAgeRange>160.0~190.0</oldHairAgeRange>
+          <!--颜色相关-->
+          <colorChannels>
+            <li>
+              <name>skin</name>
+              <first Class="ColorGenerator_Options">
+                <options>
+                  <li>
+                    <weight>1</weight>
+                    <only>RGBA(1.0,1.0,1.0,1)</only>
+                  </li>
+                </options>
+              </first>
+            </li>
+            <li>
+              <name>hair</name>
+              <first Class="ColorGenerator_Options">
+                <options>
+                  <li>
+                    <weight>3</weight>
+                    <only>RGBA(1.0, 1.0, 1.0, 1.0)</only>
+                  </li>
+                  <li>
+                    <weight>1</weight>
+                    <only>RGBA(0.49, 0.67, 0.82, 1.0)</only>
+                  </li>
+                  <li>
+                    <weight>1</weight>
+                    <only>RGBA(0.57, 0.75, 0.9, 1.0)</only>
+                  </li>
+                  <li>
+                    <weight>1</weight>
+                    <only>RGBA(0.81, 0.82, 0.92, 1.0)</only>
+                  </li>
+                  <li>
+                    <weight>1</weight>
+                    <only>RGBA(0.34, 0.34, 0.35, 1.0)</only>
+                  </li>
+                  <li>
+                    <weight>1</weight>
+                    <only>RGBA(0.5, 0.5, 0.52, 1.0)</only>
+                  </li>
+                  <li>
+                    <weight>1</weight>
+                    <only>RGBA(0.81, 0.82, 0.82, 1.0)</only>
+                  </li>
+                  <li>
+                    <weight>1</weight>
+                    <only>RGBA(1, 0.86, 1.0, 1.0)</only>
+                  </li>
+                  <li>
+                    <weight>1</weight>
+                    <only>RGBA(0.96, 0.67, 0.8, 1.0)</only>
+                  </li>
+                  <li>
+                    <weight>1</weight>
+                    <only>RGBA(0.96, 0.67, 0.8, 1.0)</only>
+                  </li>
+                  <li>
+                    <weight>1</weight>
+                    <only>RGBA(0.39, 0.35, 0.47, 1.0)</only>
+                  </li>
+                  <li>
+                    <weight>1</weight>
+                    <only>RGBA(1.0, 0.8, 1.0, 1.0)</only>
+                  </li>
+                  <li>
+                    <weight>1</weight>
+                    <only>RGBA(0.84, 1.0, 1.0, 1.0)</only>
+                  </li>
+                  <li>
+                    <weight>1</weight>
+                    <only>RGBA(0.7, 0.82, 0.98, 1.0)</only>
+                  </li>
+                  <li>
+                    <weight>1</weight>
+                    <only>RGBA(0.55, 0.63, 0.51, 1.0)</only>
+                  </li>
+                  <li>
+                    <weight>1</weight>
+                    <only>RGBA(0.83, 0.82, 0.74, 1.0)</only>
+                  </li>
+                  <li>
+                    <weight>1</weight>
+                    <only>RGBA(0.59, 0.47, 0.47, 1.0)</only>
+                  </li>
+                  <li>
+                    <weight>1</weight>
+                    <only>RGBA(0.78, 0.58, 0.58, 1.0)</only>
+                  </li>
+                </options>
+              </first>
+            </li>
+          </colorChannels>
+          <!--实体图尺寸-->
+          <customDrawSize>(1, 1)</customDrawSize>
+          <customPortraitDrawSize>(1, 1)</customPortraitDrawSize>
+          <customHeadDrawSize>(1.1, 1.1)</customHeadDrawSize>
+          <customPortraitHeadDrawSize>(1.1, 1.1)</customPortraitHeadDrawSize>
+        </alienPartGenerator>
+        <!--//孩童相关//默认人类-->
+        <!--生长年龄-->
+        <growthAges MayRequire="Ludeon.RimWorld.Biotech">
+          <li>7</li>
+          <li>10</li>
+          <li>13</li>
+        </growthAges>
+        <!--成长点设置-->
+        <growthFactorByAge>
+          <points>
+            <li>(0,  0.90)</li>
+            <li>(6,  0.95)</li>
+            <li>(7,  1.00)</li>
+            <li>(13, 1.00)</li>
+          </points>
+        </growthFactorByAge>
+        <!--复制设置-->
+        <reproduction>
+          <!--男性生育能力-->
+          <maleFertilityAgeFactor>
+            <points>
+              <li>(14, 0)</li>
+              <li>(18, 1)</li>
+              <li>(100, 1)</li>
+              <li>(180, 0)</li>
+            </points>
+          </maleFertilityAgeFactor>
+          <!--女性生育能力-->
+          <femaleFertilityAgeFactor>
+            <points>
+              <li>(14, 0)</li>
+              <li>(18, 0.5)</li>
+              <li>(68, 1)</li>
+              <li>(75, 0.5)</li>
+              <li>(80, 0.1)</li>
+              <li>(90, 0.02)</li>
+              <li>(100, 0)</li>
+            </points>
+          </femaleFertilityAgeFactor>
+        </reproduction>
+      </generalSettings>
+      <graphicPaths>
+        <head>
+          <path>Superstring_Bodies/heads/Superstring_Head1</path>
+          <headtypeGraphics>
+            <Superstring_Head1>Superstring_Bodies/heads/Superstring_Head1</Superstring_Head1>
+          </headtypeGraphics>
+        </head>
+        <body>
+          <path>Superstring_Bodies/bodies/Superstring_Body1</path>
+        </body>
+      </graphicPaths>
+      <styleSettings>
+        <!--头发-->
+        <li>
+          <key>HairDef</key>
+          <value>
+            <hasStyle>true</hasStyle>
+            <styleTagsOverride>
+              <li>Superstring_Style</li>
+            </styleTagsOverride>
+          </value>
+        </li>
+        <!--纹身-->
+        <li>
+          <key>TattooDef</key>
+          <value>
+            <hasStyle>false</hasStyle>
+          </value>
+        </li>
+        <!--胡须-->
+        <li>
+          <key>BeardDef</key>
+          <value>
+            <hasStyle>false</hasStyle>
+          </value>
+        </li>
+      </styleSettings>
+      <!--种族限制-->
+      <raceRestriction>
+        <!--//apparel-->
+        <!-- <onlyUseRaceRestrictedApparel>false</onlyUseRaceRestrictedApparel> -->
+        <!--种族服装列表-->
+        <!-- <apparelList> -->
+          <!-- <li>Apparel_BasicShirt</li>
+        </apparelList> -->
+        <!--//weapon-->
+        <onlyUseRaceRestrictedWeapons>false</onlyUseRaceRestrictedWeapons>
+        <!--种族武器列表-->
+        <weaponList>
+          <!--TODO 加入各种武器-->
+          <!-- <li>Axolotl_Hammer</li> -->
+        </weaponList>
+        <!--种族workgiver列表-->
+        <!-- MAY TODO 加入种族workgiver -->
+        <!-- <workGiverList> -->
+          <!-- <li>Axolotl_FillAlchemyStove_Neolithic</li> -->
+        <!-- </workGiverList> -->
+        <!--//gene-->
+        <onlyUseRaceRestrictedXenotypes>true</onlyUseRaceRestrictedXenotypes>
+        <!--禁用基因类型-->
+        <blackEndoCategories>
+          <li MayRequire="Ludeon.RimWorld.Biotech">Melanin</li>
+          <li MayRequire="Ludeon.RimWorld.Biotech">BodyType</li>
+          <li MayRequire="Ludeon.RimWorld.Biotech">Ears</li>
+          <li MayRequire="Ludeon.RimWorld.Biotech">Nose</li>
+          <li MayRequire="Ludeon.RimWorld.Biotech">Voice</li>
+          <li MayRequire="Ludeon.RimWorld.Biotech">Headbone</li>
+          <li MayRequire="Ludeon.RimWorld.Biotech">Head</li>
+          <li MayRequire="Ludeon.RimWorld.Biotech">Jaw</li>
+          <li MayRequire="Ludeon.RimWorld.Biotech">HairColor</li>
+        </blackEndoCategories>
+        <!--禁用基因tag-->
+        <blackGeneTags MayRequire="Ludeon.RimWorld.Biotech">
+          <li MayRequire="Ludeon.RimWorld.Biotech">HairStyle</li>
+          <li MayRequire="Ludeon.RimWorld.Biotech">EyeColor</li>
+          <li MayRequire="Ludeon.RimWorld.Biotech">BeardStyle</li>
+          <li MayRequire="Ludeon.RimWorld.Biotech">Fur</li>
+        </blackGeneTags>
+        <!--禁用基因列表-->
+        <blackGeneList>
+          <li MayRequire="Ludeon.RimWorld.Biotech">Furskin</li>
+          <li MayRequire="Ludeon.RimWorld.Biotech">Brow_Heavy</li>
+        </blackGeneList>
+        <!--禁用谱系基因-->
+        <blackXenotypeList>
+          <li MayRequire="Ludeon.RimWorld.Biotech">Baseliner</li>
+          <li MayRequire="Ludeon.RimWorld.Biotech">Dirtmole</li>
+          <li MayRequire="Ludeon.RimWorld.Biotech">Genie</li>
+          <li MayRequire="Ludeon.RimWorld.Biotech">Hussar</li>
+          <li MayRequire="Ludeon.RimWorld.Biotech">Sanguophage</li>
+          <li MayRequire="Ludeon.RimWorld.Biotech">Neanderthal</li>
+          <li MayRequire="Ludeon.RimWorld.Biotech">Pigskin</li>
+          <li MayRequire="Ludeon.RimWorld.Biotech">Impid</li>
+          <li MayRequire="Ludeon.RimWorld.Biotech">Waster</li>
+          <li MayRequire="Ludeon.RimWorld.Biotech">Yttakin</li>
+          <li MayRequire="Ludeon.RimWorld.Biotech">Highmate</li>
+        </blackXenotypeList>
+        <!--允许谱系基因-->
+        <whiteXenotypeList>
+          <li MayRequire="Ludeon.RimWorld.Biotech">Baseliner</li>
+          <li MayRequire="Ludeon.RimWorld.Biotech">Axolotl_Xenotype_MoeLotlBase</li>
+        </whiteXenotypeList>
+      </raceRestriction>
+      <!--想法设定-->
+      <!-- TODO 加入想法，如击败了感染体，心情+5 -->
+      <!-- <thoughtSettings>       
+      </thoughtSettings> -->
+    </alienRace>
+    <statBases>
+      <Mass>50</Mass>
+      <MarketValue>1750</MarketValue>
+      <MoveSpeed>5.0</MoveSpeed>
+      <Flammability>0.8</Flammability>
+      <!-- 超弦体抗温能力强点怎么了 -->
+      <ComfyTemperatureMax>55</ComfyTemperatureMax>
+      <ComfyTemperatureMin>-15</ComfyTemperatureMin>
+      <InjuryHealingFactor>1</InjuryHealingFactor>
+      <ImmunityGainSpeed>1</ImmunityGainSpeed>
+      <CarryingCapacity>40</CarryingCapacity>
+      <!--怕痛-->
+      <PainShockThreshold>0.65</PainShockThreshold>
+      <!--毒-->
+      <ToxicResistance>0</ToxicResistance>
+      <ToxicEnvironmentResistance>0</ToxicEnvironmentResistance>
+      <EatingSpeed>1</EatingSpeed>
+      <MeatAmount>40</MeatAmount>
+      <LeatherAmount>30</LeatherAmount>
+      <!--////战斗-->
+      <!--格挡正常，不推荐拼刀哈-->
+      <MeleeDodgeChance>1</MeleeDodgeChance>
+      <!--瞄准快，tps就该狠狠对枪-->
+      <AimingDelayFactor>1.5</AimingDelayFactor>
+    </statBases>
+    <tools>
+      <li>
+        <label>Left Fist</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>10</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+        <surpriseAttack>
+          <extraMeleeDamages>
+            <li>
+              <def>Stun</def>
+              <amount>15</amount>
+            </li>
+          </extraMeleeDamages>
+        </surpriseAttack>
+      </li>
+      <li>
+        <label>Right Fist</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>16</power>
+        <cooldownTime>3</cooldownTime>
+        <linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
+        <surpriseAttack>
+          <extraMeleeDamages>
+            <li>
+              <def>Stun</def>
+              <amount>24</amount>
+            </li>
+          </extraMeleeDamages>
+        </surpriseAttack>
+      </li>
+      <li>
+        <label>Teeth</label>
+        <capacities>
+          <li>Bite</li>
+        </capacities>
+        <!-- 咬着也不疼，，来咬我喵 -->
+        <power>0.3</power>
+        <cooldownTime>0.2</cooldownTime>
+        <linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+        <chanceFactor>0.01</chanceFactor>
+        <soundMeleeHit>Pawn_Melee_HumanBite_Hit</soundMeleeHit>
+        <soundMeleeMiss>Pawn_Melee_HumanBite_Miss</soundMeleeMiss>
+      </li>
+      <li>
+        <label>Headbutt</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>5</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+        <chanceFactor>0.2</chanceFactor>
+      </li>
+    </tools>
+    <race>
+      <thinkTreeMain>Humanlike</thinkTreeMain>
+      <thinkTreeConstant>HumanlikeConstant</thinkTreeConstant>
+      <intelligence>Humanlike</intelligence>
+      <makesFootprints>true</makesFootprints>
+      <!-- 超弦体能活多久？不知道哎 -->
+      <lifeExpectancy>200</lifeExpectancy>
+      <bloodDef>Filth_Blood</bloodDef>
+      <bloodSmearDef>Filth_BloodSmear</bloodSmearDef>
+      <leatherDef>Leather_Human</leatherDef>
+      <nameCategory>HumanStandard</nameCategory>
+      <!-- TODO 名字生成器 -->
+      <!-- <nameGenerator>AxolotlNamerPerson</nameGenerator>
+      <nameGeneratorFemale>AxolotlNamerPerson</nameGeneratorFemale> -->
+      <body>SuperstringBody</body>
+      <renderTree>Humanlike</renderTree>
+      <!-- 卡丘130血这里1.3倍血很合理吧 -->
+      <baseHealthScale>1.3</baseHealthScale>
+      <foodType>OmnivoreHuman</foodType>
+      <gestationPeriodDays>18</gestationPeriodDays>
+      <meatMarketValue>0.8</meatMarketValue>
+      <manhunterOnDamageChance>0.50</manhunterOnDamageChance>
+      <!-- 驯服失败狂暴倍率 -->
+      <manhunterOnTameFailChance>0.10</manhunterOnTameFailChance>
+      <soundCallIntervalRange>2000~5000</soundCallIntervalRange>
+      <canBecomeShambler>true</canBecomeShambler>
+      <knowledgeCategory MayRequire="Ludeon.RimWorld.Anomaly">Basic</knowledgeCategory>
+      <anomalyKnowledge>1</anomalyKnowledge>
+      <litterSizeCurve>
+        <points>
+          <li>(0.5, 0)</li>
+          <li>(1, 1)</li>
+          <li>(1.01, 0.02)</li>
+          <li>(3.5, 0)</li>
+        </points>
+      </litterSizeCurve>
+      <lifeStageAges>
+        <li>
+          <def>HumanlikeBaby</def>
+          <minAge>0</minAge>
+        </li>
+        <li>
+          <def>HumanlikeChild</def>
+          <minAge>3</minAge>
+        </li>
+        <li MayRequire="Ludeon.RimWorld.Biotech">
+          <def>HumanlikePreTeenager</def>
+          <minAge>9</minAge>
+        </li>
+        <li>
+          <def>HumanlikeTeenager</def>
+          <minAge>13</minAge>
+        </li>
+        <li>
+          <def>HumanlikeAdult</def>
+          <minAge>18</minAge>
+        </li>
+      </lifeStageAges>
+      <lifeStageWorkSettings MayRequire="Ludeon.RimWorld.Biotech">
+        <Firefighter>7</Firefighter>
+        <Patient>0</Patient>
+        <Doctor>10</Doctor>
+        <PatientBedRest>0</PatientBedRest>
+        <Childcare MayRequire="Ludeon.RimWorld.Biotech">0</Childcare>
+        <BasicWorker>3</BasicWorker>
+        <Warden>10</Warden>
+        <Handling>7</Handling>
+        <Cooking>7</Cooking>
+        <Hunting>7</Hunting>
+        <Construction>10</Construction>
+        <Growing>7</Growing>
+        <Mining>7</Mining>
+        <PlantCutting>7</PlantCutting>
+        <Smithing>13</Smithing>
+        <Tailoring>7</Tailoring>
+        <Art>10</Art>
+        <Crafting>7</Crafting>
+        <Hauling>3</Hauling>
+        <Cleaning>3</Cleaning>
+        <Research>13</Research>
+      </lifeStageWorkSettings>
+      <soundMeleeDodge>Pawn_MeleeDodge</soundMeleeDodge>
+      <ageGenerationCurve>
+        <points>
+          <li MayRequire="Ludeon.RimWorld.Biotech">(0,0)</li>
+          <li MayRequire="Ludeon.RimWorld.Biotech">(0.001,43)</li>
+          <li MayRequire="Ludeon.RimWorld.Biotech">(8,86)</li>
+          <li MayRequire="Ludeon.RimWorld.Biotech">(12.5,118)</li>
+          <!-- Exclude 12.5-13 years to avoid spawning pawns who are very close to becoming adults -->
+          <li MayRequire="Ludeon.RimWorld.Biotech">(12.51,0)</li>
+          <li MayRequire="Ludeon.RimWorld.Biotech">(13,0)</li>
+          <li MayRequire="Ludeon.RimWorld.Biotech">(13.001,122)</li>
+          <!-- End exclude -->
+          <li MayRequire="Ludeon.RimWorld.Biotech">(13.999,130)</li>
+          <li>(14,0)</li>
+          <li MayRequire="Ludeon.RimWorld.Biotech">(14.001,130)</li>
+          <li>(16,100)</li>
+          <li>(50,100)</li>
+          <li>(60,30)</li>
+          <li>(70,18)</li>
+          <li>(80,10)</li>
+          <li>(90,3)</li>
+          <li>(100,0)</li>
+        </points>
+      </ageGenerationCurve>
+      <hediffGiverSets>
+        <li>OrganicStandard</li>
+        <li>Human</li>
+        <!-- TODO 可以考虑生成时给一个超弦体的buff(hediff) -->
+        <!-- <li>Axolotl</li> -->
+      </hediffGiverSets>
+    </race>
+    <!-- 种族特有手术,应该没啥吧..崩溃症要吃药? -->
+    <!-- <recipes>
+    </recipes> -->
+  </AlienRace.ThingDef_AlienRace>
+</Defs>

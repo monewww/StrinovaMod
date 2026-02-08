@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <HairDef Abstract="True" Name="Superstring_base_hair">
+    <hairGender>Any</hairGender>
+    <category>Superstring_Style</category>
+    <styleTags>
+      <li>Superstring_Style</li>
+    </styleTags>
+  </HairDef>
+  <HairDef ParentName="Superstring_base_hair">
+    <defName>Celestia_hair1</defName>
+    <label>Celestia basic hair</label>
+    <texPath>Superstring_Bodies/hairs/Celestia_hair1</texPath>
+  </HairDef>
+</Defs>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ThingDef ParentName="BasePawn" Name="Superstring_BasePawn" Abstract="True">
+    <!-- <inspectorTabs>
+      TODO 可以写加点界面
+      <li>Superstring.ITab_MoeLotl_Cultivation</li>
+    </inspectorTabs> -->
+    <comps>
+      <!--人类的anomaly的comp-->
+      <li MayRequire="Ludeon.RimWorld.Anomaly" Class="CompProperties_Studiable">
+        <frequencyTicks>120000</frequencyTicks>
+        <minMonolithLevelForStudy>1</minMonolithLevelForStudy>
+        <requiresImprisonment>true</requiresImprisonment>
+      </li>
+      <li MayRequire="Ludeon.RimWorld.Anomaly" Class="CompProperties_HoldingPlatformTarget">
+        <baseEscapeIntervalMtbDays>120</baseEscapeIntervalMtbDays>
+        <getsColdContainmentBonus>true</getsColdContainmentBonus>
+      </li>
+    </comps>
+  </ThingDef>
+</Defs>

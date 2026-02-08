@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!--////////base-->
+  <PawnKindDef Name="Superstring_BasePawnKind" Abstract="True">
+    <race>Superstring</race>
+    <combatPower>30</combatPower>
+    <isFighter>false</isFighter>
+    <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
+    <apparelIgnorePollution MayRequire="Ludeon.RimWorld.Biotech">false</apparelIgnorePollution>
+    <forceNormalGearQuality>true</forceNormalGearQuality>
+    <minGenerationAge>20</minGenerationAge>
+    <maxGenerationAge>60</maxGenerationAge>
+    <backstoryCryptosleepCommonality>0</backstoryCryptosleepCommonality>
+    <apparelColor>(255,255,255)</apparelColor>
+    <initialWillRange>0~1</initialWillRange>
+    <initialResistanceRange>13~21</initialResistanceRange>
+    <!-- TODO 这里也要检查一下需不需要给个buff -->
+    <!-- <startingHediffs>
+      <li>
+        <def>Axolotl_BodyRepair</def>
+        <severity>1.0</severity>
+      </li>
+    </startingHediffs> -->
+    <!--携带食物-->
+    <invFoodDef>Pemmican</invFoodDef>
+    <invNutrition>2.55</invNutrition>
+    <!--生物编码-->
+    <biocodeWeaponChance>0</biocodeWeaponChance>
+  </PawnKindDef>
+  
+  <!--殖民者-->
+  <PawnKindDef ParentName="Superstring_BasePawnKind">
+    <defName>Superstring_Colonist</defName>
+    <label>Superstring Colonist</label>
+    <defaultFactionType>PlayerColony</defaultFactionType>
+    <!-- TODO 故事背景 -->
+    <!-- <backstoryFiltersOverride>
+      <li>
+        <categories>
+          <li>Axolotl_BackgroundStory_Wander</li>
+          <li>Axolotl_BackgroundStory_Slave</li>
+          <li>Axolotl_BackgroundStory_Commoner</li>
+          <li>Axolotl_BackgroundStory_Resident</li>
+          <li>Axolotl_BackgroundStory_Noble</li>
+        </categories>
+      </li>
+    </backstoryFiltersOverride> -->
+    <apparelTags>
+        <!-- 只准超弦体殖民者用 -->
+      <li>Superstring_ColonistUse</li>
+    </apparelTags>
+    <apparelRequired>
+      <li>Apparel_BasicShirt</li>
+      <li>Apparel_Jacket</li>
+      <li>Apparel_Pants</li>
+    </apparelRequired>
+    <apparelMoney>350~600</apparelMoney>
+    <apparelAllowHeadgearChance>0</apparelAllowHeadgearChance>
+    <techHediffsChance>0.05</techHediffsChance>
+    <techHediffsMoney>0~3000</techHediffsMoney>
+    <techHediffsTags>
+      <li>Poor</li>
+      <li>Simple</li>
+      <li>ImplantEmpireCommon</li>
+    </techHediffsTags>
+    <techHediffsDisallowTags>
+      <li>PainCauser</li>
+    </techHediffsDisallowTags>
+  </PawnKindDef>
+  <!--TODO 还可以加一些其他超弦体的定义,比如超弦体商人,超弦体入侵者等-->
+</Defs>
