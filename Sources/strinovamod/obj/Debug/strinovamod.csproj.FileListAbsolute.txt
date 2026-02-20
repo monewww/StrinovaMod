@@ -1,0 +1,8 @@
+D:\StrinovaMod\Sources\strinovamod\bin\Debug\strinovamod.dll
+D:\StrinovaMod\Sources\strinovamod\bin\Debug\strinovamod.pdb
+D:\StrinovaMod\Sources\strinovamod\obj\Debug\strinovamod.csproj.AssemblyReference.cache
+D:\StrinovaMod\Sources\strinovamod\obj\Debug\strinovamod.csproj.CoreCompileInputs.cache
+D:\StrinovaMod\Sources\strinovamod\obj\Debug\strinovamod.dll
+D:\StrinovaMod\Sources\strinovamod\obj\Debug\strinovamod.pdb
+D:\StrinovaMod\Assemblies\strinovamod.dll
+D:\StrinovaMod\Assemblies\strinovamod.pdb

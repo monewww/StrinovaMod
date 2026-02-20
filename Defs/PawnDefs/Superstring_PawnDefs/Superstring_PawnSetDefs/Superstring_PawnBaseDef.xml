@@ -16,6 +16,9 @@
         <baseEscapeIntervalMtbDays>120</baseEscapeIntervalMtbDays>
         <getsColdContainmentBonus>true</getsColdContainmentBonus>
       </li>
+      <li Class="Strinova.CompProperties_SuperstringShield">
+        <shieldGraphicPath>Superstring_Shields/ShieldBubble_blue</shieldGraphicPath>
+      </li>
     </comps>
   </ThingDef>
 </Defs>

@@ -141,9 +141,9 @@
         <!--成长点设置-->
         <growthFactorByAge>
           <points>
-            <li>(0,  0.90)</li>
-            <li>(6,  0.95)</li>
-            <li>(7,  1.00)</li>
+            <li>(0, 0.90)</li>
+            <li>(6, 0.95)</li>
+            <li>(7, 1.00)</li>
             <li>(13, 1.00)</li>
           </points>
         </growthFactorByAge>
@@ -215,19 +215,20 @@
         <!-- <onlyUseRaceRestrictedApparel>false</onlyUseRaceRestrictedApparel> -->
         <!--种族服装列表-->
         <!-- <apparelList> -->
-          <!-- <li>Apparel_BasicShirt</li>
+        <!-- <li>Apparel_BasicShirt</li>
         </apparelList> -->
         <!--//weapon-->
         <onlyUseRaceRestrictedWeapons>false</onlyUseRaceRestrictedWeapons>
         <!--种族武器列表-->
         <weaponList>
-          <!--TODO 加入各种武器-->
+          <!--TODO
+          加入各种武器-->
           <!-- <li>Axolotl_Hammer</li> -->
         </weaponList>
         <!--种族workgiver列表-->
         <!-- MAY TODO 加入种族workgiver -->
         <!-- <workGiverList> -->
-          <!-- <li>Axolotl_FillAlchemyStove_Neolithic</li> -->
+        <!-- <li>Axolotl_FillAlchemyStove_Neolithic</li> -->
         <!-- </workGiverList> -->
         <!--//gene-->
         <onlyUseRaceRestrictedXenotypes>true</onlyUseRaceRestrictedXenotypes>
