@@ -1,0 +1,1769 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <ThingDef ParentName="BaseHumanMakeableGun">
+     <defName>Strinova_Polaris</defName>
+     <label>北极星</label>
+     <description>星绘的主武器。散热良好和耐久性是其优势，近程点射时精准度颇佳。此外，还有如扳机扣力柔和、左右手均可使用等注重舒适度的设计。</description>
+		<relicChance>0</relicChance>
+		<graphicData>
+			<texPath>Strinova_Items/Strinova_Weapon/Polaris</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.2</drawSize>
+		</graphicData>
+		<equippedAngleOffset>45</equippedAngleOffset>   <!-- 负值逆时针旋转 -->
+		<soundInteract>Interact_Rifle</soundInteract>
+		<generateCommonality>0</generateCommonality>
+		<weaponClasses>
+			<li>RangedLight</li>
+		</weaponClasses>
+		<statBases>
+			<WorkToMake>8000</WorkToMake>
+			<Mass>3</Mass>
+			<AccuracyTouch>0.85</AccuracyTouch>
+			<AccuracyShort>0.93</AccuracyShort>
+			<AccuracyMedium>0.86</AccuracyMedium>
+			<AccuracyLong>0.70</AccuracyLong>
+			<RangedWeapon_Cooldown>1</RangedWeapon_Cooldown>
+			<Flammability>0</Flammability>
+			<MarketValue>1200</MarketValue>
+		</statBases>
+		<costList>
+			<Steel>200</Steel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+		</costList>
+		<recipeMaker> <!-- 枪械的配方 -->
+         <researchPrerequisite>PrecisionRifling</researchPrerequisite>
+          <recipeUsers>
+           <li>TableMachining</li>
+          </recipeUsers>
+         <skillRequirements> <!-- 技能要求 -->
+           <Crafting>6</Crafting>
+         </skillRequirements>
+          <displayPriority>70</displayPriority> <!-- 显示优先级? -->
+    </recipeMaker>
+		<thingSetMakerTags>
+			<li>RewardStandardQualitySuper</li>
+		</thingSetMakerTags>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Strinova_Rifle_Universal_Ammunition</defaultProjectile>
+				<warmupTime>0.2</warmupTime>
+				<ticksBetweenBurstShots>2</ticksBetweenBurstShots>
+				<range>50</range>
+				<burstShotCount>3</burstShotCount>
+				<soundCast>Shot_AssaultRifle</soundCast>
+				<soundCastTail>GunTail_Medium</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+				<targetParams>
+					<canTargetLocations>true</canTargetLocations>
+				</targetParams>
+			</li>
+		</verbs>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseMeleeWeapon">
+    <!-- 武器内部唯一标识（代码调用用） -->
+    <defName>Strinova_Ninjato</defName>
+    <!-- 游戏内显示的武器名称 -->
+    <label>忍锋</label>
+    <!-- 游戏内显示的武器描述 -->
+    <description>不知名的武器画家所制作，很有格调的武士刀。</description>
+    <!-- 持有数量限制（1表示每次只能持有1把） -->
+    <possessionCount>1</possessionCount>
+    <!-- 武器贴图配置 -->
+    <graphicData>
+      <!-- 贴图文件路径（Things文件夹下的qiang纹理） -->
+      <texPath>Strinova_Items/Strinova_Weapon/Ninjato</texPath>
+      <!-- 贴图类型：单张静态贴图 -->
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <!-- 科技等级：工业时代 -->
+    <techLevel>Industrial</techLevel>
+    <!-- 武器标签（用于游戏内分类/规则判定） -->
+	  <weaponTags>
+     <li>MedievalMeleeAdvanced</li> <!-- 中世纪近战武器 -->
+     <li>LongSword</li> <!-- 归类为长剑类 -->
+	  </weaponTags>
+    <!-- 制作成本 -->
+    <costList>
+     <ComponentIndustrial>10</ComponentIndustrial> <!-- 工业组件10个 -->
+    </costList>
+    <recipeMaker> <!-- 枪械的配方 -->
+        <researchPrerequisite>Machining</researchPrerequisite>
+          <recipeUsers>
+           <li>FueledSmithy</li>
+           <li>ElectricSmithy</li>
+           <li>TableMachining</li>
+          </recipeUsers>
+         <skillRequirements> <!-- 技能要求 -->
+           <Crafting>6</Crafting>
+         </skillRequirements>
+        <displayPriority>70</displayPriority> <!-- 显示优先级? -->
+    </recipeMaker>
+    <!-- 物品生成标签（用于奖励/战利品生成） -->
+    <thingSetMakerTags>
+     <li>RewardStandardQualitySuper</li> <!-- 优质奖励物品 -->
+    </thingSetMakerTags>
+    <!-- 基础属性配置 -->
+    <statBases>
+     <WorkToMake>7000</WorkToMake> <!-- 制作所需工作量 -->
+     <Mass>1</Mass> <!-- 重量1kg -->
+     <Flammability>0</Flammability>
+     <MarketValue>3000</MarketValue>
+    </statBases>
+    <!-- 成为圣物的概率（3%） -->
+    <relicChance>3</relicChance>
+    <!-- 装备时的角度偏移（45度） -->
+    <equippedAngleOffset>-45</equippedAngleOffset>
+    <!-- 是否可熔炼回收材料 -->
+    <smeltable>true</smeltable>
+    <!-- 武器分类（近战穿刺类） -->
+    <weaponClasses>
+      <li>MeleePiercer</li>
+    </weaponClasses>
+    <!-- 近战攻击模块（不同部位的攻击属性） -->
+    <tools>
+      <!-- 枪托/握把攻击（钝击） -->
+      <li>
+        <label>handle</label> <!-- 攻击部位名称 -->
+        <capacities>
+          <li>Blunt</li> <!-- 攻击类型：钝击 -->
+        </capacities>
+        <power>10</power> <!-- 攻击力10 -->
+        <cooldownTime>1.0</cooldownTime> <!-- 攻击冷却1.0秒 -->
+      </li>
+      <!-- 刺刀尖端攻击（刺击） -->
+      <li>
+        <label>point</label> <!-- 攻击部位名称 -->
+        <capacities>
+          <li>Stab</li> <!-- 攻击类型：刺击 -->
+        </capacities>
+        <power>30</power> <!-- 攻击力30 -->
+        <cooldownTime>0.9</cooldownTime> <!-- 攻击冷却0.9秒 -->
+        <armorPenetration>0.9</armorPenetration> <!-- 穿甲率90% -->
+      </li>
+      <!-- 刺刀刀刃攻击（切割） -->
+      <li>
+        <label>edge</label> <!-- 攻击部位名称 -->
+        <capacities>
+          <li>Cut</li> <!-- 攻击类型：切割 -->
+        </capacities>
+        <power>60</power> <!-- 攻击力60 -->
+        <cooldownTime>1.0</cooldownTime> <!-- 攻击冷却1.0秒 -->
+        <armorPenetration>0.7</armorPenetration> <!-- 穿甲率70% -->
+      </li>
+    </tools>
+  </ThingDef>
+
+  <!-- 定义该步枪使用的子弹实体 -->
+  <!-- 继承自 "BaseBullet" 基础子弹模板 -->
+  <ThingDef ParentName="BaseBullet">
+    <defName>Strinova_Rifle_Universal_Ammunition</defName> <!-- 子弹内部唯一标识 -->
+    <label>卡丘步枪通用子弹</label> <!-- 子弹显示名称 -->
+    <!-- 子弹贴图配置 -->
+    <graphicData>
+      <texPath>Strinova_Items/Strinova_Projectile/Bullet_Small_1</texPath> <!-- 突击步枪子弹贴图路径 -->
+      <graphicClass>Graphic_Single</graphicClass> <!-- 单张静态贴图 -->
+      <drawSize>0.4</drawSize>
+    </graphicData>
+    <!-- 子弹飞行/伤害属性 -->
+    <projectile>
+      <damageDef>Bullet</damageDef> <!-- 伤害类型：子弹伤害 -->
+      <damageAmountBase>30</damageAmountBase> <!-- 基础伤害30点 -->
+      <speed>50</speed> <!-- 子弹飞行速度50格/秒 -->
+      <stoppingPower>0.3</stoppingPower> <!-- 抑制（击退效果）0.3 -->
+      <armorPenetrationBase>0.7</armorPenetrationBase> <!-- 基础穿甲率70% -->
+      <shadowSize>0.5</shadowSize> <!-- 子弹阴影大小 -->
+      <arcHeightFactor>0</arcHeightFactor> <!-- 弹道弧度（0为直线） -->
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseHumanMakeableGun">
+     <defName>Strinova_Inspector</defName>
+     <label>警探</label>
+     <description>米雪儿的主武器。满足以猛烈的火力压制战场的需求，其精准度和射速的平衡性也相当出色。配备1.25倍瞄准镜。</description>
+		<relicChance>0</relicChance>
+		<graphicData>
+			<texPath>Strinova_Items/Strinova_Weapon/Inspector</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.2</drawSize>
+		</graphicData>
+		<equippedAngleOffset>45</equippedAngleOffset>   <!-- 负值逆时针旋转 -->
+		<soundInteract>Interact_Rifle</soundInteract>
+		<generateCommonality>0</generateCommonality>
+		<weaponClasses>
+			<li>RangedLight</li>
+		</weaponClasses>
+		<statBases>
+			<WorkToMake>7900</WorkToMake>
+			<Mass>3.2</Mass>
+			<AccuracyTouch>0.8</AccuracyTouch>
+			<AccuracyShort>0.9</AccuracyShort>
+			<AccuracyMedium>0.8</AccuracyMedium>
+			<AccuracyLong>0.7</AccuracyLong>
+			<RangedWeapon_Cooldown>1.2</RangedWeapon_Cooldown>
+			<Flammability>0</Flammability>
+			<MarketValue>1180</MarketValue>
+		</statBases>
+		<costList>
+			<Steel>180</Steel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+		</costList>
+		<recipeMaker> <!-- 枪械的配方 -->
+         <researchPrerequisite>PrecisionRifling</researchPrerequisite>
+          <recipeUsers>
+           <li>TableMachining</li>
+          </recipeUsers>
+         <skillRequirements> <!-- 技能要求 -->
+           <Crafting>6</Crafting>
+         </skillRequirements>
+          <displayPriority>70</displayPriority> <!-- 显示优先级? -->
+        </recipeMaker>
+		<thingSetMakerTags>
+			<li>RewardStandardQualitySuper</li>
+		</thingSetMakerTags>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Strinova_Rifle_Universal_Ammunition</defaultProjectile>
+				<warmupTime>0.2</warmupTime>
+				<ticksBetweenBurstShots>2</ticksBetweenBurstShots>
+				<range>50</range>
+				<burstShotCount>10</burstShotCount>
+				<soundCast>Shot_AssaultRifle</soundCast>
+				<soundCastTail>GunTail_Medium</soundCastTail>
+				<muzzleFlashScale>6</muzzleFlashScale>
+				<targetParams>
+					<canTargetLocations>true</canTargetLocations>
+				</targetParams>
+			</li>
+		</verbs>
+	</ThingDef>
+
+  <ThingDef ParentName="BaseMeleeWeapon">
+    <!-- 武器内部唯一标识（代码调用用） -->
+    <defName>Strinova_War_Scythe</defName>
+    <!-- 游戏内显示的武器名称 -->
+    <label>战镰</label>
+    <!-- 游戏内显示的武器描述 -->
+    <description>战斗型长柄镰刀，以一体铸就的弯月利刃为锋，挥动时凌厉如风，可对敌人发起精准的砍击。</description>
+    <!-- 持有数量限制（1表示每次只能持有1把） -->
+    <possessionCount>1</possessionCount>
+    <!-- 武器贴图配置 -->
+    <graphicData>
+      <!-- 贴图文件路径（Things文件夹下的qiang纹理） -->
+      <texPath>Strinova_Items/Strinova_Weapon/War_Scythe</texPath>
+      <!-- 贴图类型：单张静态贴图 -->
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <!-- 科技等级：工业时代 -->
+    <techLevel>Industrial</techLevel>
+    <!-- 武器标签（用于游戏内分类/规则判定） -->
+	  <weaponTags>
+     <li>MedievalMeleeAdvanced</li> <!-- 中世纪近战武器 -->
+     <li>LongSword</li> <!-- 归类为长剑类 -->
+	  </weaponTags>
+    <!-- 制作成本 -->
+    <costList>
+     <ComponentIndustrial>30</ComponentIndustrial> <!-- 工业组件30个 -->
+    </costList>
+    <recipeMaker> <!-- 枪械的配方 -->
+        <researchPrerequisite>Machining</researchPrerequisite>
+          <recipeUsers>
+           <li>FueledSmithy</li>
+           <li>ElectricSmithy</li>
+           <li>TableMachining</li>
+          </recipeUsers>
+         <skillRequirements> <!-- 技能要求 -->
+           <Crafting>6</Crafting>
+         </skillRequirements>
+        <displayPriority>70</displayPriority> <!-- 显示优先级? -->
+    </recipeMaker>
+    <!-- 物品生成标签（用于奖励/战利品生成） -->
+    <thingSetMakerTags>
+     <li>RewardStandardQualitySuper</li> <!-- 优质奖励物品 -->
+    </thingSetMakerTags>
+    <!-- 基础属性配置 -->
+    <statBases>
+     <WorkToMake>14000</WorkToMake> <!-- 制作所需工作量 -->
+     <Mass>1.3</Mass> <!-- 重量1kg -->
+     <Flammability>0</Flammability>
+     <MarketValue>23000</MarketValue>
+    </statBases>
+    <!-- 成为圣物的概率（3%） -->
+    <relicChance>3</relicChance>
+    <!-- 装备时的角度偏移（45度） -->
+    <equippedAngleOffset>-45</equippedAngleOffset>
+    <!-- 是否可熔炼回收材料 -->
+    <smeltable>true</smeltable>
+    <!-- 武器分类（近战穿刺类） -->
+    <weaponClasses>
+      <li>MeleePiercer</li>
+    </weaponClasses>
+    <!-- 近战攻击模块（不同部位的攻击属性） -->
+    <tools>
+      <!-- 枪托/握把攻击（钝击） -->
+      <li>
+        <label>handle</label> <!-- 攻击部位名称 -->
+        <capacities>
+          <li>Blunt</li> <!-- 攻击类型：钝击 -->
+        </capacities>
+        <power>5</power> <!-- 攻击力5 -->
+        <cooldownTime>0.2</cooldownTime> <!-- 攻击冷却0.2秒 -->
+      </li>
+      <!-- 刺刀尖端攻击（刺击） -->
+      <li>
+        <label>point</label> <!-- 攻击部位名称 -->
+        <capacities>
+          <li>Stab</li> <!-- 攻击类型：刺击 -->
+        </capacities>
+        <power>12</power> <!-- 攻击力12 -->
+        <cooldownTime>0.45</cooldownTime> <!-- 攻击冷却0.45秒 -->
+        <armorPenetration>0.23</armorPenetration> <!-- 穿甲率23% -->
+      </li>
+      <!-- 刺刀刀刃攻击（切割） -->
+      <li>
+        <label>edge</label> <!-- 攻击部位名称 -->
+        <capacities>
+          <li>Cut</li> <!-- 攻击类型：切割 -->
+        </capacities>
+        <power>90</power> <!-- 攻击力60 -->
+        <cooldownTime>0.8</cooldownTime> <!-- 攻击冷却1.0秒 -->
+        <armorPenetration>0.76</armorPenetration> <!-- 穿甲率76% -->
+      </li>
+    </tools>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseHumanMakeableGun">
+     <defName>Strinova_Retribution</defName>
+     <label>绝对执行</label>
+     <description>忧雾的主武器。无托系列步枪中的代表之作，综合素质极其优秀，古地球轻武器中的经典。配备1.25倍瞄准镜。</description>
+		<relicChance>0</relicChance>
+		<graphicData>
+			<texPath>Strinova_Items/Strinova_Weapon/Retribution</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.2</drawSize>
+		</graphicData>
+		<equippedAngleOffset>45</equippedAngleOffset>   <!-- 负值逆时针旋转 -->
+		<soundInteract>Interact_Rifle</soundInteract>
+		<generateCommonality>0</generateCommonality>
+		<weaponClasses>
+			<li>RangedLight</li>
+		</weaponClasses>
+		<statBases>
+			<WorkToMake>8000</WorkToMake>
+			<Mass>3</Mass>
+			<AccuracyTouch>0.9</AccuracyTouch>
+			<AccuracyShort>0.84</AccuracyShort>
+			<AccuracyMedium>0.73</AccuracyMedium>
+			<AccuracyLong>0.62</AccuracyLong>
+			<RangedWeapon_Cooldown>1</RangedWeapon_Cooldown>
+			<Flammability>0</Flammability>
+			<MarketValue>2800</MarketValue>
+		</statBases>
+		<costList>
+			<Steel>230</Steel>
+      <ComponentIndustrial>4</ComponentIndustrial>
+		</costList>
+		<recipeMaker> <!-- 枪械的配方 -->
+         <researchPrerequisite>PrecisionRifling</researchPrerequisite>
+          <recipeUsers>
+           <li>TableMachining</li>
+          </recipeUsers>
+         <skillRequirements> <!-- 技能要求 -->
+           <Crafting>6</Crafting>
+         </skillRequirements>
+          <displayPriority>70</displayPriority> <!-- 显示优先级? -->
+        </recipeMaker>
+		<thingSetMakerTags>
+			<li>RewardStandardQualitySuper</li>
+		</thingSetMakerTags>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Strinova_Rifle_Universal_Ammunition</defaultProjectile>
+				<warmupTime>0.2</warmupTime>
+				<ticksBetweenBurstShots>2</ticksBetweenBurstShots>
+				<range>50</range>
+				<burstShotCount>10</burstShotCount>
+				<soundCast>Shot_AssaultRifle</soundCast>
+				<soundCastTail>GunTail_Medium</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+				<targetParams>
+					<canTargetLocations>true</canTargetLocations>
+				</targetParams>
+			</li>
+		</verbs>
+	</ThingDef>
+
+  <ThingDef ParentName="BaseHumanMakeableGun">
+     <defName>Strinova_Rebelflame</defName>
+     <label>逆焰</label>
+     <description>明的主武器。性能可靠、火力强大，性价比奇高。对恶劣环境有高耐性，输出能力稳定，堪称强悍与适性的完美融合。配备1.25倍瞄准镜。</description>
+		<relicChance>0</relicChance>
+		<graphicData>
+			<texPath>Strinova_Items/Strinova_Weapon/Rebelflame</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.2</drawSize>
+		</graphicData>
+		<equippedAngleOffset>45</equippedAngleOffset>   <!-- 负值逆时针旋转 -->
+		<soundInteract>Interact_Rifle</soundInteract>
+		<generateCommonality>0</generateCommonality>
+		<weaponClasses>
+			<li>RangedLight</li>
+		</weaponClasses>
+		<statBases>
+			<WorkToMake>8000</WorkToMake>
+			<Mass>3</Mass>
+			<AccuracyTouch>0.9</AccuracyTouch>
+			<AccuracyShort>0.84</AccuracyShort>
+			<AccuracyMedium>0.73</AccuracyMedium>
+			<AccuracyLong>0.62</AccuracyLong>
+			<RangedWeapon_Cooldown>1</RangedWeapon_Cooldown>
+			<Flammability>0</Flammability>
+			<MarketValue>2800</MarketValue>
+		</statBases>
+		<costList>
+			<Steel>230</Steel>
+      <ComponentIndustrial>4</ComponentIndustrial>
+		</costList>
+		<recipeMaker> <!-- 枪械的配方 -->
+         <researchPrerequisite>PrecisionRifling</researchPrerequisite>
+          <recipeUsers>
+           <li>TableMachining</li>
+          </recipeUsers>
+         <skillRequirements> <!-- 技能要求 -->
+           <Crafting>6</Crafting>
+         </skillRequirements>
+          <displayPriority>70</displayPriority> <!-- 显示优先级? -->
+        </recipeMaker>
+		<thingSetMakerTags>
+			<li>RewardStandardQualitySuper</li>
+		</thingSetMakerTags>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Strinova_Rifle_Universal_Ammunition</defaultProjectile>
+				<warmupTime>0.2</warmupTime>
+				<ticksBetweenBurstShots>2</ticksBetweenBurstShots>
+				<range>50</range>
+				<burstShotCount>10</burstShotCount>
+				<soundCast>Shot_AssaultRifle</soundCast>
+				<soundCastTail>GunTail_Medium</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+				<targetParams>
+					<canTargetLocations>true</canTargetLocations>
+				</targetParams>
+			</li>
+		</verbs>
+	</ThingDef>
+
+  <ThingDef ParentName="BaseHumanMakeableGun">
+     <defName>Strinova_Shadow_Assault</defName>
+     <label>影袭</label>
+     <description>拉薇的主武器。在拥有较高稳定性的同时，其精准性也十分出众。配备1.25倍瞄准镜。</description>
+		<relicChance>0</relicChance>
+		<graphicData>
+			<texPath>Strinova_Items/Strinova_Weapon/Shadow_Assault</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.2</drawSize>
+		</graphicData>
+		<equippedAngleOffset>45</equippedAngleOffset>   <!-- 负值逆时针旋转 -->
+		<soundInteract>Interact_Rifle</soundInteract>
+		<generateCommonality>0</generateCommonality>
+		<weaponClasses>
+			<li>RangedLight</li>
+		</weaponClasses>
+		<statBases>
+			<WorkToMake>8000</WorkToMake>
+			<Mass>3</Mass>
+			<AccuracyTouch>0.9</AccuracyTouch>
+			<AccuracyShort>0.84</AccuracyShort>
+			<AccuracyMedium>0.73</AccuracyMedium>
+			<AccuracyLong>0.62</AccuracyLong>
+			<RangedWeapon_Cooldown>1</RangedWeapon_Cooldown>
+			<Flammability>0</Flammability>
+			<MarketValue>2800</MarketValue>
+		</statBases>
+		<costList>
+			<Steel>230</Steel>
+      <ComponentIndustrial>4</ComponentIndustrial>
+		</costList>
+		<recipeMaker> <!-- 枪械的配方 -->
+         <researchPrerequisite>PrecisionRifling</researchPrerequisite>
+          <recipeUsers>
+           <li>TableMachining</li>
+          </recipeUsers>
+         <skillRequirements> <!-- 技能要求 -->
+           <Crafting>6</Crafting>
+         </skillRequirements>
+          <displayPriority>70</displayPriority> <!-- 显示优先级? -->
+        </recipeMaker>
+		<thingSetMakerTags>
+			<li>RewardStandardQualitySuper</li>
+		</thingSetMakerTags>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Strinova_Rifle_Universal_Ammunition</defaultProjectile>
+				<warmupTime>0.2</warmupTime>
+				<ticksBetweenBurstShots>2</ticksBetweenBurstShots>
+				<range>50</range>
+				<burstShotCount>10</burstShotCount>
+				<soundCast>Shot_AssaultRifle</soundCast>
+				<soundCastTail>GunTail_Medium</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+				<targetParams>
+					<canTargetLocations>true</canTargetLocations>
+				</targetParams>
+			</li>
+		</verbs>
+	</ThingDef>
+
+  <ThingDef ParentName="BaseHumanMakeableGun">
+     <defName>Strinova_Falcon</defName>
+     <label>隼</label>
+     <description>梅瑞迪斯的主武器。无托系列步枪中的代表之作，综合素质极其优秀，古地球轻武器中的经典。配备1.25倍瞄准镜。</description>
+		<relicChance>0</relicChance>
+		<graphicData>
+			<texPath>Strinova_Items/Strinova_Weapon/Falcon</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.2</drawSize>
+		</graphicData>
+		<equippedAngleOffset>45</equippedAngleOffset>   <!-- 负值逆时针旋转 -->
+		<soundInteract>Interact_Rifle</soundInteract>
+		<generateCommonality>0</generateCommonality>
+		<weaponClasses>
+			<li>RangedLight</li>
+		</weaponClasses>
+		<statBases>
+			<WorkToMake>8000</WorkToMake>
+			<Mass>3</Mass>
+			<AccuracyTouch>0.9</AccuracyTouch>
+			<AccuracyShort>0.84</AccuracyShort>
+			<AccuracyMedium>0.73</AccuracyMedium>
+			<AccuracyLong>0.62</AccuracyLong>
+			<RangedWeapon_Cooldown>1</RangedWeapon_Cooldown>
+			<Flammability>0</Flammability>
+			<MarketValue>2800</MarketValue>
+		</statBases>
+		<costList>
+			<Steel>230</Steel>
+      <ComponentIndustrial>4</ComponentIndustrial>
+		</costList>
+		<recipeMaker> <!-- 枪械的配方 -->
+         <researchPrerequisite>PrecisionRifling</researchPrerequisite>
+          <recipeUsers>
+           <li>TableMachining</li>
+          </recipeUsers>
+         <skillRequirements> <!-- 技能要求 -->
+           <Crafting>6</Crafting>
+         </skillRequirements>
+          <displayPriority>70</displayPriority> <!-- 显示优先级? -->
+        </recipeMaker>
+		<thingSetMakerTags>
+			<li>RewardStandardQualitySuper</li>
+		</thingSetMakerTags>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Strinova_Rifle_Universal_Ammunition</defaultProjectile>
+				<warmupTime>0.2</warmupTime>
+				<ticksBetweenBurstShots>2</ticksBetweenBurstShots>
+				<range>50</range>
+				<burstShotCount>10</burstShotCount>
+				<soundCast>Shot_AssaultRifle</soundCast>
+				<soundCastTail>GunTail_Medium</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+				<targetParams>
+					<canTargetLocations>true</canTargetLocations>
+				</targetParams>
+			</li>
+		</verbs>
+	</ThingDef>
+
+  <ThingDef ParentName="BaseHumanMakeableGun">
+     <defName>Strinova_Blossom</defName>
+     <label>绽放</label>
+     <description>珐格兰丝的主武器。满足以猛烈的火力压制战场的需求，其精准度和射速的平衡性也相当出色。配备1.25倍瞄准镜。</description>
+		<relicChance>0</relicChance>
+		<graphicData>
+			<texPath>Strinova_Items/Strinova_Weapon/Blossom</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.2</drawSize>
+		</graphicData>
+		<equippedAngleOffset>45</equippedAngleOffset>   <!-- 负值逆时针旋转 -->
+		<soundInteract>Interact_Rifle</soundInteract>
+		<generateCommonality>0</generateCommonality>
+		<weaponClasses>
+			<li>RangedLight</li>
+		</weaponClasses>
+		<statBases>
+			<WorkToMake>8000</WorkToMake>
+			<Mass>3</Mass>
+			<AccuracyTouch>0.9</AccuracyTouch>
+			<AccuracyShort>0.84</AccuracyShort>
+			<AccuracyMedium>0.73</AccuracyMedium>
+			<AccuracyLong>0.62</AccuracyLong>
+			<RangedWeapon_Cooldown>1</RangedWeapon_Cooldown>
+			<Flammability>0</Flammability>
+			<MarketValue>2800</MarketValue>
+		</statBases>
+		<costList>
+			<Steel>230</Steel>
+      <ComponentIndustrial>4</ComponentIndustrial>
+		</costList>
+		<recipeMaker> <!-- 枪械的配方 -->
+         <researchPrerequisite>PrecisionRifling</researchPrerequisite>
+          <recipeUsers>
+           <li>TableMachining</li>
+          </recipeUsers>
+         <skillRequirements> <!-- 技能要求 -->
+           <Crafting>6</Crafting>
+         </skillRequirements>
+          <displayPriority>70</displayPriority> <!-- 显示优先级? -->
+        </recipeMaker>
+		<thingSetMakerTags>
+			<li>RewardStandardQualitySuper</li>
+		</thingSetMakerTags>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Strinova_Rifle_Universal_Ammunition</defaultProjectile>
+				<warmupTime>0.2</warmupTime>
+				<ticksBetweenBurstShots>2</ticksBetweenBurstShots>
+				<range>50</range>
+				<burstShotCount>10</burstShotCount>
+				<soundCast>Shot_AssaultRifle</soundCast>
+				<soundCastTail>GunTail_Medium</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+				<targetParams>
+					<canTargetLocations>true</canTargetLocations>
+				</targetParams>
+			</li>
+		</verbs>
+	</ThingDef>
+
+  <ThingDef ParentName="BaseHumanMakeableGun">
+     <defName>Strinova_Gambit</defName>
+     <label>欺诈师</label>
+     <description>加拉蒂亚的主武器。性能可靠、火力强大，性价比奇高。对恶劣环境有高耐性，输出能力稳定，堪称强悍与适性的完美融合。配备1.25倍瞄准镜。</description>
+		<relicChance>0</relicChance>
+		<graphicData>
+			<texPath>Strinova_Items/Strinova_Weapon/Gambit</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.2</drawSize>
+		</graphicData>
+		<equippedAngleOffset>45</equippedAngleOffset>   <!-- 负值逆时针旋转 -->
+		<soundInteract>Interact_Rifle</soundInteract>
+		<generateCommonality>0</generateCommonality>
+		<weaponClasses>
+			<li>RangedLight</li>
+		</weaponClasses>
+		<statBases>
+			<WorkToMake>8000</WorkToMake>
+			<Mass>3</Mass>
+			<AccuracyTouch>0.9</AccuracyTouch>
+			<AccuracyShort>0.84</AccuracyShort>
+			<AccuracyMedium>0.73</AccuracyMedium>
+			<AccuracyLong>0.62</AccuracyLong>
+			<RangedWeapon_Cooldown>1</RangedWeapon_Cooldown>
+			<Flammability>0</Flammability>
+			<MarketValue>2800</MarketValue>
+		</statBases>
+		<costList>
+			<Steel>230</Steel>
+      <ComponentIndustrial>4</ComponentIndustrial>
+		</costList>
+		<recipeMaker> <!-- 枪械的配方 -->
+         <researchPrerequisite>PrecisionRifling</researchPrerequisite>
+          <recipeUsers>
+           <li>TableMachining</li>
+          </recipeUsers>
+         <skillRequirements> <!-- 技能要求 -->
+           <Crafting>6</Crafting>
+         </skillRequirements>
+          <displayPriority>70</displayPriority> <!-- 显示优先级? -->
+        </recipeMaker>
+		<thingSetMakerTags>
+			<li>RewardStandardQualitySuper</li>
+		</thingSetMakerTags>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Strinova_Rifle_Universal_Ammunition</defaultProjectile>
+				<warmupTime>0.2</warmupTime>
+				<ticksBetweenBurstShots>2</ticksBetweenBurstShots>
+				<range>50</range>
+				<burstShotCount>10</burstShotCount>
+				<soundCast>Shot_AssaultRifle</soundCast>
+				<soundCastTail>GunTail_Medium</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+				<targetParams>
+					<canTargetLocations>true</canTargetLocations>
+				</targetParams>
+			</li>
+		</verbs>
+	</ThingDef>
+
+  <!-- 定义该步枪使用的子弹实体 -->
+  <!-- 继承自 "BaseBullet" 基础子弹模板 -->
+  <ThingDef ParentName="BaseBullet">
+    <defName>Strinova_Submachine_Gun_Standard_Ammunition</defName> <!-- 子弹内部唯一标识 -->
+    <label>卡丘冲锋枪标准子弹</label> <!-- 子弹显示名称 -->
+    <!-- 子弹贴图配置 -->
+    <graphicData>
+      <texPath>Strinova_Items/Strinova_Projectile/Bullet_Small_2</texPath> <!-- 突击步枪子弹贴图路径 -->
+      <graphicClass>Graphic_Single</graphicClass> <!-- 单张静态贴图 -->
+      <drawSize>0.3</drawSize>
+    </graphicData>
+    <!-- 子弹飞行/伤害属性 -->
+    <projectile>
+      <damageDef>Bullet</damageDef> <!-- 伤害类型：子弹伤害 -->
+      <damageAmountBase>20</damageAmountBase> <!-- 基础伤害20点 -->
+      <speed>55</speed> <!-- 子弹飞行速度55格/秒 -->
+      <stoppingPower>0.3</stoppingPower> <!-- 抑制（击退效果）0.3 -->
+      <armorPenetrationBase>0.61</armorPenetrationBase> <!-- 基础穿甲率61% -->
+      <shadowSize>0.4</shadowSize> <!-- 子弹阴影大小 -->
+      <arcHeightFactor>0</arcHeightFactor> <!-- 弹道弧度（0为直线） -->
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseHumanMakeableGun">
+     <defName>Strinova_Beareas</defName>
+     <label>幻霜</label>
+     <description>伊薇特的主武器。体积轻巧，可快速连续发射，拥有较同类枪械更出色的精确度，配备1.25倍瞄准镜。</description>
+		<relicChance>0</relicChance>
+		<graphicData>
+			<texPath>Strinova_Items/Strinova_Weapon/Beareas</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.0</drawSize>
+		</graphicData>
+		<equippedAngleOffset>45</equippedAngleOffset>   <!-- 负值逆时针旋转 -->
+		<soundInteract>Interact_Rifle</soundInteract>
+		<generateCommonality>0</generateCommonality>
+		<weaponClasses>
+			<li>RangedLight</li>
+		</weaponClasses>
+		<statBases>
+			<WorkToMake>7300</WorkToMake>
+			<Mass>2.4</Mass>
+			<AccuracyTouch>0.8</AccuracyTouch>
+			<AccuracyShort>0.73</AccuracyShort>
+			<AccuracyMedium>0.94</AccuracyMedium>
+			<AccuracyLong>0.52</AccuracyLong>
+			<RangedWeapon_Cooldown>1</RangedWeapon_Cooldown>
+			<Flammability>0</Flammability>
+			<MarketValue>2000</MarketValue>
+		</statBases>
+		<costList>
+			<Steel>198</Steel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+		</costList>
+		<recipeMaker> <!-- 枪械的配方 -->
+         <researchPrerequisite>PrecisionRifling</researchPrerequisite>
+          <recipeUsers>
+           <li>TableMachining</li>
+          </recipeUsers>
+         <skillRequirements> <!-- 技能要求 -->
+           <Crafting>6</Crafting>
+         </skillRequirements>
+          <displayPriority>70</displayPriority> <!-- 显示优先级? -->
+        </recipeMaker>
+		<thingSetMakerTags>
+			<li>RewardStandardQualitySuper</li>
+		</thingSetMakerTags>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Strinova_Submachine_Gun_Standard_Ammunition</defaultProjectile>
+				<warmupTime>0.15</warmupTime>
+				<ticksBetweenBurstShots>1</ticksBetweenBurstShots>
+				<range>50</range>
+				<burstShotCount>8</burstShotCount>
+				<soundCast>Shot_AssaultRifle</soundCast>
+				<soundCastTail>GunTail_Medium</soundCastTail>
+				<muzzleFlashScale>6</muzzleFlashScale>
+				<targetParams>
+					<canTargetLocations>true</canTargetLocations>
+				</targetParams>
+			</li>
+		</verbs>
+	</ThingDef>
+
+  <ThingDef ParentName="BaseHumanMakeableGun">
+     <defName>Strinova_Solo</defName>
+     <label>独舞</label>
+     <description>芙拉薇娅的主武器。体积轻巧，可快速连续发射，拥有较同类枪械更出色的精确度，配备1.25倍瞄准镜。</description>
+		<relicChance>0</relicChance>
+		<graphicData>
+			<texPath>Strinova_Items/Strinova_Weapon/Solo</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.0</drawSize>
+		</graphicData>
+		<equippedAngleOffset>45</equippedAngleOffset>   <!-- 负值逆时针旋转 -->
+		<soundInteract>Interact_Rifle</soundInteract>
+		<generateCommonality>0</generateCommonality>
+		<weaponClasses>
+			<li>RangedLight</li>
+		</weaponClasses>
+		<statBases>
+			<WorkToMake>7300</WorkToMake>
+			<Mass>2.4</Mass>
+			<AccuracyTouch>0.8</AccuracyTouch>
+			<AccuracyShort>0.73</AccuracyShort>
+			<AccuracyMedium>0.94</AccuracyMedium>
+			<AccuracyLong>0.52</AccuracyLong>
+			<RangedWeapon_Cooldown>1</RangedWeapon_Cooldown>
+			<Flammability>0</Flammability>
+			<MarketValue>2000</MarketValue>
+		</statBases>
+		<costList>
+			<Steel>198</Steel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+		</costList>
+		<recipeMaker> <!-- 枪械的配方 -->
+         <researchPrerequisite>PrecisionRifling</researchPrerequisite>
+          <recipeUsers>
+           <li>TableMachining</li>
+          </recipeUsers>
+         <skillRequirements> <!-- 技能要求 -->
+           <Crafting>6</Crafting>
+         </skillRequirements>
+          <displayPriority>70</displayPriority> <!-- 显示优先级? -->
+        </recipeMaker>
+		<thingSetMakerTags>
+			<li>RewardStandardQualitySuper</li>
+		</thingSetMakerTags>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Strinova_Submachine_Gun_Standard_Ammunition</defaultProjectile>
+				<warmupTime>0.15</warmupTime>
+				<ticksBetweenBurstShots>1</ticksBetweenBurstShots>
+				<range>50</range>
+				<burstShotCount>8</burstShotCount>
+				<soundCast>Shot_AssaultRifle</soundCast>
+				<soundCastTail>GunTail_Medium</soundCastTail>
+				<muzzleFlashScale>6</muzzleFlashScale>
+				<targetParams>
+					<canTargetLocations>true</canTargetLocations>
+				</targetParams>
+			</li>
+		</verbs>
+	</ThingDef>
+
+  <ThingDef ParentName="BaseHumanMakeableGun">
+     <defName>Strinova_Night_Scythe</defName>
+     <label>夜镰</label>
+     <description>玛拉随身携带的武器。枪尾的一抹暗红犹如死神的镰刀，是死亡即将到来的先兆。</description>
+		<relicChance>0</relicChance>
+		<graphicData>
+			<texPath>Strinova_Items/Strinova_Weapon/Night_Scythe</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.0</drawSize>
+		</graphicData>
+		<equippedAngleOffset>45</equippedAngleOffset>   <!-- 负值逆时针旋转 -->
+		<soundInteract>Interact_Rifle</soundInteract>
+		<generateCommonality>0</generateCommonality>
+		<weaponClasses>
+			<li>RangedLight</li>
+		</weaponClasses>
+		<statBases>
+			<WorkToMake>7300</WorkToMake>
+			<Mass>2.4</Mass>
+			<AccuracyTouch>0.8</AccuracyTouch>
+			<AccuracyShort>0.73</AccuracyShort>
+			<AccuracyMedium>0.94</AccuracyMedium>
+			<AccuracyLong>0.52</AccuracyLong>
+			<RangedWeapon_Cooldown>1</RangedWeapon_Cooldown>
+			<Flammability>0</Flammability>
+			<MarketValue>2000</MarketValue>
+		</statBases>
+		<costList>
+			<Steel>198</Steel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+		</costList>
+		<recipeMaker> <!-- 枪械的配方 -->
+         <researchPrerequisite>PrecisionRifling</researchPrerequisite>
+          <recipeUsers>
+           <li>TableMachining</li>
+          </recipeUsers>
+         <skillRequirements> <!-- 技能要求 -->
+           <Crafting>6</Crafting>
+         </skillRequirements>
+          <displayPriority>70</displayPriority> <!-- 显示优先级? -->
+        </recipeMaker>
+		<thingSetMakerTags>
+			<li>RewardStandardQualitySuper</li>
+		</thingSetMakerTags>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Strinova_Submachine_Gun_Standard_Ammunition</defaultProjectile>
+				<warmupTime>0.15</warmupTime>
+				<ticksBetweenBurstShots>1</ticksBetweenBurstShots>
+				<range>50</range>
+				<burstShotCount>8</burstShotCount>
+				<soundCast>Shot_AssaultRifle</soundCast>
+				<soundCastTail>GunTail_Medium</soundCastTail>
+				<muzzleFlashScale>6</muzzleFlashScale>
+				<targetParams>
+					<canTargetLocations>true</canTargetLocations>
+				</targetParams>
+			</li>
+		</verbs>
+	</ThingDef>
+
+  <!-- 定义该步枪使用的子弹实体 -->
+  <!-- 继承自 "BaseBullet" 基础子弹模板 -->
+  <ThingDef ParentName="BaseBullet">
+    <defName>Strinova_Machine_Gun_General_Ammunition</defName> <!-- 子弹内部唯一标识 -->
+    <label>卡丘机枪通用子弹</label> <!-- 子弹显示名称 -->
+    <!-- 子弹贴图配置 -->
+    <graphicData>
+      <texPath>Strinova_Items/Strinova_Projectile/Bullet_Medium_1</texPath> <!-- 突击步枪子弹贴图路径 -->
+      <graphicClass>Graphic_Single</graphicClass> <!-- 单张静态贴图 -->
+      <drawSize>0.35</drawSize>
+    </graphicData>
+    <!-- 子弹飞行/伤害属性 -->
+    <projectile>
+      <damageDef>Bullet</damageDef> <!-- 伤害类型：子弹伤害 -->
+      <damageAmountBase>38</damageAmountBase> <!-- 基础伤害38点 -->
+      <speed>45</speed> <!-- 子弹飞行速度45格/秒 -->
+      <stoppingPower>0.5</stoppingPower> <!-- 抑制（击退效果）0.3 -->
+      <armorPenetrationBase>0.81</armorPenetrationBase> <!-- 基础穿甲率81% -->
+      <shadowSize>0.4</shadowSize> <!-- 子弹阴影大小 -->
+      <arcHeightFactor>0</arcHeightFactor> <!-- 弹道弧度（0为直线） -->
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseHumanMakeableGun">
+     <defName>Strinova_Calibrator</defName>
+     <label>校准仪</label>
+     <description>蕾欧娜的主武器，在古地球的某次人类大规模战争时期，曾是经典的收割型武器，其威力与性能可见一斑。配备1.25倍瞄准镜。</description>
+		<relicChance>0</relicChance>
+		<graphicData>
+			<texPath>Strinova_Items/Strinova_Weapon/Calibrator</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.0</drawSize>
+		</graphicData>
+		<equippedAngleOffset>45</equippedAngleOffset>   <!-- 负值逆时针旋转 -->
+		<soundInteract>Interact_Rifle</soundInteract>
+		<generateCommonality>0</generateCommonality>
+		<weaponClasses>
+			<li>RangedHeavy</li>
+		</weaponClasses>
+		<statBases>
+			<WorkToMake>9000</WorkToMake>
+			<Mass>4.0</Mass>
+			<AccuracyTouch>0.8</AccuracyTouch>
+			<AccuracyShort>0.76</AccuracyShort>
+			<AccuracyMedium>0.94</AccuracyMedium>
+			<AccuracyLong>0.68</AccuracyLong>
+			<RangedWeapon_Cooldown>1</RangedWeapon_Cooldown>
+			<Flammability>0</Flammability>
+			<MarketValue>3600</MarketValue>
+		</statBases>
+		<costList>
+			<Steel>260</Steel>
+      <ComponentIndustrial>5</ComponentIndustrial>
+		</costList>
+		<recipeMaker> <!-- 枪械的配方 -->
+         <researchPrerequisite>MultibarrelWeapons</researchPrerequisite>
+          <recipeUsers>
+           <li>TableMachining</li>
+          </recipeUsers>
+         <skillRequirements> <!-- 技能要求 -->
+           <Crafting>6</Crafting>
+         </skillRequirements>
+          <displayPriority>70</displayPriority> <!-- 显示优先级? -->
+        </recipeMaker>
+		<thingSetMakerTags>
+			<li>RewardStandardQualitySuper</li>
+		</thingSetMakerTags>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Strinova_Machine_Gun_General_Ammunition</defaultProjectile>
+				<warmupTime>0.2</warmupTime>
+				<ticksBetweenBurstShots>5</ticksBetweenBurstShots>
+				<range>50</range>
+				<burstShotCount>15</burstShotCount>
+				<soundCast>Shot_AssaultRifle</soundCast>
+				<soundCastTail>GunTail_Heavy</soundCastTail>
+				<muzzleFlashScale>6</muzzleFlashScale>
+				<targetParams>
+					<canTargetLocations>true</canTargetLocations>
+				</targetParams>
+			</li>
+		</verbs>
+	</ThingDef>
+
+  <ThingDef ParentName="BaseHumanMakeableGun">
+     <defName>Strinova_Champion</defName>
+     <label>卫冕</label>
+     <description>奥黛丽的主武器，在古地球的某次人类大规模战争时期，曾是经典的收割型武器，其威力与性能可见一斑。配备1.25倍瞄准镜。</description>
+		<relicChance>0</relicChance>
+		<graphicData>
+			<texPath>Strinova_Items/Strinova_Weapon/Champion</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.0</drawSize>
+		</graphicData>
+		<equippedAngleOffset>45</equippedAngleOffset>   <!-- 负值逆时针旋转 -->
+		<soundInteract>Interact_Rifle</soundInteract>
+		<generateCommonality>0</generateCommonality>
+		<weaponClasses>
+			<li>RangedHeavy</li>
+		</weaponClasses>
+		<statBases>
+			<WorkToMake>9000</WorkToMake>
+			<Mass>4.0</Mass>
+			<AccuracyTouch>0.8</AccuracyTouch>
+			<AccuracyShort>0.76</AccuracyShort>
+			<AccuracyMedium>0.94</AccuracyMedium>
+			<AccuracyLong>0.68</AccuracyLong>
+			<RangedWeapon_Cooldown>1</RangedWeapon_Cooldown>
+			<Flammability>0</Flammability>
+			<MarketValue>3600</MarketValue>
+		</statBases>
+		<costList>
+			<Steel>260</Steel>
+      <ComponentIndustrial>5</ComponentIndustrial>
+		</costList>
+		<recipeMaker> <!-- 枪械的配方 -->
+         <researchPrerequisite>MultibarrelWeapons</researchPrerequisite>
+          <recipeUsers>
+           <li>TableMachining</li>
+          </recipeUsers>
+         <skillRequirements> <!-- 技能要求 -->
+           <Crafting>6</Crafting>
+         </skillRequirements>
+          <displayPriority>70</displayPriority> <!-- 显示优先级? -->
+        </recipeMaker>
+		<thingSetMakerTags>
+			<li>RewardStandardQualitySuper</li>
+		</thingSetMakerTags>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Strinova_Machine_Gun_General_Ammunition</defaultProjectile>
+				<warmupTime>0.2</warmupTime>
+				<ticksBetweenBurstShots>5</ticksBetweenBurstShots>
+				<range>50</range>
+				<burstShotCount>15</burstShotCount>
+				<soundCast>Shot_AssaultRifle</soundCast>
+				<soundCastTail>GunTail_Heavy</soundCastTail>
+				<muzzleFlashScale>6</muzzleFlashScale>
+				<targetParams>
+					<canTargetLocations>true</canTargetLocations>
+				</targetParams>
+			</li>
+		</verbs>
+	</ThingDef>
+
+  <ThingDef ParentName="BaseHumanMakeableGun">
+     <defName>Strinova_Maple_Resonance</defName>
+     <label>枫鸣</label>
+     <description>千代的主武器。因使用全威力步枪弹，而具有较强的战斗性，能适应全天候作战。配备1.5倍瞄准镜，可在半自动射击模式与全自动射击模式之间切换。</description>
+		<relicChance>0</relicChance>
+		<graphicData>
+			<texPath>Strinova_Items/Strinova_Weapon/Maple_Resonance</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.2</drawSize>
+		</graphicData>
+		<equippedAngleOffset>45</equippedAngleOffset>   <!-- 负值逆时针旋转 -->
+		<soundInteract>Interact_Rifle</soundInteract>
+		<generateCommonality>0</generateCommonality>
+		<weaponClasses>
+			<li>RangedLight</li>
+		</weaponClasses>
+		<statBases>
+			<WorkToMake>8320</WorkToMake>
+			<Mass>3</Mass>
+			<AccuracyTouch>0.78</AccuracyTouch>
+			<AccuracyShort>0.80</AccuracyShort>
+			<AccuracyMedium>0.92</AccuracyMedium>
+			<AccuracyLong>0.83</AccuracyLong>
+			<RangedWeapon_Cooldown>1</RangedWeapon_Cooldown>
+			<Flammability>0</Flammability>
+			<MarketValue>3100</MarketValue>
+		</statBases>
+		<costList>
+			<Steel>245</Steel>
+      <ComponentIndustrial>4</ComponentIndustrial>
+		</costList>
+		<recipeMaker> <!-- 枪械的配方 -->
+         <researchPrerequisite>PrecisionRifling</researchPrerequisite>
+          <recipeUsers>
+           <li>TableMachining</li>
+          </recipeUsers>
+         <skillRequirements> <!-- 技能要求 -->
+           <Crafting>6</Crafting>
+         </skillRequirements>
+          <displayPriority>70</displayPriority> <!-- 显示优先级? -->
+        </recipeMaker>
+		<thingSetMakerTags>
+			<li>RewardStandardQualitySuper</li>
+		</thingSetMakerTags>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Strinova_Rifle_Universal_Ammunition</defaultProjectile>
+				<warmupTime>0.2</warmupTime>
+				<ticksBetweenBurstShots>2</ticksBetweenBurstShots>
+				<range>50</range>
+				<burstShotCount>10</burstShotCount>
+				<soundCast>Shot_AssaultRifle</soundCast>
+				<soundCastTail>GunTail_Medium</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+				<targetParams>
+					<canTargetLocations>true</canTargetLocations>
+				</targetParams>
+			</li>
+		</verbs>
+	</ThingDef>
+
+  <ThingDef ParentName="BaseHumanMakeableGun">
+     <defName>Strinova_Judge</defName>
+     <label>审判官</label>
+     <description>信的主武器。因使用全威力步枪弹，而具有较强的战斗性，能适应全天候作战。配备1.5倍瞄准镜，可在半自动射击模式与全自动射击模式之间切换。</description>
+		<relicChance>0</relicChance>
+		<graphicData>
+			<texPath>Strinova_Items/Strinova_Weapon/Judge</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.2</drawSize>
+		</graphicData>
+		<equippedAngleOffset>45</equippedAngleOffset>   <!-- 负值逆时针旋转 -->
+		<soundInteract>Interact_Rifle</soundInteract>
+		<generateCommonality>0</generateCommonality>
+		<weaponClasses>
+			<li>RangedLight</li>
+		</weaponClasses>
+		<statBases>
+			<WorkToMake>8320</WorkToMake>
+			<Mass>3</Mass>
+			<AccuracyTouch>0.78</AccuracyTouch>
+			<AccuracyShort>0.80</AccuracyShort>
+			<AccuracyMedium>0.92</AccuracyMedium>
+			<AccuracyLong>0.83</AccuracyLong>
+			<RangedWeapon_Cooldown>1</RangedWeapon_Cooldown>
+			<Flammability>0</Flammability>
+			<MarketValue>3100</MarketValue>
+		</statBases>
+		<costList>
+			<Steel>245</Steel>
+      <ComponentIndustrial>4</ComponentIndustrial>
+		</costList>
+		<recipeMaker> <!-- 枪械的配方 -->
+         <researchPrerequisite>PrecisionRifling</researchPrerequisite>
+          <recipeUsers>
+           <li>TableMachining</li>
+          </recipeUsers>
+         <skillRequirements> <!-- 技能要求 -->
+           <Crafting>6</Crafting>
+         </skillRequirements>
+          <displayPriority>70</displayPriority> <!-- 显示优先级? -->
+        </recipeMaker>
+		<thingSetMakerTags>
+			<li>RewardStandardQualitySuper</li>
+		</thingSetMakerTags>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Strinova_Rifle_Universal_Ammunition</defaultProjectile>
+				<warmupTime>0.2</warmupTime>
+				<ticksBetweenBurstShots>2</ticksBetweenBurstShots>
+				<range>50</range>
+				<burstShotCount>10</burstShotCount>
+				<soundCast>Shot_AssaultRifle</soundCast>
+				<soundCastTail>GunTail_Medium</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+				<targetParams>
+					<canTargetLocations>true</canTargetLocations>
+				</targetParams>
+			</li>
+		</verbs>
+	</ThingDef>
+
+  <ThingDef ParentName="BaseHumanMakeableGun">
+     <defName>Strinova_Dawn</defName>
+     <label>破晓</label>
+     <description>令的主武器。操控性良好、稳定耐用的射手步枪。亚诺斯在保留枪型基本特质的基础上，使用特制的偏重心彩溶弹药对远距离射击精度进行了一定的补正，配备2.5倍瞄准镜。</description>
+		<relicChance>0</relicChance>
+		<graphicData>
+			<texPath>Strinova_Items/Strinova_Weapon/Dawn</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.2</drawSize>
+		</graphicData>
+		<equippedAngleOffset>45</equippedAngleOffset>   <!-- 负值逆时针旋转 -->
+		<soundInteract>Interact_Rifle</soundInteract>
+		<generateCommonality>0</generateCommonality>
+		<weaponClasses>
+			<li>RangedLight</li>
+		</weaponClasses>
+		<statBases>
+			<WorkToMake>8320</WorkToMake>
+			<Mass>3</Mass>
+			<AccuracyTouch>0.78</AccuracyTouch>
+			<AccuracyShort>0.80</AccuracyShort>
+			<AccuracyMedium>0.92</AccuracyMedium>
+			<AccuracyLong>0.83</AccuracyLong>
+			<RangedWeapon_Cooldown>1</RangedWeapon_Cooldown>
+			<Flammability>0</Flammability>
+			<MarketValue>3100</MarketValue>
+		</statBases>
+		<costList>
+			<Steel>245</Steel>
+      <ComponentIndustrial>4</ComponentIndustrial>
+		</costList>
+		<recipeMaker> <!-- 枪械的配方 -->
+         <researchPrerequisite>PrecisionRifling</researchPrerequisite>
+          <recipeUsers>
+           <li>TableMachining</li>
+          </recipeUsers>
+         <skillRequirements> <!-- 技能要求 -->
+           <Crafting>6</Crafting>
+         </skillRequirements>
+          <displayPriority>70</displayPriority> <!-- 显示优先级? -->
+        </recipeMaker>
+		<thingSetMakerTags>
+			<li>RewardStandardQualitySuper</li>
+		</thingSetMakerTags>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Strinova_Rifle_Universal_Ammunition</defaultProjectile>
+				<warmupTime>0.4</warmupTime>
+				<ticksBetweenBurstShots>2</ticksBetweenBurstShots>
+				<range>50</range>
+				<burstShotCount>5</burstShotCount>
+				<soundCast>Shot_AssaultRifle</soundCast>
+				<soundCastTail>GunTail_Heavy</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+				<targetParams>
+					<canTargetLocations>true</canTargetLocations>
+				</targetParams>
+			</li>
+		</verbs>
+	</ThingDef>
+
+  <ThingDef ParentName="BaseHumanMakeableGun">
+     <defName>Strinova_Chroma</defName>
+     <label>彩绘</label>
+     <description>玛德蕾娜的主武器。完美解决威力与射程的两难问题，可有效压制中远距离的敌方单位。配备1.5倍瞄准镜。</description>
+		<relicChance>0</relicChance>
+		<graphicData>
+			<texPath>Strinova_Items/Strinova_Weapon/Chroma</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.2</drawSize>
+		</graphicData>
+		<equippedAngleOffset>45</equippedAngleOffset>   <!-- 负值逆时针旋转 -->
+		<soundInteract>Interact_Rifle</soundInteract>
+		<generateCommonality>0</generateCommonality>
+		<weaponClasses>
+			<li>RangedLight</li>
+		</weaponClasses>
+		<statBases>
+			<WorkToMake>8320</WorkToMake>
+			<Mass>3</Mass>
+			<AccuracyTouch>0.78</AccuracyTouch>
+			<AccuracyShort>0.80</AccuracyShort>
+			<AccuracyMedium>0.92</AccuracyMedium>
+			<AccuracyLong>0.86</AccuracyLong>
+			<RangedWeapon_Cooldown>1</RangedWeapon_Cooldown>
+			<Flammability>0</Flammability>
+			<MarketValue>3100</MarketValue>
+		</statBases>
+		<costList>
+			<Steel>245</Steel>
+      <ComponentIndustrial>4</ComponentIndustrial>
+		</costList>
+		<recipeMaker> <!-- 枪械的配方 -->
+         <researchPrerequisite>PrecisionRifling</researchPrerequisite>
+          <recipeUsers>
+           <li>TableMachining</li>
+          </recipeUsers>
+         <skillRequirements> <!-- 技能要求 -->
+           <Crafting>6</Crafting>
+         </skillRequirements>
+          <displayPriority>70</displayPriority> <!-- 显示优先级? -->
+        </recipeMaker>
+		<thingSetMakerTags>
+			<li>RewardStandardQualitySuper</li>
+		</thingSetMakerTags>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Strinova_Rifle_Universal_Ammunition</defaultProjectile>
+				<warmupTime>0.2</warmupTime>
+				<ticksBetweenBurstShots>2</ticksBetweenBurstShots>
+				<range>50</range>
+				<burstShotCount>8</burstShotCount>
+				<soundCast>Shot_AssaultRifle</soundCast>
+				<soundCastTail>GunTail_Heavy</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+				<targetParams>
+					<canTargetLocations>true</canTargetLocations>
+				</targetParams>
+			</li>
+		</verbs>
+	</ThingDef>
+
+  <!-- 定义该步枪使用的子弹实体 -->
+  <!-- 继承自 "BaseBullet" 基础子弹模板 -->
+  <ThingDef ParentName="BaseBullet">
+    <defName>Strinova_Kokona_Steel_Bullet</defName> <!-- 子弹内部唯一标识 -->
+    <label>心夏钢板子弹</label> <!-- 子弹显示名称 -->
+    <!-- 子弹贴图配置 -->
+    <graphicData>
+      <texPath>Strinova_Items/Strinova_Projectile/Bullet_Long_1</texPath> <!-- 突击步枪子弹贴图路径 -->
+      <graphicClass>Graphic_Single</graphicClass> <!-- 单张静态贴图 -->
+      <drawSize>0.35</drawSize>
+    </graphicData>
+    <!-- 子弹飞行/伤害属性 -->
+    <projectile>
+      <damageDef>Bullet</damageDef> <!-- 伤害类型：子弹伤害 -->
+      <damageAmountBase>180</damageAmountBase> <!-- 基础伤害180点 -->
+      <speed>75</speed> <!-- 子弹飞行速度75格/秒 -->
+      <stoppingPower>0.7</stoppingPower> <!-- 抑制（击退效果）0.7 -->
+      <armorPenetrationBase>0.87</armorPenetrationBase> <!-- 基础穿甲率87% -->
+      <shadowSize>0.4</shadowSize> <!-- 子弹阴影大小 -->
+      <arcHeightFactor>0</arcHeightFactor> <!-- 弹道弧度（0为直线） -->
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseHumanMakeableGun">
+     <defName>Strinova_Quasar</defName>
+     <label>空境</label>
+     <description>心夏的主武器。一款将精度、威力与隐蔽性完美结合的枪械，曾是古地球狙击步枪中射程最远的的型号，配备2.5倍瞄准镜。</description>
+		<relicChance>0</relicChance>
+		<graphicData>
+			<texPath>Strinova_Items/Strinova_Weapon/Quasar</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.2</drawSize>
+		</graphicData>
+		<equippedAngleOffset>45</equippedAngleOffset>   <!-- 负值逆时针旋转 -->
+		<soundInteract>Interact_Rifle</soundInteract>
+		<generateCommonality>0</generateCommonality>
+		<weaponClasses>
+			<li>RangedHeavy</li>
+		</weaponClasses>
+		<statBases>
+			<WorkToMake>32000</WorkToMake>
+			<Mass>4.8</Mass>
+			<AccuracyTouch>0.60</AccuracyTouch>
+			<AccuracyShort>0.74</AccuracyShort>
+			<AccuracyMedium>0.86</AccuracyMedium>
+			<AccuracyLong>0.96</AccuracyLong>
+			<RangedWeapon_Cooldown>1</RangedWeapon_Cooldown>
+			<Flammability>0</Flammability>
+			<MarketValue>10000</MarketValue>
+		</statBases>
+		<costList>
+		 <Steel>400</Steel>
+         <ComponentIndustrial>10</ComponentIndustrial>
+		 <ComponentSpacer>2</ComponentSpacer>
+		</costList>
+		<recipeMaker> <!-- 枪械的配方 -->
+         <researchPrerequisite>PrecisionRifling</researchPrerequisite>
+          <recipeUsers>
+           <li>TableMachining</li>
+          </recipeUsers>
+         <skillRequirements> <!-- 技能要求 -->
+           <Crafting>8</Crafting>
+         </skillRequirements>
+          <displayPriority>70</displayPriority> <!-- 显示优先级? -->
+        </recipeMaker>
+		<thingSetMakerTags>
+			<li>RewardStandardQualitySuper</li>
+		</thingSetMakerTags>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Strinova_Kokona_Steel_Bullet</defaultProjectile>
+				<warmupTime>0.9</warmupTime>
+				<ticksBetweenBurstShots>6</ticksBetweenBurstShots>
+				<range>75</range>
+				<burstShotCount>1</burstShotCount>
+				<soundCast>Shot_AssaultRifle</soundCast>
+				<soundCastTail>GunTail_Heavy</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+				<targetParams>
+					<canTargetLocations>true</canTargetLocations>
+				</targetParams>
+			</li>
+		</verbs>
+	</ThingDef>
+
+  <!-- 定义该步枪使用的子弹实体 -->
+  <!-- 继承自 "BaseBullet" 基础子弹模板 -->
+  <ThingDef ParentName="BaseBullet">
+    <defName>Strinova_Kanami_Exclusive_Bullet</defName> <!-- 子弹内部唯一标识 -->
+    <label>香奈美的逻辑工作室制高速粉碎弹</label> <!-- 子弹显示名称 -->
+    <!-- 子弹贴图配置 -->
+    <graphicData>
+      <texPath>Strinova_Items/Strinova_Projectile/Bullet_Long_2</texPath> <!-- 突击步枪子弹贴图路径 -->
+      <graphicClass>Graphic_Single</graphicClass> <!-- 单张静态贴图 -->
+      <drawSize>0.35</drawSize>
+    </graphicData>
+    <!-- 子弹飞行/伤害属性 -->
+    <projectile>
+      <damageDef>Bullet</damageDef> <!-- 伤害类型：子弹伤害 -->
+      <damageAmountBase>400</damageAmountBase> <!-- 基础伤害400点 -->
+      <speed>75</speed> <!-- 子弹飞行速度75格/秒 -->
+      <stoppingPower>0.95</stoppingPower> <!-- 抑制（击退效果）0.95 -->
+      <armorPenetrationBase>1</armorPenetrationBase> <!-- 基础穿甲率100% -->
+      <shadowSize>0.4</shadowSize> <!-- 子弹阴影大小 -->
+      <arcHeightFactor>0</arcHeightFactor> <!-- 弹道弧度（0为直线） -->
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseHumanMakeableGun">
+     <defName>Strinova_Finale</defName>
+     <label>谢幕曲</label>
+     <description>香奈美的主武器。采用枪管短后坐原理，威力惊人。配备2.5倍瞄准镜，精准优雅，完美谢幕。</description>
+		<relicChance>0</relicChance>
+		<graphicData>
+			<texPath>Strinova_Items/Strinova_Weapon/Finale</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.2</drawSize>
+		</graphicData>
+		<equippedAngleOffset>45</equippedAngleOffset>   <!-- 负值逆时针旋转 -->
+		<soundInteract>Interact_Rifle</soundInteract>
+		<generateCommonality>0</generateCommonality>
+		<weaponClasses>
+			<li>RangedHeavy</li>
+		</weaponClasses>
+		<statBases>
+			<WorkToMake>42000</WorkToMake>
+			<Mass>5.2</Mass>
+			<AccuracyTouch>0.70</AccuracyTouch>
+			<AccuracyShort>0.84</AccuracyShort>
+			<AccuracyMedium>0.90</AccuracyMedium>
+			<AccuracyLong>0.96</AccuracyLong>
+			<RangedWeapon_Cooldown>1</RangedWeapon_Cooldown>
+			<Flammability>0</Flammability>
+			<MarketValue>12500</MarketValue>
+		</statBases>
+		<costList>
+		 <Steel>800</Steel>
+         <ComponentIndustrial>12</ComponentIndustrial>
+		 <ComponentSpacer>5</ComponentSpacer>
+		</costList>
+		<recipeMaker> <!-- 枪械的配方 -->
+         <researchPrerequisite>PrecisionRifling</researchPrerequisite>
+          <recipeUsers>
+           <li>TableMachining</li>
+          </recipeUsers>
+         <skillRequirements> <!-- 技能要求 -->
+           <Crafting>8</Crafting>
+         </skillRequirements>
+          <displayPriority>70</displayPriority> <!-- 显示优先级? -->
+        </recipeMaker>
+		<thingSetMakerTags>
+			<li>RewardStandardQualitySuper</li>
+		</thingSetMakerTags>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Strinova_Kanami_Exclusive_Bullet</defaultProjectile>
+				<warmupTime>1.2</warmupTime>
+				<ticksBetweenBurstShots>8</ticksBetweenBurstShots>
+				<range>80</range>
+				<burstShotCount>1</burstShotCount>
+				<soundCast>Shot_AssaultRifle</soundCast>
+				<soundCastTail>GunTail_Heavy</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+				<targetParams>
+					<canTargetLocations>true</canTargetLocations>
+				</targetParams>
+			</li>
+		</verbs>
+	</ThingDef>
+
+  <ThingDef ParentName="BaseHumanMakeableGun">
+    <defName>Strinova_Stinger</defName>
+    <label>小蜜蜂</label>
+    <description>以超高射速和便携性被广泛熟知，是某些特殊兵种的首选。</description>
+    <relicChance>0</relicChance> <!-- 作为遗物出现的概率 -->
+    <graphicData>
+      <texPath>Strinova_Items/Strinova_Weapon/Stinger</texPath>
+      <graphicClass>Graphic_Single</graphicClass> <!-- 图形类 -->
+      <drawSize>0.6</drawSize> <!-- 图形大小 -->
+
+    </graphicData>
+    <equippedAngleOffset>45</equippedAngleOffset> 
+    <soundInteract>Interact_Rifle</soundInteract> <!-- 枪械交互时播放的声音 -->
+    <generateCommonality>0.5</generateCommonality> <!-- 生成这种枪械的普遍程度 -->
+    <weaponClasses>
+      <li>RangedHeavy</li>
+    </weaponClasses>
+    <statBases> <!-- 基本属性 -->
+      <WorkToMake>2000</WorkToMake> <!-- 工作量 -->
+      <Mass>1.8</Mass> <!-- 质量 -->
+      <AccuracyTouch>0.45</AccuracyTouch> <!-- 精准度 -->
+      <AccuracyShort>0.72</AccuracyShort> <!-- 短程精准 -->
+      <AccuracyMedium>0.65</AccuracyMedium> <!-- 中程精准 -->
+      <AccuracyLong>0.3</AccuracyLong> <!-- 远程精准 -->
+      <RangedWeapon_Cooldown>0.8</RangedWeapon_Cooldown> <!-- 冷却时间 -->
+      <Flammability>0</Flammability> <!-- 可燃性 -->
+      <MarketValue>450</MarketValue> <!-- 武器价值 -->
+    </statBases>
+    <costList>
+      <Steel>75</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <recipeMaker> <!-- 枪械的配方 -->
+      <researchPrerequisite>GasOperation</researchPrerequisite>
+      <recipeUsers>
+        <li>TableMachining</li>
+      </recipeUsers>
+      <skillRequirements> <!-- 技能要求 -->
+        <Crafting>1</Crafting>
+      </skillRequirements>
+      <displayPriority>70</displayPriority> <!-- 显示优先级? -->
+    </recipeMaker>
+    <thingSetMakerTags> <!-- 相关的标签 -->
+      <li>RewardStandardQualitySuper</li> <!-- 奖励物品 -->
+    </thingSetMakerTags> 
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>Bullet_HeavySMG</defaultProjectile>
+        <warmupTime>0.1</warmupTime>
+        <ticksBetweenBurstShots>3</ticksBetweenBurstShots>
+        <range>24.9</range>
+        <burstShotCount>6</burstShotCount>
+        <soundCast>Shot_AssaultRifle</soundCast>
+        <soundCastTail>GunTail_Medium</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+        <targetParams>
+          <canTargetLocations>true</canTargetLocations>
+        </targetParams>
+      </li>
+    </verbs>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseHumanMakeableGun">
+    <defName>Strinova_Athena</defName>
+    <label>雪鸮</label>
+    <description>半自动手枪，手枪中的绝对王者，曾依靠其巨大的杀伤力闻名于世，其杀伤力在卡丘世界的手枪中亦不遑多让。</description>
+    <relicChance>0</relicChance> <!-- 作为遗物出现的概率 -->
+    <graphicData>
+      <texPath>Strinova_Items/Strinova_Weapon/Athena</texPath>
+      <graphicClass>Graphic_Single</graphicClass> <!-- 图形类 -->
+      <drawSize>0.6</drawSize> <!-- 图形大小 -->
+    </graphicData>
+    <equippedAngleOffset>45</equippedAngleOffset> 
+    <soundInteract>Interact_Rifle</soundInteract> <!-- 枪械交互时播放的声音 -->
+    <generateCommonality>0.5</generateCommonality> <!-- 生成这种枪械的普遍程度 -->
+    <weaponClasses>
+      <li>RangedHeavy</li>
+    </weaponClasses>
+    <statBases> <!-- 基本属性 -->
+      <WorkToMake>800</WorkToMake> <!-- 工作量 -->
+      <Mass>1.8</Mass> <!-- 质量 -->
+      <AccuracyTouch>0.45</AccuracyTouch> <!-- 精准度 -->
+      <AccuracyShort>0.72</AccuracyShort> <!-- 短程精准 -->
+      <AccuracyMedium>0.65</AccuracyMedium> <!-- 中程精准 -->
+      <AccuracyLong>0.3</AccuracyLong> <!-- 远程精准 -->
+      <RangedWeapon_Cooldown>0.8</RangedWeapon_Cooldown> <!-- 冷却时间 -->
+      <Flammability>0</Flammability> <!-- 可燃性 -->
+      <MarketValue>450</MarketValue> <!-- 武器价值 -->
+    </statBases>
+    <costList>
+      <Steel>80</Steel>
+    </costList>
+    <recipeMaker> <!-- 枪械的配方 -->
+      <researchPrerequisite>Machining</researchPrerequisite>
+      <recipeUsers>
+        <li>TableMachining</li>
+      </recipeUsers>
+      <skillRequirements> <!-- 技能要求 -->
+        <Crafting>1</Crafting>
+      </skillRequirements>
+      <displayPriority>70</displayPriority> <!-- 显示优先级? -->
+    </recipeMaker>
+    <thingSetMakerTags> <!-- 相关的标签 -->
+      <li>RewardStandardQualitySuper</li> <!-- 奖励物品 -->
+    </thingSetMakerTags> 
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>Bullet_HeavySMG</defaultProjectile>
+        <warmupTime>0.1</warmupTime>
+        <ticksBetweenBurstShots>1</ticksBetweenBurstShots>
+        <range>24.9</range>
+        <burstShotCount>1</burstShotCount>
+        <soundCast>Shot_AssaultRifle</soundCast>
+        <soundCastTail>GunTail_Medium</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+        <targetParams>
+          <canTargetLocations>true</canTargetLocations>
+        </targetParams>
+      </li>
+    </verbs>
+  </ThingDef>
+
+  <!-- 定义该步枪使用的子弹实体 -->
+  <!-- 继承自 "BaseBullet" 基础子弹模板 -->
+  <ThingDef ParentName="BaseBullet">
+    <defName>Strinova_Shotgun_Universal_Ammunition</defName> <!-- 子弹内部唯一标识 -->
+    <label>卡丘霰弹枪通用子弹</label> <!-- 子弹显示名称 -->
+    <!-- 子弹贴图配置 -->
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Shotgun</texPath> <!-- 突击步枪子弹贴图路径,这里用的原版的 -->
+      <graphicClass>Graphic_Single</graphicClass> <!-- 单张静态贴图 -->
+      <drawSize>1.2</drawSize>
+    </graphicData>
+    <!-- 子弹飞行/伤害属性 -->
+    <projectile>
+      <damageDef>Bullet</damageDef> <!-- 伤害类型：子弹伤害 -->
+      <damageAmountBase>50</damageAmountBase> <!-- 基础伤害50点 -->
+      <speed>45</speed> <!-- 子弹飞行速度45格/秒 -->
+      <stoppingPower>5.0</stoppingPower> <!-- 抑制（击退效果）5.0 -->
+      <armorPenetrationBase>0.3</armorPenetrationBase> <!-- 基础穿甲率30% -->
+      <shadowSize>0.4</shadowSize> <!-- 子弹阴影大小 -->
+      <arcHeightFactor>0</arcHeightFactor> <!-- 弹道弧度（0为直线） -->
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseHumanMakeableGun">
+    <defName>Strinova_Freedom_Reign</defName>
+    <label>自由意志</label>
+    <description>白墨的主武器，拥有较高的可靠性与耐久性，鬼环式机械瞄具能够更准确地瞄准目标，配备1.25倍瞄准镜。</description>
+    <possessionCount>1</possessionCount>
+    <relicChance>0</relicChance> <!-- 作为遗物出现的概率 -->
+    <graphicData>
+      <texPath>Strinova_Items/Strinova_Weapon/Freedom_Reign</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>1.2</drawSize> <!-- 图形大小 -->
+    </graphicData>
+    <equippedAngleOffset>45</equippedAngleOffset> 
+    <soundInteract>Interact_Shotgun</soundInteract>
+    <weaponClasses>
+      <li>RangedLight</li>
+    </weaponClasses>
+    <statBases>
+      <WorkToMake>9000</WorkToMake>
+      <Mass>5.2</Mass>
+      <AccuracyTouch>0.80</AccuracyTouch>
+      <AccuracyShort>0.88</AccuracyShort>
+      <AccuracyMedium>0.75</AccuracyMedium>
+      <AccuracyLong>0.65</AccuracyLong>
+      <RangedWeapon_Cooldown>1.25</RangedWeapon_Cooldown>
+      <MarketValue>4500</MarketValue> <!-- 武器价值 -->
+    </statBases>
+    <costList>
+      <Steel>450</Steel>
+      <ComponentIndustrial>6</ComponentIndustrial>
+    </costList>
+    <recipeMaker> <!-- 枪械的配方 -->
+      <researchPrerequisite>PrecisionRifling</researchPrerequisite>
+      <skillRequirements> <!-- 技能要求 -->
+        <Crafting>9</Crafting>
+      </skillRequirements>
+      <displayPriority>70</displayPriority> <!-- 显示优先级? -->
+      <recipeUsers>
+        <li>TableMachining</li>
+      </recipeUsers>
+    </recipeMaker>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>Strinova_Shotgun_Universal_Ammunition</defaultProjectile>
+        <warmupTime>1.2</warmupTime>
+        <range>17.9</range>
+        <burstShotCount>1</burstShotCount>
+        <ticksBetweenBurstShots>4</ticksBetweenBurstShots>
+        <soundCast>Shot_Shotgun</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+    </verbs>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseHumanMakeableGun">
+    <defName>Strinova_Wildfire</defName>
+    <label>鸣火</label>
+    <description>艾卡的主武器，全自动战斗霰弹枪，无可匹敌。</description>
+    <possessionCount>1</possessionCount>
+    <relicChance>0</relicChance> <!-- 作为遗物出现的概率 -->
+    <graphicData>
+      <texPath>Strinova_Items/Strinova_Weapon/Wildfire</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>1.2</drawSize> <!-- 图形大小 -->
+    </graphicData>
+    <equippedAngleOffset>45</equippedAngleOffset> 
+    <soundInteract>Interact_Shotgun</soundInteract>
+    <weaponClasses>
+      <li>RangedLight</li>
+    </weaponClasses>
+    <statBases>
+      <WorkToMake>9000</WorkToMake>
+      <Mass>4.9</Mass>
+      <AccuracyTouch>0.85</AccuracyTouch>
+      <AccuracyShort>0.93</AccuracyShort>
+      <AccuracyMedium>0.80</AccuracyMedium>
+      <AccuracyLong>0.55</AccuracyLong>
+      <RangedWeapon_Cooldown>1.1</RangedWeapon_Cooldown>
+      <MarketValue>6000</MarketValue> <!-- 武器价值 -->
+    </statBases>
+    <costList>
+      <Steel>600</Steel>
+      <ComponentIndustrial>7</ComponentIndustrial>
+    </costList>
+    <recipeMaker> <!-- 枪械的配方 -->
+      <researchPrerequisite>PrecisionRifling</researchPrerequisite>
+      <skillRequirements> <!-- 技能要求 -->
+        <Crafting>9</Crafting>
+      </skillRequirements>
+      <displayPriority>70</displayPriority> <!-- 显示优先级? -->
+      <recipeUsers>
+        <li>TableMachining</li>
+      </recipeUsers>
+    </recipeMaker>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>Strinova_Shotgun_Universal_Ammunition</defaultProjectile>
+        <warmupTime>0.25</warmupTime>
+        <range>19.9</range>
+        <burstShotCount>1</burstShotCount>
+        <ticksBetweenBurstShots>2</ticksBetweenBurstShots>
+        <soundCast>Shot_Shotgun</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+    </verbs>
+  </ThingDef>
+
+  
+
+
+ </Defs>
