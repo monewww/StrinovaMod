@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <AbilityDef>
+        <defName>Celestia_NormalSkill</defName>
+        <label>Guardian Star</label>
+        <description>targets an allied character with a String Meteor, granting them temporary armor. The Meteor will then return and grant temporary armor.</description>
+        <iconPath>Strinova_Abilities/Superstring_Abilities/Celestia_NormalSkill</iconPath>
+        <displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+        <displayOrder>204</displayOrder>
+        <charges>2</charges>
+        <cooldownTicksRange>1500</cooldownTicksRange>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+            <range>18</range>
+            <warmupTime>1</warmupTime>
+            <requireLineOfSight>true</requireLineOfSight>
+            <!-- <soundCast>TODO 小绘放技能声音</soundCast> -->
+        </verbProperties>
+        <comps>
+            <li Class="Strinova.CompProperties_Celestia_NormalSkill">
+            </li>
+        </comps>
+    </AbilityDef>
+</Defs>

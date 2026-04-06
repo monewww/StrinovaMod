@@ -65,11 +65,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abilities\Celestia_Abilities\Celestia_NormalSkill\CompAbilities_Celestia_NormalSkill.cs" />
+    <Compile Include="Abilities\Celestia_Abilities\Celestia_NormalSkill\CompProperties_Celestia_NormalSkill.cs" />
+    <Compile Include="FleckUtilities\Abilitied_FleckUtilities.cs" />
     <Compile Include="Patches\HarmonyInit.cs" />
     <Compile Include="Pawn\Superstring\SuperstringShield\CompProperties_SuperstringShield.cs" />
     <Compile Include="Pawn\Superstring\SuperstringShield\Comp_SuperstringShield.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StrinovaDefof.cs" />
     <Compile Include="Thing\ThingComp\ThingComp_Superstring\SuperstringShield_Gizmo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

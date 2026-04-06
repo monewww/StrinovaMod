@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <ThingDef>
+        <defName>Celestia_NormalSkill_Orb</defName>
+        <label>celestia orb</label>
+        <thingClass>Strinova.Celestia_NormalSkill_Orb</thingClass>
+
+        <!-- 基础分类 -->
+        <category>Ethereal</category>
+        <selectable>false</selectable>
+        <tickerType>Normal</tickerType>
+
+        <altitudeLayer>Projectile</altitudeLayer>
+
+        <!-- 贴图 -->
+        <graphicData>
+            <texPath>Strinova_Abilities/Superstring_Abilities/Celestia_NormalSkill_fleck1</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <shaderType>Transparent</shaderType>
+            <drawSize>(2,2)</drawSize>
+        </graphicData>
+
+        <!-- 不参与游戏逻辑 -->
+        <useHitPoints>false</useHitPoints>
+        <rotatable>false</rotatable>
+        <neverMultiSelect>true</neverMultiSelect>
+
+        <!-- 防止被选中/右键 -->
+        <thingCategories />
+
+    </ThingDef>
+</Defs>

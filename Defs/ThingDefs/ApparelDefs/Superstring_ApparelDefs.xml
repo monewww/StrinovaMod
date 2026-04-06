@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
-    <!-- TODO 写护盾 -->
-    <!-- <StatCategoryDef>
-        <defName>SuperstringShieldApparel</defName>
-        <label>loti qi Shield apparel</label>
-        <displayOrder>41</displayOrder>
-    </StatCategoryDef> -->
     <!--////衣服-->
     <ThingDef Name="Superstring_ApparelBase" Abstract="True">
         <thingClass>Apparel</thingClass>
