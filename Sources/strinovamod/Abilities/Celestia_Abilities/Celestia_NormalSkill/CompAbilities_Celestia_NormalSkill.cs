@@ -14,12 +14,6 @@ namespace Strinova
         public new CompProperties_Celestia_NormalSkill Props => (CompProperties_Celestia_NormalSkill)this.props;
         public Pawn GetPawn => this.parent.pawn;
 
-        public override void Initialize(Ability ability)
-        {
-            base.Initialize(ability);
-            ability.maxCharges = 2;
-            ability.charges = ability.maxCharges;
-        }
 
         private static void DoCelestia_NormalSkill_Fleck(Pawn caster, Pawn target)
         {
@@ -62,6 +56,7 @@ namespace Strinova
 
         private bool returning = false;
         private float speed = 0.1f;
+        private float leftSpeed = 0.08f;
 
         public bool awaken_1 = true;
         public bool awaken_2 = true;
@@ -74,7 +69,7 @@ namespace Strinova
             base.SpawnSetup(map, respawningAfterLoad);
             if (caster != null)
             {
-                exactPos = caster.DrawPos;   // ✅ 正确起点
+                exactPos = caster.DrawPos;   
             }
             else
             {
@@ -130,10 +125,28 @@ namespace Strinova
             }
 
             Vector3 dest = returning ? caster.DrawPos : target.DrawPos;
+            FleckCreationData data = FleckMaker.GetDataStatic(
+                exactPos,
+                Map,
+                StrinovaFelckDefof.Celestia_NormalSkill_Tail // 可以换成别的
+            );
 
-            // --- 平滑移动 ---
+            data.scale = 0.3f;
+            data.velocitySpeed = 0f;
+            Map.flecks.CreateFleck(data);
+
+            // --- 前进 ---
             Vector3 dir = (dest - exactPos).normalized;
-            exactPos += dir * speed;
+
+            exactPos += dir * speed + dir.RotatedBy(270) * leftSpeed;
+            if (leftSpeed > 0)
+            {
+                leftSpeed -= 0.002f; // 每帧递减，直到为0
+            }
+            else
+            {
+                leftSpeed = 0;
+            }
 
             // 同步逻辑位置（必须）
             Position = exactPos.ToIntVec3();
@@ -150,6 +163,7 @@ namespace Strinova
                     }
 
                     returning = true;
+                    leftSpeed = 0.08f;
                 }
                 else
                 {

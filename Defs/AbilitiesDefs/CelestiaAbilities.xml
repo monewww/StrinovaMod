@@ -21,4 +21,25 @@
             </li>
         </comps>
     </AbilityDef>
+
+    <AbilityDef>
+        <defName>Celestia_SuperSkill</defName>
+        <label>galaxy gate</label>
+        <description>Choose a teammate to provide temporary armor for both yourself and that teammate, and begin charging. Once charging is complete, you will teleport to that teammate.</description>
+        <iconPath>Strinova_Abilities/Superstring_Abilities/Celestia_SuperSkill</iconPath>
+        <displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+        <displayOrder>203</displayOrder>
+        <cooldownTicksRange>1500</cooldownTicksRange>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+            <range>180</range>
+            <warmupTime>0.2</warmupTime>
+            <requireLineOfSight>false</requireLineOfSight>
+            <!-- <soundCast>TODO 小绘放技能声音</soundCast> -->
+        </verbProperties>
+        <comps>
+            <li Class="Strinova.CompProperties_Celestia_SuperSkill">
+            </li>
+        </comps>
+    </AbilityDef>
 </Defs>

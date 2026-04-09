@@ -65,6 +65,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abilities\Celestia_Abilities\Celestia_SuperSkill\CompAbilities_Celestia_SuperSkill.cs" />
+    <Compile Include="Abilities\Celestia_Abilities\Celestia_SuperSkill\CompProperties_Celestia_SuperSkill.cs" />
     <Compile Include="Abilities\Celestia_Abilities\Celestia_NormalSkill\CompAbilities_Celestia_NormalSkill.cs" />
     <Compile Include="Abilities\Celestia_Abilities\Celestia_NormalSkill\CompProperties_Celestia_NormalSkill.cs" />
     <Compile Include="FleckUtilities\Abilitied_FleckUtilities.cs" />

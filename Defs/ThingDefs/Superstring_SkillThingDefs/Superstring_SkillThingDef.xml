@@ -29,4 +29,21 @@
         <thingCategories />
 
     </ThingDef>
+
+    <ThingDef>
+        <defName>Celestia_SuperSkill_Entity</defName>
+        <label>celestia projection</label>
+
+        <thingClass>Strinova.Celestia_SuperSkill_Entity</thingClass>
+
+        <category>Ethereal</category>
+        <selectable>true</selectable>
+        <tickerType>Normal</tickerType>
+        <altitudeLayer>Projectile</altitudeLayer>
+        <graphicData>
+            <texPath>Strinova_Abilities/Superstring_Abilities/Celestia_SuperSkill_entity</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(1.5,1.5)</drawSize>
+        </graphicData>
+    </ThingDef>
 </Defs>
