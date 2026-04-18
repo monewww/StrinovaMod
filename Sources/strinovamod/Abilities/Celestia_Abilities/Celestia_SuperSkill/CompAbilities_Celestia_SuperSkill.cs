@@ -6,17 +6,13 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 using Verse;
-using static UnityEngine.GraphicsBuffer;
 
 namespace Strinova
 {
-    public class CompAbilities_Celestia_SuperSkill : CompAbilityEffect
+    public class CompAbilities_Celestia_SuperSkill : CompAbilities_Common_SuperSkill
     {
         public new CompProperties_Celestia_SuperSkill Props => (CompProperties_Celestia_SuperSkill)this.props;
         public Pawn GetPawn => this.parent.pawn;
-
-        private Vector3 returnPos;
-        private int superSkillDuration = 750;
 
         public void DoCelestia_SuperSkill_affact(Pawn pawn)
         {
@@ -75,6 +71,9 @@ namespace Strinova
 
         private int lifeTime = 180; // 3秒（60tick=1秒）
         private int tick = 0;
+        private Vector3 exactPos;
+        public override Vector3 DrawPos => exactPos;
+
         private static FleckDef[] flecks = new FleckDef[]
         {
             DefDatabase<FleckDef>.GetNamed("Celestia_SuperSkill_fleck1"),
@@ -109,8 +108,8 @@ namespace Strinova
         protected override void Tick()
         {
             base.Tick();
-            this.Position = target.Position + new IntVec3(0, 0, 1);
-
+            exactPos = target.DrawPos + new Vector3(0, 0, 1);
+            Position = exactPos.ToIntVec3();
             tick++;
             FleckMaker.Static(DrawPos, Map, FleckDefOf.PsycastAreaEffect);
 
@@ -164,7 +163,7 @@ namespace Strinova
             {
                 defaultLabel = "Cancel Recall",
                 defaultDesc = "Return to original position",
-                icon = TexCommand.Draft, // 随便一个图标
+                icon = TexCommand.CannotShoot, // 取消的图标
                 action = () =>
                 {
                     ReturnToOrigin();

@@ -19,6 +19,7 @@
       <li Class="Strinova.CompProperties_SuperstringShield">
         <shieldGraphicPath>Superstring_Shields/ShieldBubble_blue</shieldGraphicPath>
       </li>
+      <li Class="Strinova.CompProperties_Superstring_Energy" />
     </comps>
   </ThingDef>
 </Defs>

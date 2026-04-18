@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+ <StuffCategoryDef>
+    <defName>Strinova_Materials</defName>
+    <label>卡拉彼丘材料</label>
+    <noun>metal</noun>
+    <destroySoundSmall>BuildingDestroyed_Metal_Small</destroySoundSmall>
+    <destroySoundMedium>BuildingDestroyed_Metal_Medium</destroySoundMedium>
+    <destroySoundLarge>BuildingDestroyed_Metal_Big</destroySoundLarge>
+ </StuffCategoryDef>
+
+ <ThingDef ParentName="ResourceBase">
+    <defName>Strinova_Bablo_Crystal</defName>
+    <label>巴布洛晶核</label>
+    <description>是提纯凝练后的高阶巴布洛晶体精粹，可以通过晶核打印机制造服装，武器，建筑等。</description>
+    <graphicData>
+        <texPath>Strinova_Items/Strinova_Material/Bablo_Crystal</texPath>
+        <drawSize>1.2</drawSize> <!--   -->
+        <graphicClass>Graphic_StackCount</graphicClass>
+      </graphicData>
+    <statBases>
+      <StuffPower_Armor_Sharp>1.3</StuffPower_Armor_Sharp>
+      <StuffPower_Armor_Blunt>1.8</StuffPower_Armor_Blunt>
+      <StuffPower_Armor_Heat>1.2</StuffPower_Armor_Heat>
+      <StuffPower_Insulation_Cold>40</StuffPower_Insulation_Cold>
+      <StuffPower_Insulation_Heat>40</StuffPower_Insulation_Heat>
+      <MaxHitPoints>200</MaxHitPoints>
+      <MarketValue>50</MarketValue>
+      <Mass>0.12</Mass>
+      <Flammability>0</Flammability>
+      <DeteriorationRate>0</DeteriorationRate>
+    </statBases>
+    <stackLimit>500</stackLimit>
+    <burnableByRecipe>true</burnableByRecipe>
+    <healthAffectsPrice>false</healthAffectsPrice>
+    <minRewardCount>10</minRewardCount>
+    <stuffProps>
+      <statFactors>
+        <Flammability>0.1</Flammability>
+        <Beauty>6</Beauty>
+        <MaxHitPoints>2</MaxHitPoints><!--耐久上限-->
+      </statFactors>
+      <categories>
+        <li>Fabric</li>
+        <li>Stony</li>
+      </categories>
+      <soundImpactBullet>BulletImpact_Ground</soundImpactBullet>
+      <soundMeleeHitSharp>MeleeHit_Stone</soundMeleeHitSharp>
+      <soundMeleeHitBlunt>MeleeHit_Stone</soundMeleeHitBlunt>
+      <soundImpactMelee>Pawn_Melee_Punch_HitBuilding_Stone</soundImpactMelee>
+      <stuffAdjective>巴布洛晶体制</stuffAdjective><!-- 由这个材料制作成的物品的前缀 -->
+      <color>(255, 215, 0)</color>
+      <commonality>0.9</commonality>
+      <allowColorGenerators>true</allowColorGenerators><!--允许修改颜色？-->
+      <canSuggestUseDefaultStuff>true</canSuggestUseDefaultStuff><!--可以被判定 默认建造材料 -->
+    </stuffProps>
+    <thingCategories>
+      <li>Textiles</li>
+    </thingCategories>
+    <comps>
+      <li>
+        <compClass>CompColorable</compClass>
+      </li>
+    </comps>
+ </ThingDef>
+
+ <ThingDef ParentName="ResourceBase">
+    <defName>Strinova_Basestring</defName>
+    <label>基弦</label>
+    <description>是巴布洛晶核提纯散逸后，民用级、自由流通的基础弦能结晶，可以通过晶核打印机制造服装，武器，建筑等，但制成品的强度较低。</description>
+    <graphicData>
+        <texPath>Strinova_Items/Strinova_Material/Basestring</texPath>
+        <drawSize>1.2</drawSize> <!--   -->
+        <graphicClass>Graphic_StackCount</graphicClass>
+      </graphicData>
+    <statBases>
+      <StuffPower_Armor_Sharp>1.1</StuffPower_Armor_Sharp>
+      <StuffPower_Armor_Blunt>1.28</StuffPower_Armor_Blunt>
+      <StuffPower_Armor_Heat>0.95</StuffPower_Armor_Heat>
+      <StuffPower_Insulation_Cold>30</StuffPower_Insulation_Cold>
+      <StuffPower_Insulation_Heat>30</StuffPower_Insulation_Heat>
+      <MaxHitPoints>200</MaxHitPoints>
+      <MarketValue>40</MarketValue>
+      <Mass>0.09</Mass>
+      <Flammability>0</Flammability>
+      <DeteriorationRate>0</DeteriorationRate>
+    </statBases>
+    <stackLimit>500</stackLimit>
+    <burnableByRecipe>true</burnableByRecipe>
+    <healthAffectsPrice>false</healthAffectsPrice>
+    <minRewardCount>24</minRewardCount>
+    <stuffProps>
+      <statFactors>
+        <Flammability>0.15</Flammability>
+        <Beauty>4</Beauty>
+        <MaxHitPoints>1.8</MaxHitPoints><!--耐久上限-->
+      </statFactors>
+      <categories>
+        <li>Fabric</li>
+        <li>Stony</li>
+      </categories>
+      <soundImpactBullet>BulletImpact_Ground</soundImpactBullet>
+      <soundMeleeHitSharp>MeleeHit_Stone</soundMeleeHitSharp>
+      <soundMeleeHitBlunt>MeleeHit_Stone</soundMeleeHitBlunt>
+      <soundImpactMelee>Pawn_Melee_Punch_HitBuilding_Stone</soundImpactMelee>
+      <stuffAdjective>基弦制</stuffAdjective><!-- 由这个材料制作成的物品的前缀 -->
+      <color>(238, 130, 238)</color>
+      <commonality>1.1</commonality>
+      <allowColorGenerators>true</allowColorGenerators><!--允许修改颜色？-->
+      <canSuggestUseDefaultStuff>true</canSuggestUseDefaultStuff><!--可以被判定 默认建造材料 -->
+    </stuffProps>
+    <thingCategories>
+      <li>Textiles</li>
+    </thingCategories>
+    <comps>
+      <li>
+        <compClass>CompColorable</compClass>
+      </li>
+    </comps>
+ </ThingDef>
+
+</Defs>

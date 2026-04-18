@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+   <ThingDef ParentName="BenchBase">
+    <defName>Strinova_Printer</defName>
+    <label>巴布洛晶核打印机</label>
+    <thingClass>Building_WorkTable</thingClass>
+    <description>使用卡拉彼丘的特殊物品制造卡拉彼丘特殊武器和服装</description>
+    <graphicData>
+      <texPath>Strinova_Building/Printer</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawRotated>false</drawRotated>
+      <drawSize>(2.50,2.50)</drawSize>
+      <drawOffset>(0,0,0.23)</drawOffset><!--绘制时的偏移量 -->
+      <damageData>
+        <cornerTL>Damage/Corner</cornerTL>
+        <cornerTR>Damage/Corner</cornerTR>
+        <cornerBL>Damage/Corner</cornerBL>
+        <cornerBR>Damage/Corner</cornerBR>
+      </damageData>
+    </graphicData>
+    <costList>
+      <Strinova_Basestring>200</Strinova_Basestring>
+      <Strinova_Bablo_Crystal>30</Strinova_Bablo_Crystal>
+    </costList>
+    <altitudeLayer>Building</altitudeLayer>
+    <fillPercent>0.5</fillPercent>
+    <useHitPoints>True</useHitPoints>
+    <statBases>
+      <WorkToBuild>3540</WorkToBuild>
+      <MaxHitPoints>450</MaxHitPoints>
+      <Flammability>0</Flammability>
+      <Cleanliness>-1</Cleanliness>
+    </statBases>
+    <size>(2,2)</size>
+    <designationCategory>Production</designationCategory>
+    <passability>PassThroughOnly</passability>
+    <pathCost>70</pathCost>
+    <hasInteractionCell>True</hasInteractionCell>
+    <interactionCellOffset>(0,0,-1)</interactionCellOffset>
+    <surfaceType>Item</surfaceType>
+    <inspectorTabs>
+      <li>ITab_Bills</li>
+    </inspectorTabs>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <shortCircuitInRain>true</shortCircuitInRain>
+        <basePowerConsumption>300</basePowerConsumption>
+      </li>
+      <li Class="CompProperties_Flickable"/>
+      <li Class="CompProperties_AffectedByFacilities">
+        <linkableFacilities>
+          <li>ToolCabinet</li>
+        </linkableFacilities>
+      </li>
+      <li Class="CompProperties_Breakdownable"/>
+    </comps>
+    <building>
+      <spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
+    </building>
+    <constructEffect>ConstructMetal</constructEffect>
+    <researchPrerequisites><li>Machining</li></researchPrerequisites>
+    <placeWorkers>
+      <li>PlaceWorker_ShowFacilitiesConnections</li>
+    </placeWorkers>
+  </ThingDef>
+
+   <WorkGiverDef>
+    <defName>Strinova_Printer_A</defName>
+    <label>打印中</label>
+    <giverClass>WorkGiver_DoBill</giverClass> <!-- 逻辑的类 生产或制作任务 -->
+    <workType>Crafting</workType> <!--  工作 制作 -->
+    <priorityInType>175</priorityInType> <!-- 优先级 -->
+    <fixedBillGiverDefs> <!-- 与这个事物相关联 -->
+      <li>Strinova_Printer</li>
+    </fixedBillGiverDefs>
+    <verb>打印中</verb> <!-- 动词 -->
+    <gerund>打印中</gerund> <!-- 动名词形式 -->
+    <requiredCapacities> <!-- 需要 操作能力 -->
+      <li>Manipulation</li>
+    </requiredCapacities>
+    <prioritizeSustains>true</prioritizeSustains> <!-- 考虑那些有助于维持殖民地或角色生存?的任务? -->
+   </WorkGiverDef>
+
+</Defs>

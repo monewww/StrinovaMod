@@ -72,6 +72,12 @@ namespace Strinova
 
         private void Action_AbsorbedDamage(ref DamageInfo dinfo, out bool absorbed)
         {
+            //先给大招加能量
+            var energyComp = GetPawn.GetComp<Comp_Superstring_Energy>();
+            if (energyComp != null)
+            {
+                energyComp.AddEnergy(30f);
+            }
             absorbed = false;
             float damageAmount = dinfo.Amount;
             if (this.tempShield > damageAmount)

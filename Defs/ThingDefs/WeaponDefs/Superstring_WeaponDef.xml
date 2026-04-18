@@ -34,7 +34,7 @@
 		<recipeMaker> <!-- 枪械的配方 -->
          <researchPrerequisite>PrecisionRifling</researchPrerequisite>
           <recipeUsers>
-           <li>TableMachining</li>
+           <li>Strinova_Printer</li>
           </recipeUsers>
          <skillRequirements> <!-- 技能要求 -->
            <Crafting>6</Crafting>
@@ -93,9 +93,7 @@
     <recipeMaker> <!-- 枪械的配方 -->
         <researchPrerequisite>Machining</researchPrerequisite>
           <recipeUsers>
-           <li>FueledSmithy</li>
-           <li>ElectricSmithy</li>
-           <li>TableMachining</li>
+           <li>Strinova_Printer</li>
           </recipeUsers>
          <skillRequirements> <!-- 技能要求 -->
            <Crafting>6</Crafting>
@@ -214,7 +212,7 @@
 		<recipeMaker> <!-- 枪械的配方 -->
          <researchPrerequisite>PrecisionRifling</researchPrerequisite>
           <recipeUsers>
-           <li>TableMachining</li>
+           <li>Strinova_Printer</li>
           </recipeUsers>
          <skillRequirements> <!-- 技能要求 -->
            <Crafting>6</Crafting>
@@ -273,9 +271,7 @@
     <recipeMaker> <!-- 枪械的配方 -->
         <researchPrerequisite>Machining</researchPrerequisite>
           <recipeUsers>
-           <li>FueledSmithy</li>
-           <li>ElectricSmithy</li>
-           <li>TableMachining</li>
+           <li>Strinova_Printer</li>
           </recipeUsers>
          <skillRequirements> <!-- 技能要求 -->
            <Crafting>6</Crafting>
@@ -371,7 +367,7 @@
 		<recipeMaker> <!-- 枪械的配方 -->
          <researchPrerequisite>PrecisionRifling</researchPrerequisite>
           <recipeUsers>
-           <li>TableMachining</li>
+           <li>Strinova_Printer</li>
           </recipeUsers>
          <skillRequirements> <!-- 技能要求 -->
            <Crafting>6</Crafting>
@@ -434,7 +430,7 @@
 		<recipeMaker> <!-- 枪械的配方 -->
          <researchPrerequisite>PrecisionRifling</researchPrerequisite>
           <recipeUsers>
-           <li>TableMachining</li>
+           <li>Strinova_Printer</li>
           </recipeUsers>
          <skillRequirements> <!-- 技能要求 -->
            <Crafting>6</Crafting>
@@ -497,7 +493,7 @@
 		<recipeMaker> <!-- 枪械的配方 -->
          <researchPrerequisite>PrecisionRifling</researchPrerequisite>
           <recipeUsers>
-           <li>TableMachining</li>
+           <li>Strinova_Printer</li>
           </recipeUsers>
          <skillRequirements> <!-- 技能要求 -->
            <Crafting>6</Crafting>
@@ -560,7 +556,7 @@
 		<recipeMaker> <!-- 枪械的配方 -->
          <researchPrerequisite>PrecisionRifling</researchPrerequisite>
           <recipeUsers>
-           <li>TableMachining</li>
+           <li>Strinova_Printer</li>
           </recipeUsers>
          <skillRequirements> <!-- 技能要求 -->
            <Crafting>6</Crafting>
@@ -623,7 +619,7 @@
 		<recipeMaker> <!-- 枪械的配方 -->
          <researchPrerequisite>PrecisionRifling</researchPrerequisite>
           <recipeUsers>
-           <li>TableMachining</li>
+           <li>Strinova_Printer</li>
           </recipeUsers>
          <skillRequirements> <!-- 技能要求 -->
            <Crafting>6</Crafting>
@@ -686,7 +682,7 @@
 		<recipeMaker> <!-- 枪械的配方 -->
          <researchPrerequisite>PrecisionRifling</researchPrerequisite>
           <recipeUsers>
-           <li>TableMachining</li>
+           <li>Strinova_Printer</li>
           </recipeUsers>
          <skillRequirements> <!-- 技能要求 -->
            <Crafting>6</Crafting>
@@ -772,7 +768,7 @@
 		<recipeMaker> <!-- 枪械的配方 -->
          <researchPrerequisite>PrecisionRifling</researchPrerequisite>
           <recipeUsers>
-           <li>TableMachining</li>
+           <li>Strinova_Printer</li>
           </recipeUsers>
          <skillRequirements> <!-- 技能要求 -->
            <Crafting>6</Crafting>
@@ -835,7 +831,7 @@
 		<recipeMaker> <!-- 枪械的配方 -->
          <researchPrerequisite>PrecisionRifling</researchPrerequisite>
           <recipeUsers>
-           <li>TableMachining</li>
+           <li>Strinova_Printer</li>
           </recipeUsers>
          <skillRequirements> <!-- 技能要求 -->
            <Crafting>6</Crafting>
@@ -898,7 +894,7 @@
 		<recipeMaker> <!-- 枪械的配方 -->
          <researchPrerequisite>PrecisionRifling</researchPrerequisite>
           <recipeUsers>
-           <li>TableMachining</li>
+           <li>Strinova_Printer</li>
           </recipeUsers>
          <skillRequirements> <!-- 技能要求 -->
            <Crafting>6</Crafting>
@@ -984,7 +980,7 @@
 		<recipeMaker> <!-- 枪械的配方 -->
          <researchPrerequisite>MultibarrelWeapons</researchPrerequisite>
           <recipeUsers>
-           <li>TableMachining</li>
+           <li>Strinova_Printer</li>
           </recipeUsers>
          <skillRequirements> <!-- 技能要求 -->
            <Crafting>6</Crafting>
@@ -1047,7 +1043,7 @@
 		<recipeMaker> <!-- 枪械的配方 -->
          <researchPrerequisite>MultibarrelWeapons</researchPrerequisite>
           <recipeUsers>
-           <li>TableMachining</li>
+           <li>Strinova_Printer</li>
           </recipeUsers>
          <skillRequirements> <!-- 技能要求 -->
            <Crafting>6</Crafting>
@@ -1110,7 +1106,7 @@
 		<recipeMaker> <!-- 枪械的配方 -->
          <researchPrerequisite>PrecisionRifling</researchPrerequisite>
           <recipeUsers>
-           <li>TableMachining</li>
+           <li>Strinova_Printer</li>
           </recipeUsers>
          <skillRequirements> <!-- 技能要求 -->
            <Crafting>6</Crafting>
@@ -1173,7 +1169,7 @@
 		<recipeMaker> <!-- 枪械的配方 -->
          <researchPrerequisite>PrecisionRifling</researchPrerequisite>
           <recipeUsers>
-           <li>TableMachining</li>
+           <li>Strinova_Printer</li>
           </recipeUsers>
          <skillRequirements> <!-- 技能要求 -->
            <Crafting>6</Crafting>
@@ -1236,7 +1232,7 @@
 		<recipeMaker> <!-- 枪械的配方 -->
          <researchPrerequisite>PrecisionRifling</researchPrerequisite>
           <recipeUsers>
-           <li>TableMachining</li>
+           <li>Strinova_Printer</li>
           </recipeUsers>
          <skillRequirements> <!-- 技能要求 -->
            <Crafting>6</Crafting>
@@ -1299,7 +1295,7 @@
 		<recipeMaker> <!-- 枪械的配方 -->
          <researchPrerequisite>PrecisionRifling</researchPrerequisite>
           <recipeUsers>
-           <li>TableMachining</li>
+           <li>Strinova_Printer</li>
           </recipeUsers>
          <skillRequirements> <!-- 技能要求 -->
            <Crafting>6</Crafting>
@@ -1386,7 +1382,7 @@
 		<recipeMaker> <!-- 枪械的配方 -->
          <researchPrerequisite>PrecisionRifling</researchPrerequisite>
           <recipeUsers>
-           <li>TableMachining</li>
+           <li>Strinova_Printer</li>
           </recipeUsers>
          <skillRequirements> <!-- 技能要求 -->
            <Crafting>8</Crafting>
@@ -1473,7 +1469,7 @@
 		<recipeMaker> <!-- 枪械的配方 -->
          <researchPrerequisite>PrecisionRifling</researchPrerequisite>
           <recipeUsers>
-           <li>TableMachining</li>
+           <li>Strinova_Printer</li>
           </recipeUsers>
          <skillRequirements> <!-- 技能要求 -->
            <Crafting>8</Crafting>
@@ -1537,7 +1533,7 @@
     <recipeMaker> <!-- 枪械的配方 -->
       <researchPrerequisite>GasOperation</researchPrerequisite>
       <recipeUsers>
-        <li>TableMachining</li>
+        <li>Strinova_Printer</li>
       </recipeUsers>
       <skillRequirements> <!-- 技能要求 -->
         <Crafting>1</Crafting>
@@ -1599,7 +1595,7 @@
     <recipeMaker> <!-- 枪械的配方 -->
       <researchPrerequisite>Machining</researchPrerequisite>
       <recipeUsers>
-        <li>TableMachining</li>
+        <li>Strinova_Printer</li>
       </recipeUsers>
       <skillRequirements> <!-- 技能要求 -->
         <Crafting>1</Crafting>
@@ -1688,7 +1684,7 @@
       </skillRequirements>
       <displayPriority>70</displayPriority> <!-- 显示优先级? -->
       <recipeUsers>
-        <li>TableMachining</li>
+        <li>Strinova_Printer</li>
       </recipeUsers>
     </recipeMaker>
     <verbs>
@@ -1744,7 +1740,7 @@
       </skillRequirements>
       <displayPriority>70</displayPriority> <!-- 显示优先级? -->
       <recipeUsers>
-        <li>TableMachining</li>
+        <li>Strinova_Printer</li>
       </recipeUsers>
     </recipeMaker>
     <verbs>

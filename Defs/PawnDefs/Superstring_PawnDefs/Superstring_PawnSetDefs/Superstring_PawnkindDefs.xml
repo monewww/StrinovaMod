@@ -50,9 +50,8 @@
       <li>Superstring_ColonistUse</li>
     </apparelTags>
     <apparelRequired>
-      <li>Apparel_BasicShirt</li>
-      <li>Apparel_Jacket</li>
-      <li>Apparel_Pants</li>
+      <li>Celestia_XingYou</li>
+      <li>Celestia_XingYou_Stockings</li>
     </apparelRequired>
     <apparelMoney>350~600</apparelMoney>
     <apparelAllowHeadgearChance>0</apparelAllowHeadgearChance>
