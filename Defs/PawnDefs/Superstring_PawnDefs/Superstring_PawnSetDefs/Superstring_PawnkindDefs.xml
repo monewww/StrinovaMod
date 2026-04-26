@@ -29,7 +29,7 @@
   </PawnKindDef>
   
   <!--殖民者-->
-  <PawnKindDef ParentName="Superstring_BasePawnKind">
+  <PawnKindDef ParentName="Superstring_BasePawnKind" Name="Superstring_Colonist">
     <defName>Superstring_Colonist</defName>
     <label>Superstring Colonist</label>
     <defaultFactionType>PlayerColony</defaultFactionType>
@@ -66,5 +66,17 @@
       <li>PainCauser</li>
     </techHediffsDisallowTags>
   </PawnKindDef>
+
+  <!--星绘-->
+  <PawnKindDef ParentName="Superstring_Colonist">
+    <defName>Celestia</defName>
+    <label>Celestia</label>
+    <forcedHair>Celestia_hair1</forcedHair>
+    <abilities>
+      <li>Celestia_NormalSkill</li>
+      <li>Celestia_SuperSkill</li>
+    </abilities>
+  </PawnKindDef>
+
   <!--TODO 还可以加一些其他超弦体的定义,比如超弦体商人,超弦体入侵者等-->
 </Defs>

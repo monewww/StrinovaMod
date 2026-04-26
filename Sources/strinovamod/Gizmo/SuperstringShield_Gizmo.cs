@@ -1,89 +1,76 @@
 ﻿using RimWorld;
-using Verse;
-
+using Strinova;
 using UnityEngine;
-
-using System;
-using System.Reflection.Emit;
-using static HarmonyLib.Code;
-using System.Collections.Generic;
-using Verse.Sound;
-using LudeonTK;
-using System.Text;
-using System.Linq;
+using Verse;
 
 namespace Strinova
 {
     [StaticConstructorOnStartup]
-    public class Gizmo_SuperstringShield : Gizmo
+    public class Gizmo_SuperstringStatus : Gizmo
     {
         private Comp_SuperstringShield shield;
-        public Gizmo_SuperstringShield(Comp_SuperstringShield shield)
+        private Comp_Superstring_Energy energy;
+
+        private static Texture2D _bgTex;
+        private static Texture2D BgTex => _bgTex ?? (_bgTex = ContentFinder<Texture2D>.Get("Superstring_Shields/Gizmobg"));
+
+        public Gizmo_SuperstringStatus(Comp_SuperstringShield shield, Comp_Superstring_Energy energy)
         {
             this.shield = shield;
+            this.energy = energy;
             this.Order = 201f;
         }
-        public override float GetWidth(float maxWidth)
-        {
-            return 200f;
-        }
 
-        public float getHeight()
-        {
-            return 75f;
-        }
+        public override float GetWidth(float maxWidth) => 150f;
 
         public override GizmoResult GizmoOnGUI(Vector2 topLeft, float maxWidth, GizmoRenderParms parms)
         {
             Rect rect = new Rect(topLeft.x, topLeft.y, GetWidth(maxWidth), 75f);
-            Widgets.DrawWindowBackground(rect);
 
-            float now = shield.nowShield;
-            float temp = shield.tempShield;
-            float max = shield.maxShield;
+            // 背景图
+            GUI.DrawTexture(rect, BgTex, ScaleMode.ScaleToFit);
+            // 半透明遮罩，让文字和进度条更易读
+            Widgets.DrawBoxSolid(rect, new Color(0f, 0f, 0f, 0.3f));
 
-            float total = Mathf.Max(max, now + temp);
+            float innerX = rect.x + 10f;
+            float innerW = rect.width - 20f;
 
-            float nowPercent = Mathf.Clamp01(now / total);
-            float tempPercent = Mathf.Clamp01(temp / total);
+            // --- 护盾条 ---
+            float nowS = shield.nowShield;
+            float tempS = shield.tempShield;
+            float maxS = shield.maxShield;
+            float totalS = Mathf.Max(maxS, nowS + tempS);
+            float nowSPct = Mathf.Clamp01(nowS / totalS);
+            float tempSPct = Mathf.Clamp01(tempS / totalS);
 
-            Rect barRect = rect.ContractedBy(10f);
-            barRect.y += 30f;
-            barRect.height = 20f;
+            Rect shieldBarBg = new Rect(innerX, rect.y + 18f, innerW, 16f);
+            Widgets.DrawBoxSolid(shieldBarBg, new Color(0.1f, 0.1f, 0.1f, 0.7f));
+            Widgets.DrawBoxSolid(new Rect(shieldBarBg.x, shieldBarBg.y, shieldBarBg.width * nowSPct, shieldBarBg.height), new Color(0.3f, 0.7f, 1f, 0.9f));
+            Widgets.DrawBoxSolid(new Rect(shieldBarBg.x + shieldBarBg.width * nowSPct, shieldBarBg.y, shieldBarBg.width * tempSPct, shieldBarBg.height), new Color(0.6f, 0.85f, 1f, 0.9f));
 
-            // --- 先画背景（未充满部分）---
-            Widgets.DrawBoxSolid(barRect, new Color(0.15f, 0.15f, 0.15f));
+            Text.Font = GameFont.Tiny;
+            Text.Anchor = TextAnchor.MiddleLeft;
+            Widgets.Label(new Rect(innerX, rect.y + 4f, innerW, 16f), "Shield");
+            Text.Anchor = TextAnchor.MiddleRight;
+            string shieldText = tempS > 1f ? $"{nowS:F0}+{tempS:F0}/{maxS:F0}" : $"{nowS:F0}/{maxS:F0}";
+            Widgets.Label(new Rect(innerX, rect.y + 4f, innerW, 16f), shieldText);
 
-            // --- 当前护盾 ---
-            Rect nowRect = new Rect(
-                barRect.x,
-                barRect.y,
-                barRect.width * nowPercent,
-                barRect.height
-            );
-            Widgets.DrawBoxSolid(nowRect, new Color(0.3f, 0.7f, 1f));
+            // --- 能量条 ---
+            float nowE = energy.energy;
+            float maxE = energy.maxEnergy;
+            float nowEPct = Mathf.Clamp01(nowE / maxE);
 
-            // --- 临时护盾（接在当前护盾后面）---
-            Rect tempRect = new Rect(
-                nowRect.xMax,
-                barRect.y,
-                barRect.width * tempPercent,
-                barRect.height
-            );
-            Widgets.DrawBoxSolid(tempRect, new Color(0.6f, 0.85f, 1f)); // 更亮一点区分
+            Rect energyBarBg = new Rect(innerX, rect.y + 56f, innerW, 16f);
+            Widgets.DrawBoxSolid(energyBarBg, new Color(0.1f, 0.1f, 0.1f, 0.7f));
+            Widgets.DrawBoxSolid(new Rect(energyBarBg.x, energyBarBg.y, energyBarBg.width * nowEPct, energyBarBg.height), new Color(0.9f, 0.75f, 0.2f, 0.9f));
 
-            // --- 文字 ---
-            Text.Anchor = TextAnchor.MiddleCenter;
-            if(temp > 1)
-            {
-                Widgets.Label(rect, $"Shield\n\n{now:F0} + {temp:F0} / {max:F0}");
-            }
-            else
-            {
-                Widgets.Label(rect, $"Shield\n\n{now:F0} / {max:F0}");
-            }
+            Text.Anchor = TextAnchor.MiddleLeft;
+            Widgets.Label(new Rect(innerX, rect.y + 42f, innerW, 16f), "Energy");
+            Text.Anchor = TextAnchor.MiddleRight;
+            Widgets.Label(new Rect(innerX, rect.y + 42f, innerW, 16f), $"{nowE:F0}/{maxE:F0}");
 
-                Text.Anchor = TextAnchor.UpperLeft;
+            Text.Anchor = TextAnchor.UpperLeft;
+            Text.Font = GameFont.Small;
 
             return new GizmoResult(GizmoState.Clear);
         }

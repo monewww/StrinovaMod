@@ -225,7 +225,8 @@ namespace Strinova
             if (pawn == null) yield break;
             if (pawn.Faction != Faction.OfPlayer) yield break;
 
-            yield return new Gizmo_SuperstringShield(this);
+            var energyComp = pawn.GetComp<Comp_Superstring_Energy>();
+            yield return new Gizmo_SuperstringStatus(this, energyComp);
         }
 
 

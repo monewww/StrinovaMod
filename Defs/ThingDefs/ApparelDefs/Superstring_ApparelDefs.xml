@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
     <!--////衣服-->
-    <ThingDef Name="Superstring_ApparelBase" Abstract="True">
-        <thingClass>Apparel</thingClass>
-        <category>Item</category>
-        <selectable>True</selectable>
-        <pathCost>10</pathCost>
-        <useHitPoints>True</useHitPoints>
-        <techLevel>Medieval</techLevel>
+    <ThingDef Name="Superstring_ApparelBase" ParentName="ApparelMakeableBase" Abstract="True">
+        <stuffCategories>
+            <li>Fabric</li>
+            <li>Leathery</li>
+        </stuffCategories>
         <graphicData>
             <shaderType>CutoutComplex</shaderType>
             <onGroundRandomRotateAngle>35</onGroundRandomRotateAngle>
@@ -15,25 +13,23 @@
             <graphicClass>Graphic_Single</graphicClass>
         </graphicData>
         <drawGUIOverlay>true</drawGUIOverlay>
-        <statBases>
-            <MaxHitPoints>100</MaxHitPoints>
-            <Flammability>1.2</Flammability>
-            <DeteriorationRate>2</DeteriorationRate>
-            <Beauty>-3</Beauty>
-        </statBases>
-        <altitudeLayer>Item</altitudeLayer>
-        <alwaysHaulable>True</alwaysHaulable>
         <tickerType>Never</tickerType>
-        <comps>
-            <li Class="CompProperties_Styleable" />
-            <li Class="CompProperties_Forbiddable" />
-            <li>
-                <compClass>CompColorable</compClass>
-            </li>
-            <li>
-                <compClass>CompQuality</compClass>
-            </li>
-        </comps>
+        <thingCategories>
+            <li>ApparelMisc</li>
+        </thingCategories>
+        <apparel>
+            <layers>
+                <li>OnSkin</li>
+            </layers>
+            <tags>
+                <li>IndustrialBasic</li>
+            </tags>
+            <defaultOutfitTags>
+                <li>Worker</li>
+                <li>Soldier</li>
+                <li>Spacefarer</li>
+            </defaultOutfitTags>
+        </apparel>
         <!-- TODO 如果需要给超弦体服装开一个目录的话需要写 -->
         <!-- <tradeTags Inherit="false">
             <li>Axolotl_Apparel</li>

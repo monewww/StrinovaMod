@@ -11,26 +11,38 @@ namespace Strinova
     public class CompAbilities_Common_SuperSkill : CompAbilityEffect
     {
         public Pawn pawn => this.parent.pawn;
+
+        private Comp_Superstring_Energy EnergyComp => pawn.GetComp<Comp_Superstring_Energy>();
+
+        public override bool GizmoDisabled(out string reason)
+        {
+            var comp = EnergyComp;
+            if (comp == null || comp.energy < comp.maxEnergy)
+            {
+                float cur = comp?.energy ?? 0f;
+                float max = comp?.maxEnergy ?? 1000f;
+                reason = $"能量不足：{cur:F0} / {max:F0}";
+                return true;
+            }
+            reason = null;
+            return false;
+        }
+
         public override bool CanApplyOn(LocalTargetInfo target, LocalTargetInfo dest)
         {
             if (!base.CanApplyOn(target, dest)) return false;
-
-            var comp = pawn.GetComp<Comp_Superstring_Energy>();
-            if (comp == null) return false;
-
-            return comp.energy >= 1000f;
+            var comp = EnergyComp;
+            return comp != null && comp.energy >= comp.maxEnergy;
         }
 
         public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
         {
-            var comp = pawn.GetComp<Comp_Superstring_Energy>();
-
-            if (comp == null || !comp.Consume(1000f))
+            var comp = EnergyComp;
+            if (comp == null || !comp.Consume(comp.maxEnergy))
             {
                 Messages.Message("Not enough energy!", MessageTypeDefOf.RejectInput);
                 return;
             }
-
             base.Apply(target, dest);
         }
     }

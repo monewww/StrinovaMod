@@ -120,4 +120,28 @@
     </comps>
  </ThingDef>
 
+
+ <ThingDef ParentName="ResourceBase">
+    <defName>Strinova_Dream_Token</defName>
+    <label>理想币</label>
+    <description>卡拉彼丘世界中流通的货币，凝聚着人们对理想的追求。</description>
+    <graphicData>
+        <texPath>Strinova_Items/Strinova_Material/Dream_Token</texPath>
+        <drawSize>0.85</drawSize>
+        <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <statBases>
+        <MaxHitPoints>100</MaxHitPoints>
+        <MarketValue>1</MarketValue>
+        <Mass>0.01</Mass>
+        <Flammability>0</Flammability>
+        <DeteriorationRate>0</DeteriorationRate>
+    </statBases>
+    <stackLimit>9999</stackLimit>
+    <healthAffectsPrice>false</healthAffectsPrice>
+    <thingCategories>
+        <li>ResourcesRaw</li>
+    </thingCategories>
+ </ThingDef>
+
 </Defs>

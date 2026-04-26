@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <ThingCategoryDef>
+    <defName>Strinova_MeleeWeapon</defName> 
+    <label>卡拉彼丘近战武器</label>
+    <iconPath>UI/Icons/ThingCategories/MortarShells</iconPath>
+  </ThingCategoryDef>
+
+  <ThingDef Name="Strinova_MeleeWeaponBase" ParentName="BaseWeapon" Abstract="True">
+    <techLevel>Ultra</techLevel>
+    <tradeNeverStack>true</tradeNeverStack>
+    <relicChance>0</relicChance> <!-- 遗迹开出物品概率 默认1 -->
+    <tradeTags>
+      <li>WeaponMelee</li>
+    </tradeTags>
+    <weaponClasses>
+      <li>Ultratech</li>
+    </weaponClasses>
+    <comps>
+      <li>
+        <compClass>CompQuality</compClass>
+      </li>
+    </comps>
+    <smeltable>true</smeltable>
+    <burnableByRecipe>true</burnableByRecipe>
+    <notifyMapRemoved>true</notifyMapRemoved>
+    <thingCategories>
+      <li>WeaponsMelee</li>
+    </thingCategories>
+    <recipeMaker> <!-- 配方信息 -->
+      <recipeUsers> <!-- 配方使用者 -->
+        <li>Strinova_Printer</li>
+      </recipeUsers>
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat> <!-- 工作速度属性  -->
+      <workSkill>Crafting</workSkill> <!-- 需要工作技能 手工 -->
+      <effectWorking>Smith</effectWorking> <!-- 工作效果 -->
+      <soundWorking>Recipe_Machining</soundWorking> <!-- 工作声音 -->
+      <unfinishedThingDef>UnfinishedWeapon</unfinishedThingDef> <!-- 未完成物品定义 -->
+      <skillRequirements> <!-- 技能要求 -->
+        <Crafting>6</Crafting>
+      </skillRequirements>
+      <requiredGiverWorkType>Crafting</requiredGiverWorkType> <!-- 执行这个制作任务的工作类型 -->
+      <displayPriority>1460</displayPriority>
+    </recipeMaker>
+  </ThingDef>
+
+  <ThingDef ParentName="Strinova_MeleeWeaponBase">
+    <!-- 武器内部唯一标识（代码调用用） -->
+    <defName>Strinova_Ninjato</defName>
+    <!-- 游戏内显示的武器名称 -->
+    <label>忍锋</label>
+    <!-- 游戏内显示的武器描述 -->
+    <description>不知名的武器画家所制作，很有格调的武士刀。</description>
+    <!-- 持有数量限制（1表示每次只能持有1把） -->
+    <possessionCount>1</possessionCount>
+    <!-- 武器贴图配置 -->
+    <graphicData>
+      <!-- 贴图文件路径（Things文件夹下的qiang纹理） -->
+      <texPath>Strinova_Items/Strinova_Weapon/Ninjato</texPath>
+      <!-- 贴图类型：单张静态贴图 -->
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <!-- 科技等级：工业时代 -->
+    <techLevel>Industrial</techLevel>
+    <!-- 武器标签（用于游戏内分类/规则判定） -->
+	  <weaponTags>
+     <li>MedievalMeleeAdvanced</li> <!-- 中世纪近战武器 -->
+     <li>LongSword</li> <!-- 归类为长剑类 -->
+	  </weaponTags>
+    <!-- 制作成本 -->
+    <costList>
+     <Strinova_Bablo_Crystal>10</Strinova_Bablo_Crystal> 
+    </costList>
+    <recipeMaker> <!-- 枪械的配方 -->
+        <researchPrerequisite>MicroelectronicsBasics</researchPrerequisite>
+          <recipeUsers Inherited="false">
+           <li>Strinova_Printer</li>
+          </recipeUsers>
+         <skillRequirements> <!-- 技能要求 -->
+           <Crafting>6</Crafting>
+         </skillRequirements>
+        <displayPriority>70</displayPriority> <!-- 显示优先级? -->
+    </recipeMaker>
+    <!-- 物品生成标签（用于奖励/战利品生成） -->
+    <thingSetMakerTags>
+     <li>RewardStandardQualitySuper</li> <!-- 优质奖励物品 -->
+    </thingSetMakerTags>
+    <!-- 基础属性配置 -->
+    <statBases>
+     <WorkToMake>7000</WorkToMake> <!-- 制作所需工作量 -->
+     <Mass>1</Mass> <!-- 重量1kg -->
+     <Flammability>0</Flammability>
+     <MarketValue>3000</MarketValue>
+    </statBases>
+    <!-- 成为圣物的概率（3%） -->
+    <relicChance>3</relicChance>
+    <!-- 装备时的角度偏移（45度） -->
+    <equippedAngleOffset>-45</equippedAngleOffset>
+    <!-- 是否可熔炼回收材料 -->
+    <smeltable>true</smeltable>
+    <!-- 武器分类（近战穿刺类） -->
+    <weaponClasses>
+      <li>MeleePiercer</li>
+    </weaponClasses>
+    <!-- 近战攻击模块（不同部位的攻击属性） -->
+    <tools>
+      <!-- 枪托/握把攻击（钝击） -->
+      <li>
+        <label>handle</label> <!-- 攻击部位名称 -->
+        <capacities>
+          <li>Blunt</li> <!-- 攻击类型：钝击 -->
+        </capacities>
+        <power>10</power> <!-- 攻击力10 -->
+        <cooldownTime>1.0</cooldownTime> <!-- 攻击冷却1.0秒 -->
+      </li>
+      <!-- 刺刀尖端攻击（刺击） -->
+      <li>
+        <label>point</label> <!-- 攻击部位名称 -->
+        <capacities>
+          <li>Stab</li> <!-- 攻击类型：刺击 -->
+        </capacities>
+        <power>30</power> <!-- 攻击力30 -->
+        <cooldownTime>0.9</cooldownTime> <!-- 攻击冷却0.9秒 -->
+        <armorPenetration>0.9</armorPenetration> <!-- 穿甲率90% -->
+      </li>
+      <!-- 刺刀刀刃攻击（切割） -->
+      <li>
+        <label>edge</label> <!-- 攻击部位名称 -->
+        <capacities>
+          <li>Cut</li> <!-- 攻击类型：切割 -->
+        </capacities>
+        <power>60</power> <!-- 攻击力60 -->
+        <cooldownTime>1.0</cooldownTime> <!-- 攻击冷却1.0秒 -->
+        <armorPenetration>0.7</armorPenetration> <!-- 穿甲率70% -->
+      </li>
+    </tools>
+  </ThingDef>
+
+  <ThingDef ParentName="Strinova_MeleeWeaponBase">
+    <!-- 武器内部唯一标识（代码调用用） -->
+    <defName>Strinova_War_Scythe</defName>
+    <!-- 游戏内显示的武器名称 -->
+    <label>战镰</label>
+    <!-- 游戏内显示的武器描述 -->
+    <description>战斗型长柄镰刀，以一体铸就的弯月利刃为锋，挥动时凌厉如风，可对敌人发起精准的砍击。</description>
+    <!-- 持有数量限制（1表示每次只能持有1把） -->
+    <possessionCount>1</possessionCount>
+    <!-- 武器贴图配置 -->
+    <graphicData>
+      <!-- 贴图文件路径（Things文件夹下的qiang纹理） -->
+      <texPath>Strinova_Items/Strinova_Weapon/War_Scythe</texPath>
+      <!-- 贴图类型：单张静态贴图 -->
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <!-- 科技等级：工业时代 -->
+    <techLevel>Industrial</techLevel>
+    <!-- 武器标签（用于游戏内分类/规则判定） -->
+	  <weaponTags>
+     <li>MedievalMeleeAdvanced</li> <!-- 中世纪近战武器 -->
+     <li>LongSword</li> <!-- 归类为长剑类 -->
+	  </weaponTags>
+    <!-- 制作成本 -->
+    <costList>
+     <Strinova_Bablo_Crystal>20</Strinova_Bablo_Crystal> <!-- 工业组件30个 -->
+    </costList>
+    <recipeMaker> <!-- 枪械的配方 -->
+        <researchPrerequisite>MicroelectronicsBasics</researchPrerequisite>
+          <recipeUsers Inherited="false">
+           <li>Strinova_Printer</li>
+          </recipeUsers>
+         <skillRequirements> <!-- 技能要求 -->
+           <Crafting>6</Crafting>
+         </skillRequirements>
+        <displayPriority>70</displayPriority> <!-- 显示优先级? -->
+    </recipeMaker>
+    <!-- 物品生成标签（用于奖励/战利品生成） -->
+    <thingSetMakerTags>
+     <li>RewardStandardQualitySuper</li> <!-- 优质奖励物品 -->
+    </thingSetMakerTags>
+    <!-- 基础属性配置 -->
+    <statBases>
+     <WorkToMake>14000</WorkToMake> <!-- 制作所需工作量 -->
+     <Mass>1.3</Mass> <!-- 重量1kg -->
+     <Flammability>0</Flammability>
+     <MarketValue>16000</MarketValue>
+    </statBases>
+    <!-- 成为圣物的概率（3%） -->
+    <relicChance>3</relicChance>
+    <!-- 装备时的角度偏移（45度） -->
+    <equippedAngleOffset>-45</equippedAngleOffset>
+    <!-- 是否可熔炼回收材料 -->
+    <smeltable>true</smeltable>
+    <!-- 武器分类（近战穿刺类） -->
+    <weaponClasses>
+      <li>MeleePiercer</li>
+    </weaponClasses>
+    <!-- 近战攻击模块（不同部位的攻击属性） -->
+    <tools>
+      <!-- 枪托/握把攻击（钝击） -->
+      <li>
+        <label>handle</label> <!-- 攻击部位名称 -->
+        <capacities>
+          <li>Blunt</li> <!-- 攻击类型：钝击 -->
+        </capacities>
+        <power>5</power> <!-- 攻击力5 -->
+        <cooldownTime>0.2</cooldownTime> <!-- 攻击冷却0.2秒 -->
+      </li>
+      <!-- 刺刀尖端攻击（刺击） -->
+      <li>
+        <label>point</label> <!-- 攻击部位名称 -->
+        <capacities>
+          <li>Stab</li> <!-- 攻击类型：刺击 -->
+        </capacities>
+        <power>12</power> <!-- 攻击力12 -->
+        <cooldownTime>0.45</cooldownTime> <!-- 攻击冷却0.45秒 -->
+        <armorPenetration>0.23</armorPenetration> <!-- 穿甲率23% -->
+      </li>
+      <!-- 刺刀刀刃攻击（切割） -->
+      <li>
+        <label>edge</label> <!-- 攻击部位名称 -->
+        <capacities>
+          <li>Cut</li> <!-- 攻击类型：切割 -->
+        </capacities>
+        <power>90</power> <!-- 攻击力60 -->
+        <cooldownTime>0.8</cooldownTime> <!-- 攻击冷却1.0秒 -->
+        <armorPenetration>0.76</armorPenetration> <!-- 穿甲率76% -->
+      </li>
+    </tools>
+  </ThingDef>
+</Defs>

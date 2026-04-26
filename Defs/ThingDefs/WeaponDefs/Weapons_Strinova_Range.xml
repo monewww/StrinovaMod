@@ -1,6 +1,41 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <Defs>
-  <ThingDef ParentName="BaseHumanMakeableGun">
+    <ThingDef Name="Strinova_RangeWeaponBase" Abstract="True" ParentName="BaseWeapon">
+		<techLevel>Ultra</techLevel>
+		<smeltable>true</smeltable>
+		<tradeability>All</tradeability>
+		<thingCategories>
+			<li>WeaponsRanged</li>
+		</thingCategories>
+		<inspectorTabs>
+			<li>ITab_Art</li>
+		</inspectorTabs>
+        <tradeTags>
+			<li>GGl_TradeTag_Weapons</li>
+		</tradeTags>
+		<statBases>
+			<Flammability>0.5</Flammability>
+		</statBases>
+        <recipeMaker>
+          <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+          <workSkill>Crafting</workSkill>
+          <effectWorking>Smith</effectWorking>
+          <soundWorking>Recipe_Machining</soundWorking>
+		      <unfinishedThingDef>UnfinishedGun</unfinishedThingDef>
+        </recipeMaker>
+		<comps>
+			<li Class="CompProperties_Art">
+				<nameMaker>NamerArtWeaponGun</nameMaker>
+				<descriptionMaker>ArtDescription_WeaponGun</descriptionMaker>
+				<minQualityForArtistic>Excellent</minQualityForArtistic>
+			</li>
+			<li>
+				<compClass>CompQuality</compClass>
+			</li>
+		</comps>
+	</ThingDef>
+
+    <ThingDef ParentName="Strinova_RangeWeaponBase">
      <defName>Strinova_Polaris</defName>
      <label>北极星</label>
      <description>星绘的主武器。散热良好和耐久性是其优势，近程点射时精准度颇佳。此外，还有如扳机扣力柔和、左右手均可使用等注重舒适度的设计。</description>
@@ -28,12 +63,12 @@
 			<MarketValue>1200</MarketValue>
 		</statBases>
 		<costList>
-			<Steel>200</Steel>
-      <ComponentIndustrial>2</ComponentIndustrial>
+		 <Strinova_Basestring>100</Strinova_Basestring>
+         <Strinova_Bablo_Crystal>5</Strinova_Bablo_Crystal>
 		</costList>
 		<recipeMaker> <!-- 枪械的配方 -->
          <researchPrerequisite>PrecisionRifling</researchPrerequisite>
-          <recipeUsers>
+          <recipeUsers Inherited="false">
            <li>Strinova_Printer</li>
           </recipeUsers>
          <skillRequirements> <!-- 技能要求 -->
@@ -63,98 +98,6 @@
 		</verbs>
 	</ThingDef>
 
-	<ThingDef ParentName="BaseMeleeWeapon">
-    <!-- 武器内部唯一标识（代码调用用） -->
-    <defName>Strinova_Ninjato</defName>
-    <!-- 游戏内显示的武器名称 -->
-    <label>忍锋</label>
-    <!-- 游戏内显示的武器描述 -->
-    <description>不知名的武器画家所制作，很有格调的武士刀。</description>
-    <!-- 持有数量限制（1表示每次只能持有1把） -->
-    <possessionCount>1</possessionCount>
-    <!-- 武器贴图配置 -->
-    <graphicData>
-      <!-- 贴图文件路径（Things文件夹下的qiang纹理） -->
-      <texPath>Strinova_Items/Strinova_Weapon/Ninjato</texPath>
-      <!-- 贴图类型：单张静态贴图 -->
-      <graphicClass>Graphic_Single</graphicClass>
-    </graphicData>
-    <!-- 科技等级：工业时代 -->
-    <techLevel>Industrial</techLevel>
-    <!-- 武器标签（用于游戏内分类/规则判定） -->
-	  <weaponTags>
-     <li>MedievalMeleeAdvanced</li> <!-- 中世纪近战武器 -->
-     <li>LongSword</li> <!-- 归类为长剑类 -->
-	  </weaponTags>
-    <!-- 制作成本 -->
-    <costList>
-     <ComponentIndustrial>10</ComponentIndustrial> <!-- 工业组件10个 -->
-    </costList>
-    <recipeMaker> <!-- 枪械的配方 -->
-        <researchPrerequisite>Machining</researchPrerequisite>
-          <recipeUsers>
-           <li>Strinova_Printer</li>
-          </recipeUsers>
-         <skillRequirements> <!-- 技能要求 -->
-           <Crafting>6</Crafting>
-         </skillRequirements>
-        <displayPriority>70</displayPriority> <!-- 显示优先级? -->
-    </recipeMaker>
-    <!-- 物品生成标签（用于奖励/战利品生成） -->
-    <thingSetMakerTags>
-     <li>RewardStandardQualitySuper</li> <!-- 优质奖励物品 -->
-    </thingSetMakerTags>
-    <!-- 基础属性配置 -->
-    <statBases>
-     <WorkToMake>7000</WorkToMake> <!-- 制作所需工作量 -->
-     <Mass>1</Mass> <!-- 重量1kg -->
-     <Flammability>0</Flammability>
-     <MarketValue>3000</MarketValue>
-    </statBases>
-    <!-- 成为圣物的概率（3%） -->
-    <relicChance>3</relicChance>
-    <!-- 装备时的角度偏移（45度） -->
-    <equippedAngleOffset>-45</equippedAngleOffset>
-    <!-- 是否可熔炼回收材料 -->
-    <smeltable>true</smeltable>
-    <!-- 武器分类（近战穿刺类） -->
-    <weaponClasses>
-      <li>MeleePiercer</li>
-    </weaponClasses>
-    <!-- 近战攻击模块（不同部位的攻击属性） -->
-    <tools>
-      <!-- 枪托/握把攻击（钝击） -->
-      <li>
-        <label>handle</label> <!-- 攻击部位名称 -->
-        <capacities>
-          <li>Blunt</li> <!-- 攻击类型：钝击 -->
-        </capacities>
-        <power>10</power> <!-- 攻击力10 -->
-        <cooldownTime>1.0</cooldownTime> <!-- 攻击冷却1.0秒 -->
-      </li>
-      <!-- 刺刀尖端攻击（刺击） -->
-      <li>
-        <label>point</label> <!-- 攻击部位名称 -->
-        <capacities>
-          <li>Stab</li> <!-- 攻击类型：刺击 -->
-        </capacities>
-        <power>30</power> <!-- 攻击力30 -->
-        <cooldownTime>0.9</cooldownTime> <!-- 攻击冷却0.9秒 -->
-        <armorPenetration>0.9</armorPenetration> <!-- 穿甲率90% -->
-      </li>
-      <!-- 刺刀刀刃攻击（切割） -->
-      <li>
-        <label>edge</label> <!-- 攻击部位名称 -->
-        <capacities>
-          <li>Cut</li> <!-- 攻击类型：切割 -->
-        </capacities>
-        <power>60</power> <!-- 攻击力60 -->
-        <cooldownTime>1.0</cooldownTime> <!-- 攻击冷却1.0秒 -->
-        <armorPenetration>0.7</armorPenetration> <!-- 穿甲率70% -->
-      </li>
-    </tools>
-  </ThingDef>
-
   <!-- 定义该步枪使用的子弹实体 -->
   <!-- 继承自 "BaseBullet" 基础子弹模板 -->
   <ThingDef ParentName="BaseBullet">
@@ -178,7 +121,7 @@
     </projectile>
   </ThingDef>
 
-  <ThingDef ParentName="BaseHumanMakeableGun">
+  <ThingDef ParentName="Strinova_RangeWeaponBase">
      <defName>Strinova_Inspector</defName>
      <label>警探</label>
      <description>米雪儿的主武器。满足以猛烈的火力压制战场的需求，其精准度和射速的平衡性也相当出色。配备1.25倍瞄准镜。</description>
@@ -206,12 +149,12 @@
 			<MarketValue>1180</MarketValue>
 		</statBases>
 		<costList>
-			<Steel>180</Steel>
-      <ComponentIndustrial>2</ComponentIndustrial>
+		 <Strinova_Basestring>120</Strinova_Basestring>
+         <Strinova_Bablo_Crystal>5</Strinova_Bablo_Crystal>
 		</costList>
 		<recipeMaker> <!-- 枪械的配方 -->
          <researchPrerequisite>PrecisionRifling</researchPrerequisite>
-          <recipeUsers>
+          <recipeUsers Inherited="false">
            <li>Strinova_Printer</li>
           </recipeUsers>
          <skillRequirements> <!-- 技能要求 -->
@@ -241,99 +184,7 @@
 		</verbs>
 	</ThingDef>
 
-  <ThingDef ParentName="BaseMeleeWeapon">
-    <!-- 武器内部唯一标识（代码调用用） -->
-    <defName>Strinova_War_Scythe</defName>
-    <!-- 游戏内显示的武器名称 -->
-    <label>战镰</label>
-    <!-- 游戏内显示的武器描述 -->
-    <description>战斗型长柄镰刀，以一体铸就的弯月利刃为锋，挥动时凌厉如风，可对敌人发起精准的砍击。</description>
-    <!-- 持有数量限制（1表示每次只能持有1把） -->
-    <possessionCount>1</possessionCount>
-    <!-- 武器贴图配置 -->
-    <graphicData>
-      <!-- 贴图文件路径（Things文件夹下的qiang纹理） -->
-      <texPath>Strinova_Items/Strinova_Weapon/War_Scythe</texPath>
-      <!-- 贴图类型：单张静态贴图 -->
-      <graphicClass>Graphic_Single</graphicClass>
-    </graphicData>
-    <!-- 科技等级：工业时代 -->
-    <techLevel>Industrial</techLevel>
-    <!-- 武器标签（用于游戏内分类/规则判定） -->
-	  <weaponTags>
-     <li>MedievalMeleeAdvanced</li> <!-- 中世纪近战武器 -->
-     <li>LongSword</li> <!-- 归类为长剑类 -->
-	  </weaponTags>
-    <!-- 制作成本 -->
-    <costList>
-     <ComponentIndustrial>30</ComponentIndustrial> <!-- 工业组件30个 -->
-    </costList>
-    <recipeMaker> <!-- 枪械的配方 -->
-        <researchPrerequisite>Machining</researchPrerequisite>
-          <recipeUsers>
-           <li>Strinova_Printer</li>
-          </recipeUsers>
-         <skillRequirements> <!-- 技能要求 -->
-           <Crafting>6</Crafting>
-         </skillRequirements>
-        <displayPriority>70</displayPriority> <!-- 显示优先级? -->
-    </recipeMaker>
-    <!-- 物品生成标签（用于奖励/战利品生成） -->
-    <thingSetMakerTags>
-     <li>RewardStandardQualitySuper</li> <!-- 优质奖励物品 -->
-    </thingSetMakerTags>
-    <!-- 基础属性配置 -->
-    <statBases>
-     <WorkToMake>14000</WorkToMake> <!-- 制作所需工作量 -->
-     <Mass>1.3</Mass> <!-- 重量1kg -->
-     <Flammability>0</Flammability>
-     <MarketValue>23000</MarketValue>
-    </statBases>
-    <!-- 成为圣物的概率（3%） -->
-    <relicChance>3</relicChance>
-    <!-- 装备时的角度偏移（45度） -->
-    <equippedAngleOffset>-45</equippedAngleOffset>
-    <!-- 是否可熔炼回收材料 -->
-    <smeltable>true</smeltable>
-    <!-- 武器分类（近战穿刺类） -->
-    <weaponClasses>
-      <li>MeleePiercer</li>
-    </weaponClasses>
-    <!-- 近战攻击模块（不同部位的攻击属性） -->
-    <tools>
-      <!-- 枪托/握把攻击（钝击） -->
-      <li>
-        <label>handle</label> <!-- 攻击部位名称 -->
-        <capacities>
-          <li>Blunt</li> <!-- 攻击类型：钝击 -->
-        </capacities>
-        <power>5</power> <!-- 攻击力5 -->
-        <cooldownTime>0.2</cooldownTime> <!-- 攻击冷却0.2秒 -->
-      </li>
-      <!-- 刺刀尖端攻击（刺击） -->
-      <li>
-        <label>point</label> <!-- 攻击部位名称 -->
-        <capacities>
-          <li>Stab</li> <!-- 攻击类型：刺击 -->
-        </capacities>
-        <power>12</power> <!-- 攻击力12 -->
-        <cooldownTime>0.45</cooldownTime> <!-- 攻击冷却0.45秒 -->
-        <armorPenetration>0.23</armorPenetration> <!-- 穿甲率23% -->
-      </li>
-      <!-- 刺刀刀刃攻击（切割） -->
-      <li>
-        <label>edge</label> <!-- 攻击部位名称 -->
-        <capacities>
-          <li>Cut</li> <!-- 攻击类型：切割 -->
-        </capacities>
-        <power>90</power> <!-- 攻击力60 -->
-        <cooldownTime>0.8</cooldownTime> <!-- 攻击冷却1.0秒 -->
-        <armorPenetration>0.76</armorPenetration> <!-- 穿甲率76% -->
-      </li>
-    </tools>
-  </ThingDef>
-
-  <ThingDef ParentName="BaseHumanMakeableGun">
+  <ThingDef ParentName="Strinova_RangeWeaponBase">
      <defName>Strinova_Retribution</defName>
      <label>绝对执行</label>
      <description>忧雾的主武器。无托系列步枪中的代表之作，综合素质极其优秀，古地球轻武器中的经典。配备1.25倍瞄准镜。</description>
@@ -361,12 +212,12 @@
 			<MarketValue>2800</MarketValue>
 		</statBases>
 		<costList>
-			<Steel>230</Steel>
-      <ComponentIndustrial>4</ComponentIndustrial>
+		 <Strinova_Basestring>120</Strinova_Basestring>
+         <Strinova_Bablo_Crystal>6</Strinova_Bablo_Crystal>
 		</costList>
 		<recipeMaker> <!-- 枪械的配方 -->
          <researchPrerequisite>PrecisionRifling</researchPrerequisite>
-          <recipeUsers>
+          <recipeUsers Inherited="false">
            <li>Strinova_Printer</li>
           </recipeUsers>
          <skillRequirements> <!-- 技能要求 -->
@@ -396,7 +247,7 @@
 		</verbs>
 	</ThingDef>
 
-  <ThingDef ParentName="BaseHumanMakeableGun">
+  <ThingDef ParentName="Strinova_RangeWeaponBase">
      <defName>Strinova_Rebelflame</defName>
      <label>逆焰</label>
      <description>明的主武器。性能可靠、火力强大，性价比奇高。对恶劣环境有高耐性，输出能力稳定，堪称强悍与适性的完美融合。配备1.25倍瞄准镜。</description>
@@ -424,8 +275,8 @@
 			<MarketValue>2800</MarketValue>
 		</statBases>
 		<costList>
-			<Steel>230</Steel>
-      <ComponentIndustrial>4</ComponentIndustrial>
+		 <Strinova_Basestring>160</Strinova_Basestring>
+         <Strinova_Bablo_Crystal>6</Strinova_Bablo_Crystal>
 		</costList>
 		<recipeMaker> <!-- 枪械的配方 -->
          <researchPrerequisite>PrecisionRifling</researchPrerequisite>
@@ -459,7 +310,7 @@
 		</verbs>
 	</ThingDef>
 
-  <ThingDef ParentName="BaseHumanMakeableGun">
+  <ThingDef ParentName="Strinova_RangeWeaponBase">
      <defName>Strinova_Shadow_Assault</defName>
      <label>影袭</label>
      <description>拉薇的主武器。在拥有较高稳定性的同时，其精准性也十分出众。配备1.25倍瞄准镜。</description>
@@ -487,12 +338,12 @@
 			<MarketValue>2800</MarketValue>
 		</statBases>
 		<costList>
-			<Steel>230</Steel>
-      <ComponentIndustrial>4</ComponentIndustrial>
+		 <Strinova_Basestring>160</Strinova_Basestring>
+         <Strinova_Bablo_Crystal>6</Strinova_Bablo_Crystal>
 		</costList>
 		<recipeMaker> <!-- 枪械的配方 -->
          <researchPrerequisite>PrecisionRifling</researchPrerequisite>
-          <recipeUsers>
+          <recipeUsers Inherited="false">
            <li>Strinova_Printer</li>
           </recipeUsers>
          <skillRequirements> <!-- 技能要求 -->
@@ -522,7 +373,7 @@
 		</verbs>
 	</ThingDef>
 
-  <ThingDef ParentName="BaseHumanMakeableGun">
+  <ThingDef ParentName="Strinova_RangeWeaponBase">
      <defName>Strinova_Falcon</defName>
      <label>隼</label>
      <description>梅瑞迪斯的主武器。无托系列步枪中的代表之作，综合素质极其优秀，古地球轻武器中的经典。配备1.25倍瞄准镜。</description>
@@ -550,12 +401,12 @@
 			<MarketValue>2800</MarketValue>
 		</statBases>
 		<costList>
-			<Steel>230</Steel>
-      <ComponentIndustrial>4</ComponentIndustrial>
+		 <Strinova_Basestring>160</Strinova_Basestring>
+         <Strinova_Bablo_Crystal>6</Strinova_Bablo_Crystal>
 		</costList>
 		<recipeMaker> <!-- 枪械的配方 -->
          <researchPrerequisite>PrecisionRifling</researchPrerequisite>
-          <recipeUsers>
+          <recipeUsers Inherited="false">
            <li>Strinova_Printer</li>
           </recipeUsers>
          <skillRequirements> <!-- 技能要求 -->
@@ -585,7 +436,7 @@
 		</verbs>
 	</ThingDef>
 
-  <ThingDef ParentName="BaseHumanMakeableGun">
+  <ThingDef ParentName="Strinova_RangeWeaponBase">
      <defName>Strinova_Blossom</defName>
      <label>绽放</label>
      <description>珐格兰丝的主武器。满足以猛烈的火力压制战场的需求，其精准度和射速的平衡性也相当出色。配备1.25倍瞄准镜。</description>
@@ -613,12 +464,12 @@
 			<MarketValue>2800</MarketValue>
 		</statBases>
 		<costList>
-			<Steel>230</Steel>
-      <ComponentIndustrial>4</ComponentIndustrial>
+		 <Strinova_Basestring>160</Strinova_Basestring>
+         <Strinova_Bablo_Crystal>6</Strinova_Bablo_Crystal>
 		</costList>
 		<recipeMaker> <!-- 枪械的配方 -->
          <researchPrerequisite>PrecisionRifling</researchPrerequisite>
-          <recipeUsers>
+          <recipeUsers Inherited="false">
            <li>Strinova_Printer</li>
           </recipeUsers>
          <skillRequirements> <!-- 技能要求 -->
@@ -648,7 +499,7 @@
 		</verbs>
 	</ThingDef>
 
-  <ThingDef ParentName="BaseHumanMakeableGun">
+  <ThingDef ParentName="Strinova_RangeWeaponBase">
      <defName>Strinova_Gambit</defName>
      <label>欺诈师</label>
      <description>加拉蒂亚的主武器。性能可靠、火力强大，性价比奇高。对恶劣环境有高耐性，输出能力稳定，堪称强悍与适性的完美融合。配备1.25倍瞄准镜。</description>
@@ -676,12 +527,12 @@
 			<MarketValue>2800</MarketValue>
 		</statBases>
 		<costList>
-			<Steel>230</Steel>
-      <ComponentIndustrial>4</ComponentIndustrial>
+		 <Strinova_Basestring>160</Strinova_Basestring>
+         <Strinova_Bablo_Crystal>6</Strinova_Bablo_Crystal>
 		</costList>
 		<recipeMaker> <!-- 枪械的配方 -->
          <researchPrerequisite>PrecisionRifling</researchPrerequisite>
-          <recipeUsers>
+          <recipeUsers Inherited="false">
            <li>Strinova_Printer</li>
           </recipeUsers>
          <skillRequirements> <!-- 技能要求 -->
@@ -734,7 +585,7 @@
     </projectile>
   </ThingDef>
 
-  <ThingDef ParentName="BaseHumanMakeableGun">
+  <ThingDef ParentName="Strinova_RangeWeaponBase">
      <defName>Strinova_Beareas</defName>
      <label>幻霜</label>
      <description>伊薇特的主武器。体积轻巧，可快速连续发射，拥有较同类枪械更出色的精确度，配备1.25倍瞄准镜。</description>
@@ -762,12 +613,12 @@
 			<MarketValue>2000</MarketValue>
 		</statBases>
 		<costList>
-			<Steel>198</Steel>
-      <ComponentIndustrial>2</ComponentIndustrial>
+		 <Strinova_Basestring>110</Strinova_Basestring>
+         <Strinova_Bablo_Crystal>2</Strinova_Bablo_Crystal>
 		</costList>
 		<recipeMaker> <!-- 枪械的配方 -->
          <researchPrerequisite>PrecisionRifling</researchPrerequisite>
-          <recipeUsers>
+          <recipeUsers Inherited="false">
            <li>Strinova_Printer</li>
           </recipeUsers>
          <skillRequirements> <!-- 技能要求 -->
@@ -797,7 +648,7 @@
 		</verbs>
 	</ThingDef>
 
-  <ThingDef ParentName="BaseHumanMakeableGun">
+  <ThingDef ParentName="Strinova_RangeWeaponBase">
      <defName>Strinova_Solo</defName>
      <label>独舞</label>
      <description>芙拉薇娅的主武器。体积轻巧，可快速连续发射，拥有较同类枪械更出色的精确度，配备1.25倍瞄准镜。</description>
@@ -825,12 +676,12 @@
 			<MarketValue>2000</MarketValue>
 		</statBases>
 		<costList>
-			<Steel>198</Steel>
-      <ComponentIndustrial>2</ComponentIndustrial>
+		 <Strinova_Basestring>110</Strinova_Basestring>
+         <Strinova_Bablo_Crystal>2</Strinova_Bablo_Crystal>
 		</costList>
 		<recipeMaker> <!-- 枪械的配方 -->
          <researchPrerequisite>PrecisionRifling</researchPrerequisite>
-          <recipeUsers>
+          <recipeUsers Inherited="false">
            <li>Strinova_Printer</li>
           </recipeUsers>
          <skillRequirements> <!-- 技能要求 -->
@@ -860,7 +711,7 @@
 		</verbs>
 	</ThingDef>
 
-  <ThingDef ParentName="BaseHumanMakeableGun">
+  <ThingDef ParentName="Strinova_RangeWeaponBase">
      <defName>Strinova_Night_Scythe</defName>
      <label>夜镰</label>
      <description>玛拉随身携带的武器。枪尾的一抹暗红犹如死神的镰刀，是死亡即将到来的先兆。</description>
@@ -888,12 +739,12 @@
 			<MarketValue>2000</MarketValue>
 		</statBases>
 		<costList>
-			<Steel>198</Steel>
-      <ComponentIndustrial>2</ComponentIndustrial>
+		 <Strinova_Basestring>110</Strinova_Basestring>
+         <Strinova_Bablo_Crystal>2</Strinova_Bablo_Crystal>
 		</costList>
 		<recipeMaker> <!-- 枪械的配方 -->
          <researchPrerequisite>PrecisionRifling</researchPrerequisite>
-          <recipeUsers>
+          <recipeUsers Inherited="false">
            <li>Strinova_Printer</li>
           </recipeUsers>
          <skillRequirements> <!-- 技能要求 -->
@@ -946,7 +797,7 @@
     </projectile>
   </ThingDef>
 
-  <ThingDef ParentName="BaseHumanMakeableGun">
+  <ThingDef ParentName="Strinova_RangeWeaponBase">
      <defName>Strinova_Calibrator</defName>
      <label>校准仪</label>
      <description>蕾欧娜的主武器，在古地球的某次人类大规模战争时期，曾是经典的收割型武器，其威力与性能可见一斑。配备1.25倍瞄准镜。</description>
@@ -974,12 +825,12 @@
 			<MarketValue>3600</MarketValue>
 		</statBases>
 		<costList>
-			<Steel>260</Steel>
-      <ComponentIndustrial>5</ComponentIndustrial>
+		 <Strinova_Basestring>200</Strinova_Basestring>
+         <Strinova_Bablo_Crystal>8</Strinova_Bablo_Crystal>
 		</costList>
 		<recipeMaker> <!-- 枪械的配方 -->
          <researchPrerequisite>MultibarrelWeapons</researchPrerequisite>
-          <recipeUsers>
+          <recipeUsers Inherited="false">
            <li>Strinova_Printer</li>
           </recipeUsers>
          <skillRequirements> <!-- 技能要求 -->
@@ -1009,7 +860,7 @@
 		</verbs>
 	</ThingDef>
 
-  <ThingDef ParentName="BaseHumanMakeableGun">
+  <ThingDef ParentName="Strinova_RangeWeaponBase">
      <defName>Strinova_Champion</defName>
      <label>卫冕</label>
      <description>奥黛丽的主武器，在古地球的某次人类大规模战争时期，曾是经典的收割型武器，其威力与性能可见一斑。配备1.25倍瞄准镜。</description>
@@ -1037,12 +888,12 @@
 			<MarketValue>3600</MarketValue>
 		</statBases>
 		<costList>
-			<Steel>260</Steel>
-      <ComponentIndustrial>5</ComponentIndustrial>
+		 <Strinova_Basestring>200</Strinova_Basestring>
+         <Strinova_Bablo_Crystal>8</Strinova_Bablo_Crystal>
 		</costList>
 		<recipeMaker> <!-- 枪械的配方 -->
          <researchPrerequisite>MultibarrelWeapons</researchPrerequisite>
-          <recipeUsers>
+          <recipeUsers Inherited="false">
            <li>Strinova_Printer</li>
           </recipeUsers>
          <skillRequirements> <!-- 技能要求 -->
@@ -1072,7 +923,7 @@
 		</verbs>
 	</ThingDef>
 
-  <ThingDef ParentName="BaseHumanMakeableGun">
+  <ThingDef ParentName="Strinova_RangeWeaponBase">
      <defName>Strinova_Maple_Resonance</defName>
      <label>枫鸣</label>
      <description>千代的主武器。因使用全威力步枪弹，而具有较强的战斗性，能适应全天候作战。配备1.5倍瞄准镜，可在半自动射击模式与全自动射击模式之间切换。</description>
@@ -1100,12 +951,12 @@
 			<MarketValue>3100</MarketValue>
 		</statBases>
 		<costList>
-			<Steel>245</Steel>
-      <ComponentIndustrial>4</ComponentIndustrial>
+		 <Strinova_Basestring>180</Strinova_Basestring>
+         <Strinova_Bablo_Crystal>6</Strinova_Bablo_Crystal>
 		</costList>
 		<recipeMaker> <!-- 枪械的配方 -->
          <researchPrerequisite>PrecisionRifling</researchPrerequisite>
-          <recipeUsers>
+          <recipeUsers Inherited="false">
            <li>Strinova_Printer</li>
           </recipeUsers>
          <skillRequirements> <!-- 技能要求 -->
@@ -1135,7 +986,7 @@
 		</verbs>
 	</ThingDef>
 
-  <ThingDef ParentName="BaseHumanMakeableGun">
+  <ThingDef ParentName="Strinova_RangeWeaponBase">
      <defName>Strinova_Judge</defName>
      <label>审判官</label>
      <description>信的主武器。因使用全威力步枪弹，而具有较强的战斗性，能适应全天候作战。配备1.5倍瞄准镜，可在半自动射击模式与全自动射击模式之间切换。</description>
@@ -1163,12 +1014,12 @@
 			<MarketValue>3100</MarketValue>
 		</statBases>
 		<costList>
-			<Steel>245</Steel>
-      <ComponentIndustrial>4</ComponentIndustrial>
+		 <Strinova_Basestring>180</Strinova_Basestring>
+         <Strinova_Bablo_Crystal>6</Strinova_Bablo_Crystal>
 		</costList>
 		<recipeMaker> <!-- 枪械的配方 -->
          <researchPrerequisite>PrecisionRifling</researchPrerequisite>
-          <recipeUsers>
+          <recipeUsers Inherited="false">
            <li>Strinova_Printer</li>
           </recipeUsers>
          <skillRequirements> <!-- 技能要求 -->
@@ -1198,7 +1049,7 @@
 		</verbs>
 	</ThingDef>
 
-  <ThingDef ParentName="BaseHumanMakeableGun">
+  <ThingDef ParentName="Strinova_RangeWeaponBase">
      <defName>Strinova_Dawn</defName>
      <label>破晓</label>
      <description>令的主武器。操控性良好、稳定耐用的射手步枪。亚诺斯在保留枪型基本特质的基础上，使用特制的偏重心彩溶弹药对远距离射击精度进行了一定的补正，配备2.5倍瞄准镜。</description>
@@ -1226,12 +1077,12 @@
 			<MarketValue>3100</MarketValue>
 		</statBases>
 		<costList>
-			<Steel>245</Steel>
-      <ComponentIndustrial>4</ComponentIndustrial>
+		 <Strinova_Basestring>180</Strinova_Basestring>
+         <Strinova_Bablo_Crystal>6</Strinova_Bablo_Crystal>
 		</costList>
 		<recipeMaker> <!-- 枪械的配方 -->
          <researchPrerequisite>PrecisionRifling</researchPrerequisite>
-          <recipeUsers>
+          <recipeUsers Inherited="false">
            <li>Strinova_Printer</li>
           </recipeUsers>
          <skillRequirements> <!-- 技能要求 -->
@@ -1261,7 +1112,7 @@
 		</verbs>
 	</ThingDef>
 
-  <ThingDef ParentName="BaseHumanMakeableGun">
+  <ThingDef ParentName="Strinova_RangeWeaponBase">
      <defName>Strinova_Chroma</defName>
      <label>彩绘</label>
      <description>玛德蕾娜的主武器。完美解决威力与射程的两难问题，可有效压制中远距离的敌方单位。配备1.5倍瞄准镜。</description>
@@ -1289,12 +1140,12 @@
 			<MarketValue>3100</MarketValue>
 		</statBases>
 		<costList>
-			<Steel>245</Steel>
-      <ComponentIndustrial>4</ComponentIndustrial>
+		 <Strinova_Basestring>180</Strinova_Basestring>
+         <Strinova_Bablo_Crystal>6</Strinova_Bablo_Crystal>
 		</costList>
 		<recipeMaker> <!-- 枪械的配方 -->
          <researchPrerequisite>PrecisionRifling</researchPrerequisite>
-          <recipeUsers>
+          <recipeUsers Inherited="false">
            <li>Strinova_Printer</li>
           </recipeUsers>
          <skillRequirements> <!-- 技能要求 -->
@@ -1327,7 +1178,7 @@
   <!-- 定义该步枪使用的子弹实体 -->
   <!-- 继承自 "BaseBullet" 基础子弹模板 -->
   <ThingDef ParentName="BaseBullet">
-    <defName>Strinova_Kokona_Steel_Bullet</defName> <!-- 子弹内部唯一标识 -->
+    <defName>Strinova_Kokona_Strinova_Basestring_Bullet</defName> <!-- 子弹内部唯一标识 -->
     <label>心夏钢板子弹</label> <!-- 子弹显示名称 -->
     <!-- 子弹贴图配置 -->
     <graphicData>
@@ -1347,7 +1198,7 @@
     </projectile>
   </ThingDef>
 
-  <ThingDef ParentName="BaseHumanMakeableGun">
+  <ThingDef ParentName="Strinova_RangeWeaponBase">
      <defName>Strinova_Quasar</defName>
      <label>空境</label>
      <description>心夏的主武器。一款将精度、威力与隐蔽性完美结合的枪械，曾是古地球狙击步枪中射程最远的的型号，配备2.5倍瞄准镜。</description>
@@ -1375,13 +1226,13 @@
 			<MarketValue>10000</MarketValue>
 		</statBases>
 		<costList>
-		 <Steel>400</Steel>
-         <ComponentIndustrial>10</ComponentIndustrial>
+		 <Strinova_Basestring>600</Strinova_Basestring>
+         <Strinova_Bablo_Crystal>40</Strinova_Bablo_Crystal>
 		 <ComponentSpacer>2</ComponentSpacer>
 		</costList>
 		<recipeMaker> <!-- 枪械的配方 -->
          <researchPrerequisite>PrecisionRifling</researchPrerequisite>
-          <recipeUsers>
+          <recipeUsers Inherited="false">
            <li>Strinova_Printer</li>
           </recipeUsers>
          <skillRequirements> <!-- 技能要求 -->
@@ -1396,7 +1247,7 @@
 			<li>
 				<verbClass>Verb_Shoot</verbClass>
 				<hasStandardCommand>true</hasStandardCommand>
-				<defaultProjectile>Strinova_Kokona_Steel_Bullet</defaultProjectile>
+				<defaultProjectile>Strinova_Kokona_Strinova_Basestring_Bullet</defaultProjectile>
 				<warmupTime>0.9</warmupTime>
 				<ticksBetweenBurstShots>6</ticksBetweenBurstShots>
 				<range>75</range>
@@ -1434,7 +1285,7 @@
     </projectile>
   </ThingDef>
 
-  <ThingDef ParentName="BaseHumanMakeableGun">
+  <ThingDef ParentName="Strinova_RangeWeaponBase">
      <defName>Strinova_Finale</defName>
      <label>谢幕曲</label>
      <description>香奈美的主武器。采用枪管短后坐原理，威力惊人。配备2.5倍瞄准镜，精准优雅，完美谢幕。</description>
@@ -1462,13 +1313,13 @@
 			<MarketValue>12500</MarketValue>
 		</statBases>
 		<costList>
-		 <Steel>800</Steel>
-         <ComponentIndustrial>12</ComponentIndustrial>
+		 <Strinova_Basestring>800</Strinova_Basestring>
+         <Strinova_Bablo_Crystal>60</Strinova_Bablo_Crystal>
 		 <ComponentSpacer>5</ComponentSpacer>
 		</costList>
 		<recipeMaker> <!-- 枪械的配方 -->
          <researchPrerequisite>PrecisionRifling</researchPrerequisite>
-          <recipeUsers>
+          <recipeUsers Inherited="false">
            <li>Strinova_Printer</li>
           </recipeUsers>
          <skillRequirements> <!-- 技能要求 -->
@@ -1498,7 +1349,7 @@
 		</verbs>
 	</ThingDef>
 
-  <ThingDef ParentName="BaseHumanMakeableGun">
+  <ThingDef ParentName="Strinova_RangeWeaponBase">
     <defName>Strinova_Stinger</defName>
     <label>小蜜蜂</label>
     <description>以超高射速和便携性被广泛熟知，是某些特殊兵种的首选。</description>
@@ -1527,12 +1378,11 @@
       <MarketValue>450</MarketValue> <!-- 武器价值 -->
     </statBases>
     <costList>
-      <Steel>75</Steel>
-      <ComponentIndustrial>1</ComponentIndustrial>
+      <Strinova_Basestring>60</Strinova_Basestring>
     </costList>
     <recipeMaker> <!-- 枪械的配方 -->
       <researchPrerequisite>GasOperation</researchPrerequisite>
-      <recipeUsers>
+      <recipeUsers Inherited="false">
         <li>Strinova_Printer</li>
       </recipeUsers>
       <skillRequirements> <!-- 技能要求 -->
@@ -1562,7 +1412,7 @@
     </verbs>
   </ThingDef>
 
-  <ThingDef ParentName="BaseHumanMakeableGun">
+  <ThingDef ParentName="Strinova_RangeWeaponBase">
     <defName>Strinova_Athena</defName>
     <label>雪鸮</label>
     <description>半自动手枪，手枪中的绝对王者，曾依靠其巨大的杀伤力闻名于世，其杀伤力在卡丘世界的手枪中亦不遑多让。</description>
@@ -1590,11 +1440,11 @@
       <MarketValue>450</MarketValue> <!-- 武器价值 -->
     </statBases>
     <costList>
-      <Steel>80</Steel>
+      <Strinova_Basestring>60</Strinova_Basestring>
     </costList>
     <recipeMaker> <!-- 枪械的配方 -->
       <researchPrerequisite>Machining</researchPrerequisite>
-      <recipeUsers>
+      <recipeUsers Inherited="false">
         <li>Strinova_Printer</li>
       </recipeUsers>
       <skillRequirements> <!-- 技能要求 -->
@@ -1647,7 +1497,7 @@
     </projectile>
   </ThingDef>
 
-  <ThingDef ParentName="BaseHumanMakeableGun">
+  <ThingDef ParentName="Strinova_RangeWeaponBase">
     <defName>Strinova_Freedom_Reign</defName>
     <label>自由意志</label>
     <description>白墨的主武器，拥有较高的可靠性与耐久性，鬼环式机械瞄具能够更准确地瞄准目标，配备1.25倍瞄准镜。</description>
@@ -1674,8 +1524,8 @@
       <MarketValue>4500</MarketValue> <!-- 武器价值 -->
     </statBases>
     <costList>
-      <Steel>450</Steel>
-      <ComponentIndustrial>6</ComponentIndustrial>
+      <Strinova_Basestring>250</Strinova_Basestring>
+      <Strinova_Bablo_Crystal>5</Strinova_Bablo_Crystal>
     </costList>
     <recipeMaker> <!-- 枪械的配方 -->
       <researchPrerequisite>PrecisionRifling</researchPrerequisite>
@@ -1683,7 +1533,7 @@
         <Crafting>9</Crafting>
       </skillRequirements>
       <displayPriority>70</displayPriority> <!-- 显示优先级? -->
-      <recipeUsers>
+      <recipeUsers Inherited="false">
         <li>Strinova_Printer</li>
       </recipeUsers>
     </recipeMaker>
@@ -1703,7 +1553,7 @@
     </verbs>
   </ThingDef>
 
-  <ThingDef ParentName="BaseHumanMakeableGun">
+  <ThingDef ParentName="Strinova_RangeWeaponBase">
     <defName>Strinova_Wildfire</defName>
     <label>鸣火</label>
     <description>艾卡的主武器，全自动战斗霰弹枪，无可匹敌。</description>
@@ -1730,8 +1580,8 @@
       <MarketValue>6000</MarketValue> <!-- 武器价值 -->
     </statBases>
     <costList>
-      <Steel>600</Steel>
-      <ComponentIndustrial>7</ComponentIndustrial>
+      <Strinova_Basestring>300</Strinova_Basestring>
+      <Strinova_Bablo_Crystal>7</Strinova_Bablo_Crystal>
     </costList>
     <recipeMaker> <!-- 枪械的配方 -->
       <researchPrerequisite>PrecisionRifling</researchPrerequisite>
@@ -1739,7 +1589,7 @@
         <Crafting>9</Crafting>
       </skillRequirements>
       <displayPriority>70</displayPriority> <!-- 显示优先级? -->
-      <recipeUsers>
+      <recipeUsers Inherited="false">
         <li>Strinova_Printer</li>
       </recipeUsers>
     </recipeMaker>
@@ -1758,8 +1608,4 @@
       </li>
     </verbs>
   </ThingDef>
-
-  
-
-
- </Defs>
+</Defs>

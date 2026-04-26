@@ -34,9 +34,9 @@ namespace Strinova
         {
             base.Apply(target, dest);
 
-            if (target.Thing is Pawn pawn && pawn.kindDef == StrinovaPawnKindDefof.Superstring_Colonist)
+            if (target.Thing is Pawn pawn && pawn.GetComp<Comp_SuperstringShield>() != null)
             {
-                if (pawn == null || !pawn.Spawned || pawn.DeadOrDowned || pawn.Faction != Faction.OfPlayer)
+                if (!pawn.Spawned || pawn.DeadOrDowned || pawn.Faction != Faction.OfPlayer)
                 {
                     Messages.Message("Invalid target", MessageTypeDefOf.RejectInput);
                     return;
@@ -74,18 +74,27 @@ namespace Strinova
         private Vector3 exactPos;
         public override Vector3 DrawPos => exactPos;
 
-        private static FleckDef[] flecks = new FleckDef[]
+        private static FleckDef[] _flecks;
+        private static FleckDef[] Flecks
         {
-            DefDatabase<FleckDef>.GetNamed("Celestia_SuperSkill_fleck1"),
-            DefDatabase<FleckDef>.GetNamed("Celestia_SuperSkill_fleck2"),
-            DefDatabase<FleckDef>.GetNamed("Celestia_SuperSkill_fleck3"),
-        };
+            get
+            {
+                if (_flecks == null)
+                    _flecks = new FleckDef[]
+                    {
+                        DefDatabase<FleckDef>.GetNamed("Celestia_SuperSkill_fleck1"),
+                        DefDatabase<FleckDef>.GetNamed("Celestia_SuperSkill_fleck2"),
+                        DefDatabase<FleckDef>.GetNamed("Celestia_SuperSkill_fleck3"),
+                    };
+                return _flecks;
+            }
+        }
 
         private void SpawnRandomFleck()
         {
             if (Map == null) return;
 
-            FleckDef fleck = flecks.RandomElement();
+            FleckDef fleck = Flecks.RandomElement();
 
             Vector3 pos = DrawPos + new Vector3(
                 Rand.Range(-1f, 1f),

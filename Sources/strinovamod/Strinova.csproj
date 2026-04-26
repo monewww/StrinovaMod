@@ -72,8 +72,8 @@
     <Compile Include="Abilities\CompAbilities_Common_SuperSkill.cs" />
     <Compile Include="Abilities\Comp_Superstring_Energy.cs" />
     <Compile Include="FleckUtilities\Abilitied_FleckUtilities.cs" />
-    <Compile Include="Gizmo\SuperstringEnegy_Gizmo.cs" />
     <Compile Include="Patches\HarmonyPatchs.cs" />
+    <Compile Include="Pawn\Superstring\SuperstringRecipes.cs" />
     <Compile Include="Pawn\Superstring\SuperstringShield\CompProperties_SuperstringShield.cs" />
     <Compile Include="Pawn\Superstring\SuperstringShield\Comp_SuperstringShield.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

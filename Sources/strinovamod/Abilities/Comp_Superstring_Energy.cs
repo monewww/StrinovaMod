@@ -1,4 +1,5 @@
 ﻿using RimWorld;
+using System.Collections.Generic;
 using Verse;
 
 
@@ -7,7 +8,7 @@ namespace Strinova
     public class Comp_Superstring_Energy : ThingComp
     {
         public float energy = 0f;
-        public float maxEnergy = 500f;
+        public float maxEnergy = 1000f;
 
         private int lastTick = 0;
 

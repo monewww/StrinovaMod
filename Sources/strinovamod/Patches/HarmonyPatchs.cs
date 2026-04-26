@@ -1,6 +1,6 @@
-﻿using HarmonyLib;
+using HarmonyLib;
+using LudeonTK;
 using RimWorld;
-using System.Collections.Generic;
 using Verse;
 
 namespace Strinova
@@ -15,60 +15,43 @@ namespace Strinova
         }
     }
 
-    // 超弦体击中时获得能量
+    // 超弦体攻击命中时获得能量
     [HarmonyPatch(typeof(DamageWorker), "Apply")]
     public static class DamageWorker_Apply_Patch
     {
         [HarmonyPostfix]
         public static void Postfix(DamageInfo dinfo, Thing victim)
         {
-            if (victim is Pawn pawn && !pawn.Dead && dinfo.Amount > 0)
-            {
-                TryGetEnergy(pawn);
-            }
-        }
+            if (dinfo.Amount <= 0) return;
+            if (!(dinfo.Instigator is Pawn attacker) || attacker.Dead) return;
+            if (attacker == victim) return;
+            if (attacker.Faction != Faction.OfPlayer) return;
 
-        public static void TryGetEnergy(Pawn pawn)
-        {
-            if (pawn.Faction == Faction.OfPlayer)
-            {
-                var energy = pawn.GetComp<Comp_Superstring_Energy>();
-                if (energy != null)
-                {
-                    energy.energy += 15f;
-                }
-            }
+            var energy = attacker.GetComp<Comp_Superstring_Energy>();
+            energy?.AddEnergy(15f);
         }
     }
 
-    //替换大招按钮
-    [HarmonyPatch(typeof(Ability), nameof(Ability.GetGizmos))]
-    public static class Ability_GetGizmos_Patch
+    public static class Strinova_DebugActions
     {
-        static IEnumerable<Command> Postfix(IEnumerable<Command> __result, Ability __instance)
+        [DebugAction("Strinova", "Fill energy (pawn)", actionType = DebugActionType.ToolMapForPawns, allowedGameStates = AllowedGameStates.PlayingOnMap)]
+        private static void FillEnergyForPawn(Pawn pawn)
         {
-            // 只处理你的技能
-            if (!__instance.comps.Any(c => c is CompAbilities_Common_SuperSkill))
-                return __result;
-
-            var pawn = __instance.pawn;
-            if (pawn == null) return __result;
-
             var comp = pawn.GetComp<Comp_Superstring_Energy>();
-            if (comp == null) return __result;
+            if (comp == null) return;
+            comp.energy = comp.maxEnergy;
+            MoteMaker.ThrowText(pawn.DrawPos, pawn.Map, "Energy filled", 2f);
+        }
 
-            // 原gizmo全部丢掉，换成你的
-            return new List<Command>
+        [DebugAction("Strinova", "Fill energy (all)", actionType = DebugActionType.Action, allowedGameStates = AllowedGameStates.PlayingOnMap)]
+        private static void FillEnergyAll()
         {
-            new Command_Action
+            foreach (Pawn pawn in PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive_FreeColonists)
             {
-                defaultLabel = "Super Skill",
-                action = delegate
-                {
-                    __instance.QueueCastingJob(pawn);
-                }
+                var comp = pawn.GetComp<Comp_Superstring_Energy>();
+                if (comp != null)
+                    comp.energy = comp.maxEnergy;
             }
-        };
         }
     }
 }

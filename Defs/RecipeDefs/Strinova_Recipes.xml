@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <RecipeDef>
+    <defName>Strinova_Printer_SpawnCelestia</defName>
+    <label>打印星绘</label>
+    <description>使用基弦、理想币和奢侈食物，通过晶核打印机生成一名星绘殖民者。</description>
+    <jobString>正在打印星绘...</jobString>
+    <workerClass>Strinova.RecipeWorker_SpawnCelestia</workerClass>
+    <workAmount>12000</workAmount>
+    <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+    <workSkill>Crafting</workSkill>
+    <skillRequirements>
+      <Crafting>8</Crafting>
+    </skillRequirements>
+    <recipeUsers>
+      <li>Strinova_Printer</li>
+    </recipeUsers>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Strinova_Basestring</li>
+          </thingDefs>
+        </filter>
+        <count>100</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Strinova_Dream_Token</li>
+          </thingDefs>
+        </filter>
+        <count>3600</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>MealLavish</li>
+          </thingDefs>
+        </filter>
+        <count>10</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>Strinova_Basestring</li>
+        <li>Strinova_Dream_Token</li>
+        <li>MealLavish</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <displayPriority>100</displayPriority>
+  </RecipeDef>
+
+</Defs>

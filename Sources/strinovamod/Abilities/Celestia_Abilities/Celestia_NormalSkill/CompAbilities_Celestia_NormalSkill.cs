@@ -31,9 +31,9 @@ namespace Strinova
         public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
         {
             base.Apply(target, dest);
-            if (target.Thing is Pawn pawn && pawn.kindDef == StrinovaPawnKindDefof.Superstring_Colonist)
+            if (target.Thing is Pawn pawn && pawn.GetComp<Comp_SuperstringShield>() != null)
             {
-                if (pawn == null || !pawn.Spawned || pawn.DeadOrDowned || pawn.Faction != Faction.OfPlayer)
+                if (!pawn.Spawned || pawn.DeadOrDowned || pawn.Faction != Faction.OfPlayer)
                 {
                     Log.Message("Invalid target for Celestia's Normal Skill.".Translate());
                     return;
@@ -42,7 +42,6 @@ namespace Strinova
             }
             else
             {
-                // 目标不符合 → 输出失败提示
                 Messages.Message("Celestia's Normal Skill failed: please target alive superstring", MessageTypeDefOf.RejectInput, false);
             }
         }
