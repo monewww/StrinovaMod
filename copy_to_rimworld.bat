@@ -14,7 +14,10 @@ if not exist "%DST%" (
     mkdir "%DST%"
 )
 
-xcopy "%SRC%*" "%DST%\" /E /Y /I
+for %%F in (About Assemblies Defs Textures) do (
+    echo 复制 %%F ...
+    xcopy "%SRC%%%F" "%DST%\%%F\" /E /Y /I /Q
+)
 
 echo.
 echo 复制完成！

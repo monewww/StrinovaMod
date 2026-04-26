@@ -1,4 +1,5 @@
 using HarmonyLib;
+using LudeonTK;
 using RimWorld;
 using Verse;
 
@@ -28,6 +29,29 @@ namespace Strinova
 
             var energy = attacker.GetComp<Comp_Superstring_Energy>();
             energy?.AddEnergy(15f);
+        }
+    }
+
+    public static class Strinova_DebugActions
+    {
+        [DebugAction("Strinova", "Fill energy (pawn)", actionType = DebugActionType.ToolMapForPawns, allowedGameStates = AllowedGameStates.PlayingOnMap)]
+        private static void FillEnergyForPawn(Pawn pawn)
+        {
+            var comp = pawn.GetComp<Comp_Superstring_Energy>();
+            if (comp == null) return;
+            comp.energy = comp.maxEnergy;
+            MoteMaker.ThrowText(pawn.DrawPos, pawn.Map, "Energy filled", 2f);
+        }
+
+        [DebugAction("Strinova", "Fill energy (all)", actionType = DebugActionType.Action, allowedGameStates = AllowedGameStates.PlayingOnMap)]
+        private static void FillEnergyAll()
+        {
+            foreach (Pawn pawn in PawnsFinder.AllMapsCaravansAndTravelingTransportPods_Alive_FreeColonists)
+            {
+                var comp = pawn.GetComp<Comp_Superstring_Energy>();
+                if (comp != null)
+                    comp.energy = comp.maxEnergy;
+            }
         }
     }
 }
