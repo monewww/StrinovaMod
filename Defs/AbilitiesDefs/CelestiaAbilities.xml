@@ -36,6 +36,13 @@
             <warmupTime>0.2</warmupTime>
             <requireLineOfSight>false</requireLineOfSight>
             <!-- <soundCast>TODO 小绘放技能声音</soundCast> -->
+            <targetParams>
+                <canTargetPawns>true</canTargetPawns>
+                <canTargetSelf>false</canTargetSelf>
+                <canTargetLocations>false</canTargetLocations>
+                <canTargetBuildings>false</canTargetBuildings>
+                <canTargetItems>false</canTargetItems>
+            </targetParams>
         </verbProperties>
         <comps>
             <li Class="Strinova.CompProperties_Celestia_SuperSkill">
