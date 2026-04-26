@@ -42,6 +42,8 @@ namespace Strinova
             energy -= amount;
             return true;
         }
+
+
     }
 
     public class CompProperties_Superstring_Energy : CompProperties

@@ -1,4 +1,4 @@
-﻿using RimWorld;
+using RimWorld;
 using Strinova;
 using UnityEngine;
 using Verse;
